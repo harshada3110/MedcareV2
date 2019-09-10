@@ -36,6 +36,8 @@ public class SignIn extends AppCompatActivity {
     private FirebaseAuth mAuth;
     SharedPreferences sharedPreferences;
     TextView Signup, forgotPass;
+    TextView email, password;
+    Button login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +49,11 @@ public class SignIn extends AppCompatActivity {
 
         Signup = findViewById(R.id.textViewSignUp);
         forgotPass = findViewById(R.id.textViewForgotPass);
-
+        email = findViewById(R.id.editTextEmail);
+        password = findViewById(R.id.editTextPassword);
+        login = findViewById(R.id.buttonLogIn);
         signIn = findViewById(R.id.buttonGSignIn);
+
         mAuth = FirebaseAuth.getInstance();
 
         // Configure Google Sign In
@@ -70,6 +75,27 @@ public class SignIn extends AppCompatActivity {
             public void onClick(View view) {
                 Intent openSignUp = new Intent(SignIn.this, SignUp.class);
                 SignIn.this.startActivity(openSignUp);
+            }
+        });
+
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                (mAuth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString())).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+
+                        if (task.isSuccessful()){
+                            Toast.makeText(SignIn.this, "Login Successful", Toast.LENGTH_LONG).show();
+                            Intent openHome = new Intent(SignIn.this, Home.class);
+                            SignIn.this.startActivity(openHome);
+                        }
+                        else {
+                            Toast.makeText(SignIn.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                        }
+
+                    }
+                });
             }
         });
 
@@ -134,7 +160,7 @@ public class SignIn extends AppCompatActivity {
             String personId = acct.getId();
             Uri personPhoto = acct.getPhotoUrl();
 
-            Toast.makeText(SignIn.this, "Welcome"+personName, Toast.LENGTH_LONG).show();
+            Toast.makeText(SignIn.this, "Welcome "+personName, Toast.LENGTH_LONG).show();
 
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putBoolean("Value", false);
