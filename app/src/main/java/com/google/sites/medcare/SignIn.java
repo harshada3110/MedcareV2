@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -34,6 +35,7 @@ public class SignIn extends AppCompatActivity {
     private String TAG = "SignInActivity";
     private FirebaseAuth mAuth;
     SharedPreferences sharedPreferences;
+    TextView Signup, forgotPass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,9 @@ public class SignIn extends AppCompatActivity {
         getSupportActionBar().hide();
 
         sharedPreferences = getSharedPreferences("LoginStatus", Context.MODE_PRIVATE);
+
+        Signup = findViewById(R.id.textViewSignUp);
+        forgotPass = findViewById(R.id.textViewForgotPass);
 
         signIn = findViewById(R.id.buttonGSignIn);
         mAuth = FirebaseAuth.getInstance();
@@ -58,6 +63,13 @@ public class SignIn extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 signIn();
+            }
+        });
+        Signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent openSignUp = new Intent(SignIn.this, SignUp.class);
+                SignIn.this.startActivity(openSignUp);
             }
         });
 
@@ -128,8 +140,8 @@ public class SignIn extends AppCompatActivity {
             editor.putBoolean("Value", false);
             editor.commit();
 
-            Intent myIntent = new Intent(SignIn.this, Home.class);
-            SignIn.this.startActivity(myIntent);
+            Intent openHome = new Intent(SignIn.this, Home.class);
+            SignIn.this.startActivity(openHome);
         }
     }
 }
