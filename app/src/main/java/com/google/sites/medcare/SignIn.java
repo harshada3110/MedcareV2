@@ -78,6 +78,25 @@ public class SignIn extends AppCompatActivity {
             }
         });
 
+        forgotPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!email.getText().toString().matches("")){
+                    mAuth.getInstance().sendPasswordResetEmail(email.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(SignIn.this, "Reset Email Sent", Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    });
+                }
+                else {
+                    Toast.makeText(SignIn.this, "Enter Email", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
