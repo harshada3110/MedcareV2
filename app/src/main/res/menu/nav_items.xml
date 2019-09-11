@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/news_menu"
+        android:icon="@drawable/news"
+        android:title="@string/news" />
+    <item
+        android:id="@+id/rem_menu"
+        android:icon="@drawable/reminders"
+        android:title="@string/reminders" />
+    <item
+        android:id="@+id/home_menu"
+        android:icon="@drawable/home"
+        android:title="@string/home" />
+    <item
+        android:id="@+id/notif_menu"
+        android:icon="@drawable/notification"
+        android:title="@string/notification" />
+    <item
+        android:id="@+id/user_menu"
+        android:icon="@drawable/user"
+        android:title="@string/my_details" />
+</menu>
