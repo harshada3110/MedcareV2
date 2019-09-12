@@ -24,6 +24,7 @@
         app:itemIconTint="@color/nav_item_color"
         app:itemTextColor="#FFFFFF"
         app:labelVisibilityMode="auto"
+        android:theme="@style/Widget.Design.BottomNavigationView"
         app:menu="@menu/nav_items">
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
