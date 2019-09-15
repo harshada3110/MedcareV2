@@ -1,9 +1,11 @@
 package com.google.sites.medcare;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -34,6 +36,8 @@ public class HomeFragment extends Fragment {
     public HomeFragment() {
         // Required empty public constructor
     }
+
+    private CardView hosp, path, pharm, bb, ambu, appo;
 
     /**
      * Use this factory method to create a new instance of
@@ -66,7 +70,63 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        hosp = view.findViewById(R.id.cardViewHosp);
+        pharm = view.findViewById(R.id.cardViewPharm);
+        path = view.findViewById(R.id.cardViewPath);
+        bb = view.findViewById(R.id.cardViewBB);
+        ambu = view.findViewById(R.id.cardViewAmbu);
+        appo = view.findViewById(R.id.cardViewApp);
+
+        hosp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent openHosp = new Intent(getActivity(), Hospital.class);
+                startActivity(openHosp);
+            }
+        });
+
+        pharm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent openHosp = new Intent(getActivity(), Pharmacy.class);
+                startActivity(openHosp);
+            }
+        });
+
+        path.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent openHosp = new Intent(getActivity(), PathologyLab.class);
+                startActivity(openHosp);
+            }
+        });
+
+        bb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent openHosp = new Intent(getActivity(), BloodBank.class);
+                startActivity(openHosp);
+            }
+        });
+
+        ambu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent openHosp = new Intent(getActivity(), Ambulance.class);
+                startActivity(openHosp);
+            }
+        });
+
+        appo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent openHosp = new Intent(getActivity(), Appointments.class);
+                startActivity(openHosp);
+            }
+        });
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
