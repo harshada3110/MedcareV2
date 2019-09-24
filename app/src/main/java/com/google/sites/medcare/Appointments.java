@@ -30,22 +30,14 @@ public class Appointments extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appointments);
 
-        listViewappo = findViewById(R.id.listViewAppo);
         database = FirebaseDatabase.getInstance();
         ref = database.getReference().child("Appointments");
-        appointmentsListslist = new ArrayList<>();
-        //appointmentsListArrayAdapter = new ArrayAdapter<>(this, R.layout.listview_appo_item, R.id.textViewHospName, appointmentsListslist);
 
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot dataSnapshot1: dataSnapshot.getChildren()) {
-                    //String questionKey = dataSnapshot.getKey();
-                    String hospName = dataSnapshot.child("Hospital Name").getValue(String.class);
-                    String spec = dataSnapshot.child("Specialist").getValue(String.class);
-                    String date = dataSnapshot.child("Weekday").getValue(String.class);
-                    appointmentsList = dataSnapshot1.getValue(AppointmentsList.class);
-                    //appointmentsListslist.add(appointmentsList);
+
                 }
                 listViewappo.setAdapter(appointmentsListArrayAdapter);
             }
