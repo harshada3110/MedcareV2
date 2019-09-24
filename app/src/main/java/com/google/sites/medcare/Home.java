@@ -33,7 +33,6 @@ public class Home extends AppCompatActivity {
     private ReminderFragment reminderFragment;
     private UserFragment userFragment;
     private AppBarConfiguration mAppBarConfiguration;
-    private ActionBarDrawerToggle mDrawerToggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +47,7 @@ public class Home extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_share)
+                R.id.nav_home, R.id.nav_share, R.id.nav_aboutus, R.id.nav_settings, R.id.nav_feedback, R.id.nav_pendapps)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);

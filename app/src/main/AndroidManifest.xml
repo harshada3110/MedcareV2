@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Appointments"></activity>
+        <activity android:name=".EveryAppointment"></activity>
+        <activity android:name=".Appointments" />
         <activity android:name=".Ambulance" />
         <activity android:name=".BloodBank" />
         <activity android:name=".Pharmacy" />
