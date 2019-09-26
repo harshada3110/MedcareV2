@@ -14,6 +14,8 @@
         <activity android:name=".Ambulance" />
         <activity android:name=".BloodBank" />
         <activity android:name=".Pharmacy" />
+        <activity android:name=".NewsDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".PathologyLab" />
         <activity android:name=".Hospital" />
         <activity android:name=".SignUp" />

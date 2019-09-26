@@ -1,14 +1,38 @@
 package com.google.sites.medcare;
 
-import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.util.Pair;
+import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import com.google.sites.medcare.api.apiClient;
+import com.google.sites.medcare.api.apiInterface;
+import com.google.sites.medcare.models.Article;
+import com.google.sites.medcare.models.News;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 /**
@@ -19,11 +43,25 @@ import android.view.ViewGroup;
  * Use the {@link NewsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class NewsFragment extends Fragment {
+public class NewsFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+    public static final String API_KEY = "39dcb04f81f64dda8fdcb8fb0fbc468c";
+    public static final String category = "health";
+    private RecyclerView recyclerView;
+    private RecyclerView.LayoutManager layoutManager;
+    private List<Article> articles = new ArrayList<>();
+    private NewsAdapter newsAdapter;
+    private String TAG = NewsFragment.class.getSimpleName();
+    private TextView topHeadline;
+    private SwipeRefreshLayout swipeRefreshLayout;
+    private RelativeLayout errorLayout;
+    private ImageView errorImage;
+    private TextView errorTitle, errorMessage;
+    private Button btnRetry;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -66,7 +104,151 @@ public class NewsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_news, container, false);
+        View view = inflater.inflate(R.layout.fragment_news, container, false);
+
+        swipeRefreshLayout = view.findViewById(R.id.swipe_refresh_layout);
+        swipeRefreshLayout.setOnRefreshListener(this);
+        swipeRefreshLayout.setColorSchemeResources(R.color.colorAccent);
+
+        topHeadline = view.findViewById(R.id.topheadlines);
+        recyclerView = view.findViewById(R.id.RecyclerView);
+        layoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setNestedScrollingEnabled(false);
+
+        onLoadingSwipeRefresh("");
+
+        errorLayout = view.findViewById(R.id.errorLayout);
+        errorImage = view.findViewById(R.id.errorImage);
+        errorTitle = view.findViewById(R.id.errorTitle);
+        errorMessage = view.findViewById(R.id.errorMessage);
+        btnRetry = view.findViewById(R.id.btnRetry);
+
+
+        return view;
+    }
+
+    private void onLoadingSwipeRefresh(final String keyword){
+
+        swipeRefreshLayout.post(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        LoadJson(keyword);
+                    }
+                }
+        );
+
+    }
+
+    public void LoadJson(final String keyword){
+        // errorLayout.setVisibility(View.GONE);
+        swipeRefreshLayout.setRefreshing(true);
+
+        apiInterface apiInterface = apiClient.getApiClient().create(apiInterface.class);
+
+        String country = Utils.getCountry();
+        String language = Utils.getLanguage();
+
+        Call<News> call;
+
+        if (keyword.length() > 0 ){
+            call = apiInterface.getNewsSearch(keyword, language, "publishedAt", API_KEY);
+        } else {
+            call = apiInterface.getNews(country,category, API_KEY);
+        }
+
+        call.enqueue(new Callback<News>() {
+            @Override
+            public void onResponse(Call<News> call, Response<News> response) {
+                if (response.isSuccessful() && response.body().getArticle() != null){
+
+                    if (!articles.isEmpty()){
+                        articles.clear();
+                    }
+
+                    articles = response.body().getArticle();
+                    newsAdapter = new NewsAdapter(articles, getActivity());
+                    recyclerView.setAdapter(newsAdapter);
+                    newsAdapter.notifyDataSetChanged();
+
+                    initListener();
+
+                    topHeadline.setVisibility(View.VISIBLE);
+                    swipeRefreshLayout.setRefreshing(false);
+
+
+                } else {
+
+                    topHeadline.setVisibility(View.INVISIBLE);
+                    swipeRefreshLayout.setRefreshing(false);
+
+                    String errorCode;
+                    switch (response.code()) {
+                        case 404:
+                            errorCode = "404 not found";
+                            break;
+                        case 500:
+                            errorCode = "500 server broken";
+                            break;
+                        default:
+                            errorCode = "unknown error";
+                            break;
+                    }
+
+                    showErrorMessage(
+                            R.drawable.no_result,
+                            "No Result",
+                            "Please Try Again!\n"+
+                                    errorCode);
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<News> call, Throwable t) {
+                topHeadline.setVisibility(View.INVISIBLE);
+                swipeRefreshLayout.setRefreshing(false);
+                showErrorMessage(
+                        R.drawable.oops,
+                        "Oops..",
+                        "Network failure, Please Try Again\n"+
+                                t.toString());
+            }
+        });
+
+    }
+
+    private void initListener(){
+
+        newsAdapter.setOnItemClickListener(new NewsAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                ImageView imageView = view.findViewById(R.id.img);
+                Intent intent = new Intent(getActivity(), NewsDetailActivity.class);
+
+                Article article = articles.get(position);
+                intent.putExtra("url", article.getUrl());
+                intent.putExtra("title", article.getTitle());
+                intent.putExtra("img",  article.getUrlToImage());
+                intent.putExtra("date",  article.getPublishedAt());
+                intent.putExtra("source",  article.getSource().getName());
+                intent.putExtra("author",  article.getAuthor());
+
+                Pair<View, String> pair = Pair.create((View)imageView, ViewCompat.getTransitionName(imageView));
+                ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), pair);
+
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                    startActivity(intent, optionsCompat.toBundle());
+                }else {
+                    startActivity(intent);
+                }
+
+            }
+        });
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -75,6 +257,25 @@ public class NewsFragment extends Fragment {
             mListener.onFragmentInteraction(uri);
         }
     }
+
+    private void showErrorMessage(int imageView, String title, String message){
+
+
+
+        errorImage.setImageResource(imageView);
+        errorTitle.setText(title);
+        errorMessage.setText(message);
+
+        btnRetry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onLoadingSwipeRefresh("");
+            }
+        });
+
+    }
+
+
 
     /*@Override
     public void onAttach(Context context) {
@@ -91,6 +292,11 @@ public class NewsFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void onRefresh() {
+        LoadJson("");
     }
 
     /**
