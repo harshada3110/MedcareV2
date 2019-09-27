@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/action_settings"
+        android:icon="@drawable/settings1"
+        android:onClick="openSettings"
         android:orderInCategory="100"
-        android:title="@string/about_us"
-        app:showAsAction="never" />
+        android:title="@string/action_settings"
+        app:showAsAction="always" />
 </menu>

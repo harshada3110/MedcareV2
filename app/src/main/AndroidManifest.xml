@@ -9,13 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EveryAppointment"></activity>
+        <activity android:name=".SettingsActivity"></activity>
+        <activity android:name=".EveryAppointment" />
         <activity android:name=".Appointments" />
         <activity android:name=".Ambulance" />
         <activity android:name=".BloodBank" />
         <activity android:name=".Pharmacy" />
-        <activity android:name=".NewsDetailActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".NewsDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".PathologyLab" />
         <activity android:name=".Hospital" />
         <activity android:name=".SignUp" />

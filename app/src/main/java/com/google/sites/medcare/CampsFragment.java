@@ -1,25 +1,36 @@
 package com.google.sites.medcare;
 
-import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link NotificationFragment.OnFragmentInteractionListener} interface
+ * {@link CampsFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link NotificationFragment#newInstance} factory method to
+ * Use the {@link CampsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class NotificationFragment extends Fragment {
+
+public class CampsFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -29,9 +40,15 @@ public class NotificationFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    private RecyclerView CampList;
+    private DatabaseReference mydB;
+    private DatabaseReference mydb2;
+    private CampAdapter adapter;
+    private List<Camps> campList;
+
     private OnFragmentInteractionListener mListener;
 
-    public NotificationFragment() {
+    public CampsFragment() {
         // Required empty public constructor
     }
 
@@ -44,8 +61,8 @@ public class NotificationFragment extends Fragment {
      * @return A new instance of fragment NotificationFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static NotificationFragment newInstance(String param1, String param2) {
-        NotificationFragment fragment = new NotificationFragment();
+    public static CampsFragment newInstance(String param1, String param2) {
+        CampsFragment fragment = new CampsFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -66,8 +83,41 @@ public class NotificationFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_notification, container, false);
+        View view = inflater.inflate(R.layout.fragment_notification, container, false);
+
+        CampList = view.findViewById(R.id.camprecycleview);
+        CampList.setHasFixedSize(true);
+        CampList.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        campList = new ArrayList<>();
+        adapter = new CampAdapter(getActivity(),campList);
+        CampList.setAdapter(adapter);
+        mydB= FirebaseDatabase.getInstance().getReference("Camps");
+
+        mydB.addListenerForSingleValueEvent(valueEventListener);
+
+        return view;
     }
+
+    ValueEventListener valueEventListener = new ValueEventListener() {
+        @Override
+        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            campList.clear();
+            if(dataSnapshot.exists()){
+
+                for(DataSnapshot snapshot:dataSnapshot.getChildren()){
+                    Camps camps = snapshot.getValue(Camps.class);
+                    campList.add(camps);
+                }
+                adapter.notifyDataSetChanged();
+            }
+        }
+
+        @Override
+        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+        }
+    };
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {

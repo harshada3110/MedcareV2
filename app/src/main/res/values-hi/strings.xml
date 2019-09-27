@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MedCare</string>
+    <string name="news">समाचार</string>
+    <string name="reminders">स्मरणपत्र</string>
+    <string name="home">होम</string>
+    <string name="notification">सूचनाएं</string>
+    <string name="my_details">मैं</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="action_settings">समायोजन</string>
+    <string name="pending_appointments">अपूर्ण नियुक्ति</string>
+    <string name="settings">समायोजन</string>
+    <string name="about_us">हमारे बारे में</string>
+    <string name="communicate">संवाद</string>
+    <string name="share">शेयर</string>
+    <string name="send">भेजें</string>
+    <string name="feedback">पुनर्निवेश</string>
+    <string name="blood_bank">रक्त कोष</string>
+    <string name="appointments">नियुक्ति</string>
+    <string name="hospital">अस्पताल</string>
+    <string name="pharmacy">औषधालय</string>
+    <string name="ambulance">रोगी वाहन</string>
+    <string name="pathology_lab">विकृति विज्ञान</string>
+    <string name="language">भाषा</string>
+
+</resources>
