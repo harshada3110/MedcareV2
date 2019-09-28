@@ -29,7 +29,7 @@ public class Ambulance extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ambulance);
 
-        AmbulanceList=(RecyclerView)findViewById(R.id.myrecycleview);
+        AmbulanceList = findViewById(R.id.myrecycleview);
         AmbulanceList.setLayoutManager(new LinearLayoutManager(this));
 
         ambList=new ArrayList<>();

@@ -28,7 +28,7 @@ public class Pharmacy extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pharmacy);
-        PharmacyList = (RecyclerView)findViewById(R.id.mypharmrecycleview);
+        PharmacyList = findViewById(R.id.mypharmrecycleview);
         PharmacyList.setLayoutManager(new LinearLayoutManager(this));
 
         pharmList = new ArrayList<>();

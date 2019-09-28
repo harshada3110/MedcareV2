@@ -30,7 +30,7 @@ public class PathologyLab extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pathology_lab);
 
-        PathologyList=(RecyclerView)findViewById(R.id.mypathrecycleview);
+        PathologyList= findViewById(R.id.mypathrecycleview);
         PathologyList.setLayoutManager(new LinearLayoutManager(this));
 
         pathList = new ArrayList<>();
