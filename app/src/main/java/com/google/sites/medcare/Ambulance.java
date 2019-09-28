@@ -29,6 +29,9 @@ public class Ambulance extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ambulance);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         AmbulanceList = findViewById(R.id.myrecycleview);
         AmbulanceList.setLayoutManager(new LinearLayoutManager(this));
 
@@ -39,6 +42,13 @@ public class Ambulance extends AppCompatActivity {
         //mydb2=mydB.child("Mumbai");
         mydB.addListenerForSingleValueEvent(valueEventListener);
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
     ValueEventListener valueEventListener=new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

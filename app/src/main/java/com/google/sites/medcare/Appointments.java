@@ -32,6 +32,9 @@ public class Appointments extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appointments);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         AppointmentsList= findViewById(R.id.appRecyclerView);
         AppointmentsList.setLayoutManager(new LinearLayoutManager(this));
 
@@ -43,6 +46,13 @@ public class Appointments extends AppCompatActivity {
         mydB.addListenerForSingleValueEvent(valueEventListener);
 
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
     ValueEventListener valueEventListener = new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

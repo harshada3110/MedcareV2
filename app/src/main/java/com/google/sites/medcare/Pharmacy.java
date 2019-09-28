@@ -28,6 +28,10 @@ public class Pharmacy extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pharmacy);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         PharmacyList = findViewById(R.id.mypharmrecycleview);
         PharmacyList.setLayoutManager(new LinearLayoutManager(this));
 
@@ -36,6 +40,12 @@ public class Pharmacy extends AppCompatActivity {
         PharmacyList.setAdapter(adapter2);
         mdB2= FirebaseDatabase.getInstance().getReference("Pharmacy");
         mdB2.addListenerForSingleValueEvent(valueEventListener);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
     ValueEventListener valueEventListener = new ValueEventListener() {

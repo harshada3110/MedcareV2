@@ -30,6 +30,9 @@ public class PathologyLab extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pathology_lab);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         PathologyList= findViewById(R.id.mypathrecycleview);
         PathologyList.setLayoutManager(new LinearLayoutManager(this));
 
@@ -39,6 +42,13 @@ public class PathologyLab extends AppCompatActivity {
         mdB = FirebaseDatabase.getInstance().getReference("PathologyLab");
         mdB.addListenerForSingleValueEvent(valueEventListener);
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
     ValueEventListener valueEventListener = new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

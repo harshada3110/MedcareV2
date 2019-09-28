@@ -25,14 +25,22 @@ public class SettingsActivity extends AppCompatActivity {
         loadLocale();
         setContentView(R.layout.activity_settings);
 
-        cardViewLang = findViewById(R.id.languageCard);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        cardViewLang = findViewById(R.id.languageCard);
         cardViewLang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 languageselectdialog();
             }
         });
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
     private void languageselectdialog() {
