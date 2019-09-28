@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/blankFragment"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <fragment
+        android:id="@+id/blankFragment"
+        android:name="com.google.sites.medcare.BlankFragment"
+        android:label="MedCare"
+        tools:layout="@layout/fragment_blank" />
+
+</navigation>

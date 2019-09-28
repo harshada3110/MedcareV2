@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn="navigation_view">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <group android:checkableBehavior="single">
         <item
@@ -10,14 +9,17 @@
             android:title="@string/home" />
         <item
             android:id="@+id/nav_pendapps"
+            android:checkable="false"
             android:icon="@drawable/nav_apps"
             android:title="@string/pending_appointments" />
         <item
-            android:id="@+id/nav_settings"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="@string/settings" />
+            android:id="@+id/nav_pathis"
+            android:checkable="false"
+            android:icon="@drawable/history"
+            android:title="@string/patient_history" />
         <item
             android:id="@+id/nav_aboutus"
+            android:checkable="false"
             android:icon="@drawable/about_us"
             android:title="@string/about_us" />
     </group>
@@ -34,5 +36,7 @@
                 android:title="@string/feedback" />
         </menu>
     </item>
+
+
 
 </menu>

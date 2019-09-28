@@ -174,8 +174,6 @@ public class SignIn extends AppCompatActivity {
                             Toast.makeText(SignIn.this, "Sign-In failed.", Toast.LENGTH_LONG).show();
                             updateUI(null);
                         }
-
-                        // ...
                     }
                 });
     }
