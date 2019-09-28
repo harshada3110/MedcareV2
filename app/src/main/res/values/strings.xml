@@ -29,5 +29,6 @@
     <string name="pathology_lab">Pathology Lab</string>
     <string name="title_activity_settings" translatable="false">Settings</string>
     <string name="language">Language</string>
+    <string name="camps">Camps</string>
 
 </resources>

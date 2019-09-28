@@ -1,9 +1,12 @@
 package com.google.sites.medcare;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -37,6 +40,13 @@ public class CampAdapter extends RecyclerView.Adapter<CampAdapter.CampViewHolder
         holder.CampVenue.setText(camps.getVenue());
         holder.CampDate.setText(camps.getDate());
         holder.CampDesc.setText(camps.getDescription());
+        holder.CampReg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(camps.getLink()));
+                mCtx.startActivity(webIntent);
+            }
+        });
     }
 
 
@@ -52,14 +62,16 @@ public class CampAdapter extends RecyclerView.Adapter<CampAdapter.CampViewHolder
         TextView CampVenue;
         TextView CampDate;
         TextView CampDesc;
+        Button CampReg;
 
         public CampViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            CampType=itemView.findViewById(R.id.camp_type);
-            CampVenue=itemView.findViewById(R.id.camp_venue);
-            CampDate=itemView.findViewById(R.id.camp_date);
-            CampDesc=itemView.findViewById(R.id.camp_desc);
+            CampType = itemView.findViewById(R.id.camp_type);
+            CampVenue = itemView.findViewById(R.id.camp_venue);
+            CampDate = itemView.findViewById(R.id.camp_date);
+            CampDesc = itemView.findViewById(R.id.camp_desc);
+            CampReg = itemView.findViewById(R.id.buttonRegister);
         }
     }
 }

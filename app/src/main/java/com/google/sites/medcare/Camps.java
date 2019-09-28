@@ -5,16 +5,18 @@ public class Camps {
     private String Venue;
     private String Date;
     private String Description;
+    private String Link;
 
     public Camps(){
 
     }
 
-    public Camps(String Type, String Venue, String Date, String Description) {
+    public Camps(String Type, String Venue, String Date, String Description, String Link) {
         this.Type = Type;
         this.Venue = Venue;
         this.Date = Date;
         this.Description = Description;
+        this.Link = Link;
     }
 
 
@@ -48,5 +50,13 @@ public class Camps {
 
     public void setDescription(String Description) {
         Description = Description;
+    }
+
+    public String getLink() {
+        return Link;
+    }
+
+    public void setLink(String link) {
+        Link = link;
     }
 }
