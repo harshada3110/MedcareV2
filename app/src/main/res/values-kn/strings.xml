@@ -24,4 +24,8 @@
     <string name="ambulance">ಆಂಬ್ಯುಲೆನ್ಸ್</string>
     <string name="pathology_lab">ರೋಗಶಾಸ್ತ್ರ</string>
     <string name="language">ಭಾಷೆ</string>
+    <string name="camps">ಆರೋಗ್ಯ ಶಿಬಿರಗಳು</string>
+    <string name="maternity">ತಾಯಿಯ ಆರೈಕೆ</string>
+    <string name="patient_history">ರೋಗಿಯ ಇತಿಹಾಸ</string>
+    <string name="sign_out">ಲಾಗ್ ಔಟ್</string>
 </resources>

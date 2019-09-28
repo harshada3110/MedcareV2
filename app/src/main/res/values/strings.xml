@@ -29,8 +29,8 @@
     <string name="pathology_lab">Pathology Lab</string>
     <string name="title_activity_settings" translatable="false">Settings</string>
     <string name="language">Language</string>
-    <string name="camps">Camps</string>
-    <string name="maternity">Maternity</string>
+    <string name="camps">Health Camps</string>
+    <string name="maternity">Maternal Care</string>
     <string name="patient_history">Patient History</string>
     <string name="sign_out">Sign out</string>
 

@@ -23,5 +23,9 @@
     <string name="ambulance">रोगी वाहन</string>
     <string name="pathology_lab">विकृति विज्ञान</string>
     <string name="language">भाषा</string>
+    <string name="camps">स्वास्थ्य शिविर</string>
+    <string name="maternity">मातृ देखभाल</string>
+    <string name="patient_history">मरीज का इतिहास</string>
+    <string name="sign_out">लॉग आउट</string>
 
 </resources>
