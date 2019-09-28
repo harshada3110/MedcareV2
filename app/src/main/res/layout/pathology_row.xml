@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="#121111"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/pathology_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="9dp"
+            android:text="Pathology Name"
+            android:textColor="#ffff"
+            android:textSize="22dp" />
+        <TextView
+            android:id="@+id/pathology_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="9dp"
+            android:text="Pathology Address"
+            android:textColor="#ffff"
+            android:textSize="18dp"
+            />
+
+        <TextView
+            android:id="@+id/pathology_loc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="9dp"
+            android:text="Pathology Loc"
+            android:textColor="#ffff"
+            android:textSize="18dp"
+            />
+
+
+
+        <TextView
+            android:id="@+id/pathology_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="9dp"
+            android:text="Pathology Location"
+            android:textColor="#ffff"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/pathology_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="9dp"
+            android:text="Pathology Phone"
+            android:textColor="#ffff"
+            android:textSize="18dp" />
+
+    </LinearLayout>
+
+</RelativeLayout>
