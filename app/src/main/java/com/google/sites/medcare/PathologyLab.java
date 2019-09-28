@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,6 +24,7 @@ public class PathologyLab extends AppCompatActivity {
     private DatabaseReference mdB;
     // private DatabaseReference mdb2;
     private PathologyAdapter adapter1;
+    private ProgressBar progressBar;
 
     private List<com.google.sites.medcare.PathologyList> pathList;
 
@@ -32,6 +35,8 @@ public class PathologyLab extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        progressBar = findViewById(R.id.progress_bar);
 
         PathologyList= findViewById(R.id.mypathrecycleview);
         PathologyList.setLayoutManager(new LinearLayoutManager(this));
@@ -52,6 +57,9 @@ public class PathologyLab extends AppCompatActivity {
     ValueEventListener valueEventListener = new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            if (progressBar != null) {
+                progressBar.setVisibility(View.GONE);
+            }
             pathList.clear();
             if(dataSnapshot.exists()){
 

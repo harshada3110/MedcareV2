@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -23,6 +25,7 @@ public class EveryAppointment extends AppCompatActivity {
     ImageView hospImage;
     String DisplayHospName, DisplayDate, DisplayTime, DisplayPrescription, DisplayComments, DisplaySpecialist, DisplayLocation;
     private DatabaseReference mydB, mydB1, myDB2, myDB3;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,8 @@ public class EveryAppointment extends AppCompatActivity {
         Prescription = findViewById(R.id.textViewPresc);
         Comments = findViewById(R.id.textViewComm);
         hospImage = findViewById(R.id.imageViewHosp);
+
+        progressBar = findViewById(R.id.progress_bar);
 
         DisplayHospName = getIntent().getStringExtra("HospName");
         DisplayDate = getIntent().getStringExtra("Date");
@@ -52,6 +57,9 @@ public class EveryAppointment extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String photo = dataSnapshot.getValue(String.class);
+                if (progressBar != null) {
+                    progressBar.setVisibility(View.GONE);
+                }
                 Log.w("PhotoLink", photo);
                 Glide.with(getApplicationContext())
                         .load(photo)

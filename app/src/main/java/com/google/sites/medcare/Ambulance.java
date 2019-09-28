@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,6 +26,7 @@ public class Ambulance extends AppCompatActivity {
     private AmbulanceAdapter adapter;
 
     private List<com.google.sites.medcare.AmbulanceList> ambList;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +35,8 @@ public class Ambulance extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        progressBar = findViewById(R.id.progress_bar);
 
         AmbulanceList = findViewById(R.id.myrecycleview);
         AmbulanceList.setLayoutManager(new LinearLayoutManager(this));
@@ -53,6 +59,9 @@ public class Ambulance extends AppCompatActivity {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
             ambList.clear();
+            if (progressBar != null) {
+                progressBar.setVisibility(View.GONE);
+            }
             if(dataSnapshot.exists()){
 
                 for(DataSnapshot snapshot:dataSnapshot.getChildren()){

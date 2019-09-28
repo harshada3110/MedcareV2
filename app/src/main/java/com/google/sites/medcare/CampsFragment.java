@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -45,6 +46,7 @@ public class CampsFragment extends Fragment {
     private DatabaseReference mydb2;
     private CampAdapter adapter;
     private List<Camps> campList;
+    private ProgressBar progressBar;
 
     private OnFragmentInteractionListener mListener;
 
@@ -89,6 +91,8 @@ public class CampsFragment extends Fragment {
         CampList.setHasFixedSize(true);
         CampList.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+        progressBar = view.findViewById(R.id.progress_bar);
+
         campList = new ArrayList<>();
         adapter = new CampAdapter(getActivity(),campList);
         CampList.setAdapter(adapter);
@@ -103,6 +107,9 @@ public class CampsFragment extends Fragment {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
             campList.clear();
+            if (progressBar != null) {
+                progressBar.setVisibility(View.GONE);
+            }
             if(dataSnapshot.exists()){
 
                 for(DataSnapshot snapshot:dataSnapshot.getChildren()){

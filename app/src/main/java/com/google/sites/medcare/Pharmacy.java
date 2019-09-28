@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,6 +23,7 @@ public class Pharmacy extends AppCompatActivity {
     private RecyclerView PharmacyList;
     private DatabaseReference mdB2;
     private PharmacyAdapter adapter2;
+    private ProgressBar progressBar;
 
     private List<com.google.sites.medcare.PharmacyList> pharmList;
 
@@ -34,6 +37,8 @@ public class Pharmacy extends AppCompatActivity {
 
         PharmacyList = findViewById(R.id.mypharmrecycleview);
         PharmacyList.setLayoutManager(new LinearLayoutManager(this));
+
+        progressBar = findViewById(R.id.progress_bar);
 
         pharmList = new ArrayList<>();
         adapter2 = new PharmacyAdapter(Pharmacy.this,pharmList);
@@ -52,6 +57,9 @@ public class Pharmacy extends AppCompatActivity {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
             pharmList.clear();
+            if (progressBar != null) {
+                progressBar.setVisibility(View.GONE);
+            }
             if(dataSnapshot.exists()){
 
                 for(DataSnapshot snapshot:dataSnapshot.getChildren()){
