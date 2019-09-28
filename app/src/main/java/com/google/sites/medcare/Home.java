@@ -186,6 +186,11 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 startActivity(openPendapps);
                 break;
 
+            case R.id.nav_settings:
+                Intent openSettings = new Intent(Home.this, SettingsActivity.class);
+                startActivity(openSettings);
+                break;
+
             case R.id.nav_aboutus:
                 Intent openAbout = new Intent(Home.this, AboutUs.class);
                 startActivity(openAbout);

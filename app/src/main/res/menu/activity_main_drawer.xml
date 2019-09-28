@@ -18,6 +18,11 @@
             android:icon="@drawable/history"
             android:title="@string/patient_history" />
         <item
+            android:id="@+id/nav_settings"
+            android:checkable="false"
+            android:icon="@drawable/settings1"
+            android:title="@string/settings" />
+        <item
             android:id="@+id/nav_aboutus"
             android:checkable="false"
             android:icon="@drawable/about_us"

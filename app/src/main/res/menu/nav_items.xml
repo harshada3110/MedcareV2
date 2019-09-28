@@ -16,7 +16,7 @@
         android:title="@string/home" />
     <item
         android:id="@+id/notif_menu"
-        android:icon="@drawable/notification"
+        android:icon="@drawable/campsmall"
         android:title="@string/camps" />
     <item
         android:id="@+id/user_menu"
