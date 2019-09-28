@@ -74,8 +74,6 @@ public class PharmacyAdapter extends RecyclerView.Adapter<PharmacyAdapter.Pharma
             Name = itemView.findViewById(R.id.pharmacy_name);
         }
     }
-
-
 }
 
 
