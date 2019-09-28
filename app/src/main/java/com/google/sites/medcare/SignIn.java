@@ -100,21 +100,32 @@ public class SignIn extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                (mAuth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString())).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
+                if (email.getText().toString().isEmpty() && password.getText().toString().isEmpty()){
+                    Toast.makeText(SignIn.this, "Please enter your E-mail and Password", Toast.LENGTH_SHORT).show();
+                }
+                else if (email.getText().toString().isEmpty()){
+                    Toast.makeText(SignIn.this, "Please enter your E-mail", Toast.LENGTH_SHORT).show();
+                }
+                else if (password.getText().toString().isEmpty()){
+                    Toast.makeText(SignIn.this, "Please enter your Password", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    (mAuth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString())).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
 
-                        if (task.isSuccessful()){
-                            Toast.makeText(SignIn.this, "Login Successful", Toast.LENGTH_LONG).show();
-                            Intent openHome = new Intent(SignIn.this, Home.class);
-                            SignIn.this.startActivity(openHome);
-                        }
-                        else {
-                            Toast.makeText(SignIn.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
-                        }
+                            if (task.isSuccessful()){
+                                Toast.makeText(SignIn.this, "Login Successful", Toast.LENGTH_LONG).show();
+                                Intent openHome = new Intent(SignIn.this, Home.class);
+                                SignIn.this.startActivity(openHome);
+                            }
+                            else {
+                                Toast.makeText(SignIn.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                            }
 
-                    }
-                });
+                        }
+                    });
+                }
             }
         });
 
