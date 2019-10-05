@@ -7,12 +7,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -24,8 +28,10 @@ public class Pharmacy extends AppCompatActivity {
     private DatabaseReference mdB2;
     private PharmacyAdapter adapter2;
     private ProgressBar progressBar;
+    private Spinner spinner;
 
     private List<com.google.sites.medcare.PharmacyList> pharmList;
+    private String pathologylocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +41,52 @@ public class Pharmacy extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        progressBar = findViewById(R.id.progress_bar);
+        spinner=findViewById(R.id.spinner_pharm);
+
+        List<String> locations=new ArrayList<>();
+        locations.add(0,"No Location");
+        locations.add("Mumbai");
+        locations.add("Udupi");
+        locations.add("Alappuzha");
+
+        //populate the spinner
+        ArrayAdapter<String> dataAdapter;
+        dataAdapter = new ArrayAdapter(this, R.layout.spinner_style, locations);
+        dataAdapter.setDropDownViewResource(R.layout.spinner_style);
+
+        //attaching dataAdapter to spinner
+
+        spinner.setAdapter(dataAdapter);
+
+        //ArrayAdapter <String> loc_adapter = new ArrayAdapter<String> (this, R.layout.spinner_style, locations);
+        //loc_adapter.setDropDownViewResource(R.layout.spinner_style);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(parent.getItemAtPosition(position).equals("No Location")){
+                    mdB2 = FirebaseDatabase.getInstance().getReference("Pharmacy");
+                    mdB2.addListenerForSingleValueEvent(valueEventListener);
+                }
+                else{
+                    //on item selected
+
+                    pathologylocation=parent.getItemAtPosition(position).toString();
+                    Query query=FirebaseDatabase.getInstance().getReference("Pharmacy").orderByChild("Location").equalTo(pathologylocation);
+                    query.addListenerForSingleValueEvent(valueEventListener);
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
         PharmacyList = findViewById(R.id.mypharmrecycleview);
         PharmacyList.setLayoutManager(new LinearLayoutManager(this));
-
-        progressBar = findViewById(R.id.progress_bar);
 
         pharmList = new ArrayList<>();
         adapter2 = new PharmacyAdapter(Pharmacy.this,pharmList);

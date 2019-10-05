@@ -148,8 +148,8 @@ public class NewsFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
         apiInterface apiInterface = apiClient.getApiClient().create(apiInterface.class);
 
-        String country = Utils.getCountry();
-        String language = Utils.getLanguage();
+        String country = "in";
+        String language = "en";
 
         Call<News> call;
 
