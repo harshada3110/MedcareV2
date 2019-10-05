@@ -13,6 +13,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.google.sites.medcare.Home.Home;
+
 import java.util.Locale;
 
 public class SettingsActivity extends AppCompatActivity {

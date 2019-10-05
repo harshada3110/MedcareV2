@@ -11,6 +11,9 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.google.sites.medcare.Home.Home;
+import com.google.sites.medcare.SignInSignUp.SignIn;
+
 import java.util.Locale;
 
 public class SplashScreen extends AppCompatActivity {
@@ -31,10 +34,10 @@ public class SplashScreen extends AppCompatActivity {
                 try {
                     sleep(3000);
                     if (status.getBoolean("Value", true)){
-                        startActivity(new Intent(SplashScreen.this,SignIn.class));
+                        startActivity(new Intent(SplashScreen.this, SignIn.class));
                     }
                     else {
-                        startActivity(new Intent(SplashScreen.this,Home.class));
+                        startActivity(new Intent(SplashScreen.this, Home.class));
                     }
                     //startActivity(new Intent(SplashScreen.this,SignIn.class));
                     SplashScreen.this.finish();
