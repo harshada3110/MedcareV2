@@ -32,7 +32,8 @@ import com.google.sites.medcare.Camps.CampsFragment;
 import com.google.sites.medcare.News.NewsFragment;
 import com.google.sites.medcare.PatientHistory.Appointments;
 import com.google.sites.medcare.R;
-import com.google.sites.medcare.ReminderFragment;
+import com.google.sites.medcare.medicine.MedicinePresenter;
+import com.google.sites.medcare.medicine.MedicineFragment;
 import com.google.sites.medcare.SettingsActivity;
 import com.google.sites.medcare.SignInSignUp.SignIn;
 import com.google.sites.medcare.UserFragment;
@@ -46,7 +47,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     private HomeFragment homeFragment;
     private NewsFragment newsFragment;
     private CampsFragment campsFragment;
-    private ReminderFragment reminderFragment;
+    private MedicineFragment medicineFragment;
     private UserFragment userFragment;
     private BlankFragment blankFragment;
     private AppBarConfiguration mAppBarConfiguration;
@@ -56,6 +57,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     public DrawerLayout drawerLayout;
     public NavController navController;
     public NavigationView navigationView;
+    private MedicinePresenter mPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +73,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         homeFragment = new HomeFragment();
         newsFragment = new NewsFragment();
         campsFragment = new CampsFragment();
-        reminderFragment = new ReminderFragment();
+        medicineFragment = new MedicineFragment();
         userFragment = new UserFragment();
         blankFragment = new BlankFragment();
 
@@ -88,7 +90,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                         return true;
 
                     case R.id.rem_menu:
-                        setFragment(reminderFragment);
+                        setFragment(medicineFragment);
                         return true;
 
                     case R.id.home_menu:
@@ -111,6 +113,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
         setupNavigation();
         navigationView.setCheckedItem(R.id.nav_home);
+        mPresenter = new MedicinePresenter(com.google.sites.medcare.Injection.provideMedicineRepository(Home.this), medicineFragment);
     }
 
     private void setupNavigation() {

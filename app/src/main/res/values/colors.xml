@@ -6,4 +6,10 @@
 
     <color name="colorTextSubtitle">#4e4e4e</color>
     <color name="colorTextTitle">#262626</color>
+
+    <color name="color_light_grey">#4d4d4d</color>
+
+    <drawable name="touchFeedback">#CFD8DC</drawable>
+    <color name="white">#fafafa</color>
+    <color name="white_pressed">#f1f1f1</color>
 </resources>
