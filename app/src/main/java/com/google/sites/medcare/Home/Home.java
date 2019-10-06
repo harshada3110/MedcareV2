@@ -32,8 +32,9 @@ import com.google.sites.medcare.Camps.CampsFragment;
 import com.google.sites.medcare.News.NewsFragment;
 import com.google.sites.medcare.PatientHistory.Appointments;
 import com.google.sites.medcare.R;
-import com.google.sites.medcare.medicine.MedicinePresenter;
-import com.google.sites.medcare.medicine.MedicineFragment;
+import com.google.sites.medcare.Reminder.Injection;
+import com.google.sites.medcare.Reminder.medicine.MedicinePresenter;
+import com.google.sites.medcare.Reminder.medicine.MedicineFragment;
 import com.google.sites.medcare.SettingsActivity;
 import com.google.sites.medcare.SignInSignUp.SignIn;
 import com.google.sites.medcare.UserFragment;
@@ -113,7 +114,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
         setupNavigation();
         navigationView.setCheckedItem(R.id.nav_home);
-        mPresenter = new MedicinePresenter(com.google.sites.medcare.Injection.provideMedicineRepository(Home.this), medicineFragment);
+        mPresenter = new MedicinePresenter(Injection.provideMedicineRepository(Home.this), medicineFragment);
     }
 
     private void setupNavigation() {

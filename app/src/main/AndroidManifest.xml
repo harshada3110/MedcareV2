@@ -48,11 +48,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".addmedicine.AddMedicineActivity"
+        <activity android:name=".Reminder.addmedicine.AddMedicineActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".alarm.ReminderActivity"
+        <activity android:name=".Reminder.alarm.ReminderActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".report.MonthlyReportActivity"
+        <activity android:name=".Reminder.report.MonthlyReportActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
 
         <meta-data
