@@ -183,6 +183,7 @@ public class MedicineFragment extends Fragment implements MedicineContract.View{
                 }
             }
         });
+
         setCurrentDate(new Date());
 
         return view;

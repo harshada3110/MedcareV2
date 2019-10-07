@@ -1,0 +1,306 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bloodCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:elevation="90dp"
+    android:orientation="vertical"
+    app:cardCornerRadius="15dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:paddingBottom="15dp">
+
+        <ImageView
+            android:id="@+id/imageViewCallP"
+            android:layout_width="24sp"
+            android:layout_height="24sp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewMapP"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/call" />
+
+        <ImageView
+            android:id="@+id/imageViewMapP"
+            android:layout_width="24sp"
+            android:layout_height="24sp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/location" />
+
+        <ImageView
+            android:id="@+id/arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/bloodaddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/arrowdown" />
+
+        <TextView
+            android:id="@+id/bloodaddress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/hp_simplified_regular"
+            android:text="Blood Address"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/blood_name" />
+
+        <TextView
+            android:id="@+id/blood_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/hp_simplified_bold"
+            android:text="Blood Name"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayoutBB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bloodaddress">
+
+            <ImageView
+                android:id="@+id/APosImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/APosTxt"
+                app:layout_constraintEnd_toEndOf="@+id/availability"
+                app:layout_constraintStart_toStartOf="@+id/availability"
+                app:layout_constraintTop_toTopOf="@+id/APosTxt"
+                app:srcCompat="@drawable/check" />
+
+            <ImageView
+                android:id="@+id/ANegImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/ANegTxt"
+                app:layout_constraintEnd_toEndOf="@+id/availability"
+                app:layout_constraintStart_toStartOf="@+id/availability"
+                app:layout_constraintTop_toTopOf="@+id/ANegTxt"
+                app:srcCompat="@drawable/cross"
+                tools:layout_editor_absoluteX="242dp" />
+
+            <ImageView
+                android:id="@+id/OPosImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/OPosTxt"
+                app:layout_constraintEnd_toEndOf="@+id/availability"
+                app:layout_constraintStart_toStartOf="@+id/availability"
+                app:layout_constraintTop_toTopOf="@+id/OPosTxt"
+                app:srcCompat="@drawable/check"
+                tools:layout_editor_absoluteX="206dp" />
+
+            <ImageView
+                android:id="@+id/AbPosImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/AbPosTxt"
+                app:layout_constraintEnd_toEndOf="@+id/availability"
+                app:layout_constraintStart_toStartOf="@+id/availability"
+                app:layout_constraintTop_toTopOf="@+id/AbPosTxt"
+                app:srcCompat="@drawable/check"
+                tools:layout_editor_absoluteX="237dp" />
+
+            <ImageView
+                android:id="@+id/BPosImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/BPosTxt"
+                app:layout_constraintEnd_toEndOf="@+id/availability"
+                app:layout_constraintStart_toStartOf="@+id/availability"
+                app:layout_constraintTop_toTopOf="@+id/BPosTxt"
+                app:srcCompat="@drawable/check"
+                tools:layout_editor_absoluteX="285dp" />
+
+            <ImageView
+                android:id="@+id/AbNegImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/AbNegTxt"
+                app:layout_constraintEnd_toEndOf="@+id/availability"
+                app:layout_constraintStart_toStartOf="@+id/availability"
+                app:layout_constraintTop_toBottomOf="@+id/AbPosTxt"
+                app:srcCompat="@drawable/cross"
+                tools:layout_editor_absoluteX="203dp" />
+
+            <ImageView
+                android:id="@+id/BNegImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/BNegTxt"
+                app:layout_constraintEnd_toEndOf="@+id/availability"
+                app:layout_constraintStart_toStartOf="@+id/availability"
+                app:layout_constraintTop_toTopOf="@+id/BNegTxt"
+                app:srcCompat="@drawable/cross"
+                tools:layout_editor_absoluteX="285dp" />
+
+            <ImageView
+                android:id="@+id/ONegImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/ONegTxt"
+                app:layout_constraintEnd_toEndOf="@+id/availability"
+                app:layout_constraintStart_toStartOf="@+id/availability"
+                app:layout_constraintTop_toTopOf="@+id/ONegTxt"
+                app:srcCompat="@drawable/cross"
+                tools:layout_editor_absoluteX="183dp" />
+
+            <TextView
+                android:id="@+id/OPosTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/hp_simplified_regular"
+                android:text="O+ve"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/bloodgroup"
+                app:layout_constraintStart_toStartOf="@+id/bloodgroup"
+                app:layout_constraintTop_toBottomOf="@+id/BNegTxt" />
+
+            <TextView
+                android:id="@+id/APosTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/hp_simplified_regular"
+                android:text="A+ve"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/bloodgroup"
+                app:layout_constraintStart_toStartOf="@+id/bloodgroup"
+                app:layout_constraintTop_toBottomOf="@+id/bloodgroup" />
+
+            <TextView
+                android:id="@+id/AbNegTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/hp_simplified_regular"
+                android:text="AB-ve"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/bloodgroup"
+                app:layout_constraintStart_toStartOf="@+id/bloodgroup"
+                app:layout_constraintTop_toBottomOf="@+id/AbPosTxt" />
+
+            <TextView
+                android:id="@+id/ANegTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/hp_simplified_regular"
+                android:text="A-ve"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/bloodgroup"
+                app:layout_constraintStart_toStartOf="@+id/bloodgroup"
+                app:layout_constraintTop_toBottomOf="@+id/APosTxt" />
+
+            <TextView
+                android:id="@+id/BPosTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/hp_simplified_regular"
+                android:text="B+ve"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/bloodgroup"
+                app:layout_constraintStart_toStartOf="@+id/bloodgroup"
+                app:layout_constraintTop_toBottomOf="@+id/ANegTxt" />
+
+            <TextView
+                android:id="@+id/BNegTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/hp_simplified_regular"
+                android:text="B-ve"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/bloodgroup"
+                app:layout_constraintStart_toStartOf="@+id/bloodgroup"
+                app:layout_constraintTop_toBottomOf="@+id/BPosTxt" />
+
+            <TextView
+                android:id="@+id/AbPosTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/hp_simplified_regular"
+                android:text="AB+ve"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/bloodgroup"
+                app:layout_constraintStart_toStartOf="@+id/bloodgroup"
+                app:layout_constraintTop_toBottomOf="@+id/ONegTxt" />
+
+            <TextView
+                android:id="@+id/bloodgroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/hp_simplified_regular"
+                android:text="Blood Group"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/availability"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/ONegTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/hp_simplified_regular"
+                android:text="O-ve"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/bloodgroup"
+                app:layout_constraintStart_toStartOf="@+id/bloodgroup"
+                app:layout_constraintTop_toBottomOf="@+id/OPosTxt" />
+
+            <TextView
+                android:id="@+id/availability"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/hp_simplified_regular"
+                android:text="Availability"
+                app:layout_constraintBottom_toBottomOf="@+id/bloodgroup"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/bloodgroup"
+                app:layout_constraintTop_toTopOf="@+id/bloodgroup" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="100dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

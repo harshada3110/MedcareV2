@@ -22,6 +22,8 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -37,7 +39,8 @@ import com.google.sites.medcare.Reminder.medicine.MedicinePresenter;
 import com.google.sites.medcare.Reminder.medicine.MedicineFragment;
 import com.google.sites.medcare.SettingsActivity;
 import com.google.sites.medcare.SignInSignUp.SignIn;
-import com.google.sites.medcare.UserFragment;
+import com.google.sites.medcare.UserDetails.UserFragment;
+import com.squareup.picasso.Picasso;
 
 import java.util.Locale;
 
@@ -53,12 +56,18 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     private BlankFragment blankFragment;
     private AppBarConfiguration mAppBarConfiguration;
     SharedPreferences sharedPreferences;
+    SharedPreferences userDetails;
 
     public Toolbar toolbar;
     public DrawerLayout drawerLayout;
     public NavController navController;
     public NavigationView navigationView;
     private MedicinePresenter mPresenter;
+    private Context mCtx;
+
+    private TextView nameTextView;
+    private TextView BMITextView;
+    private ImageView DPimage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,6 +139,27 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout);
         NavigationUI.setupWithNavController(navigationView, navController);
         navigationView.setNavigationItemSelectedListener(this);
+
+        View headerView = navigationView.getHeaderView(0);
+
+
+        userDetails = getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
+
+        nameTextView = headerView.findViewById(R.id.nameTextView);
+        BMITextView = headerView.findViewById(R.id.BMItextView);
+        DPimage = headerView.findViewById(R.id.DPimageView);
+
+        String name = userDetails.getString("Name", "MedCare");
+        String email = userDetails.getString("Email", "codeblooded.io@gmail.com");
+        String DP = userDetails.getString("DP", null);
+
+        Log.v("NamePerson", name);
+
+        nameTextView.setText(name);
+        BMITextView.setText(email);
+        Picasso.get().load(DP).transform(new CircleTransform()).fit().into(DPimage);
+
+        //Glide.with(getApplicationContext()).load(DP).into(DPimage);
     }
 
     @Override

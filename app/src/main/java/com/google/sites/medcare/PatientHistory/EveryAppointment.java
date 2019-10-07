@@ -61,7 +61,7 @@ public class EveryAppointment extends AppCompatActivity {
                 if (progressBar != null) {
                     progressBar.setVisibility(View.GONE);
                 }
-                Log.w("PhotoLink", photo);
+                //Log.w("PhotoLink", photo);
                 Glide.with(getApplicationContext())
                         .load(photo)
                         .into(hospImage);

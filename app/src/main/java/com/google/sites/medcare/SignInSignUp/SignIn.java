@@ -2,6 +2,7 @@ package com.google.sites.medcare.SignInSignUp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 
 import android.content.Context;
 import android.content.Intent;
@@ -37,6 +38,7 @@ public class SignIn extends AppCompatActivity {
     private String TAG = "SignInActivity";
     private FirebaseAuth mAuth;
     SharedPreferences sharedPreferences;
+    SharedPreferences userDetails;
     TextView Signup, forgotPass;
     TextView email, password;
     Button login;
@@ -48,6 +50,7 @@ public class SignIn extends AppCompatActivity {
         getSupportActionBar().hide();
 
         sharedPreferences = getSharedPreferences("LoginStatus", Context.MODE_PRIVATE);
+        userDetails = getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
 
         Signup = findViewById(R.id.textViewSignUp);
         forgotPass = findViewById(R.id.textViewForgotPass);
@@ -190,6 +193,15 @@ public class SignIn extends AppCompatActivity {
             String personId = acct.getId();
             Uri personPhoto = acct.getPhotoUrl();
 
+            SharedPreferences.Editor editDetails = userDetails.edit();
+            editDetails.putString("Name", personName);
+            editDetails.putString("Email", personEmail);
+            editDetails.putString("DP", personPhoto.toString());
+            editDetails.commit();
+
+            String name = userDetails.getString("Name", "med");
+            Log.v("name", name);
+
             Toast.makeText(SignIn.this, "Welcome "+personName, Toast.LENGTH_LONG).show();
 
             SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -200,4 +212,11 @@ public class SignIn extends AppCompatActivity {
             SignIn.this.startActivity(openHome);
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finishAffinity();
+    }
+
 }
