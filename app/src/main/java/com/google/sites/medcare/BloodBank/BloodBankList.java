@@ -1,4 +1,4 @@
-package com.google.sites.medcare;
+package com.google.sites.medcare.BloodBank;
 
 public class BloodBankList {
     private String Name;

@@ -1,4 +1,4 @@
-package com.google.sites.medcare;
+package com.google.sites.medcare.BloodBank;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,6 +15,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.sites.medcare.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

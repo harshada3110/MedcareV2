@@ -18,8 +18,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.google.sites.medcare.BloodAdapter;
-import com.google.sites.medcare.BloodBankList;
 import com.google.sites.medcare.R;
 
 import java.util.ArrayList;
@@ -30,7 +28,7 @@ public class BloodBank extends AppCompatActivity {
     private RecyclerView BloodBankList;
     private DatabaseReference mydB,mydB2;
     private BloodAdapter adapter;
-    private List<com.google.sites.medcare.BloodBankList> bloodList;
+    private List<com.google.sites.medcare.BloodBank.BloodBankList> bloodList;
     private ProgressBar progressBar;
     private Spinner spinner;
     private String BBlocation;
@@ -78,7 +76,7 @@ public class BloodBank extends AppCompatActivity {
                 if(dataSnapshot.exists()){
 
                     for(DataSnapshot snapshot:dataSnapshot.getChildren()){
-                        com.google.sites.medcare.BloodBankList camps = snapshot.getValue(com.google.sites.medcare.BloodBankList.class);
+                        com.google.sites.medcare.BloodBank.BloodBankList camps = snapshot.getValue(com.google.sites.medcare.BloodBank.BloodBankList.class);
                         bloodList.add(camps);
                     }
                     adapter.notifyDataSetChanged();
@@ -122,7 +120,7 @@ public class BloodBank extends AppCompatActivity {
             if(dataSnapshot.exists()){
 
                 for(DataSnapshot snapshot:dataSnapshot.getChildren()){
-                    com.google.sites.medcare.BloodBankList camps = snapshot.getValue(com.google.sites.medcare.BloodBankList.class);
+                    com.google.sites.medcare.BloodBank.BloodBankList camps = snapshot.getValue(com.google.sites.medcare.BloodBank.BloodBankList.class);
                     bloodList.add(camps);
                 }
                 adapter.notifyDataSetChanged();
