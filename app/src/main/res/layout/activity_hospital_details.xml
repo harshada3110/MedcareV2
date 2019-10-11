@@ -89,7 +89,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/hp_simplified_bold"
-                    android:text="About"
+                    android:text="@string/about"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/view4" />
@@ -115,7 +115,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/hp_simplified_bold"
-                    android:text="Facilities"
+                    android:text="@string/facilities"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textViewAbout" />
@@ -187,7 +187,7 @@
                     android:background="@drawable/not_white_rectangle"
                     android:fontFamily="@font/hp_simplified_regular"
                     android:padding="15dp"
-                    android:text="Book Appointment"
+                    android:text="@string/book_appointment"
                     android:textColor="@color/colorPrimary"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

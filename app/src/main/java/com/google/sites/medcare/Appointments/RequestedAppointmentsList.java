@@ -9,49 +9,45 @@ public class RequestedAppointmentsList {
     private String Comments;
     private String Location;
     private int Approval;
-    private int Visited;
+    private int avisited;
 
     public RequestedAppointmentsList() {
     }
 
-    public RequestedAppointmentsList(String HospitalName, String Specialist, String Date, String Time, String Prescription, String Comments, String Location, int Approval, int Visited) {
-        this.HospitalName = HospitalName;
-        this.Specialist = Specialist;
-        this.Date = Date;
-        this.Time = Time;
-        this.Prescription = Prescription;
-        this.Comments = Comments;
-        this.Location = Location;
-        this.Approval = Approval;
-        this.Visited = Visited;
+    public RequestedAppointmentsList(String hospitalName, String specialist, String date, String time, String prescription, String comments, String location, int approval, int avisited) {
+        HospitalName = hospitalName;
+        Specialist = specialist;
+        Date = date;
+        Time = time;
+        Prescription = prescription;
+        Comments = comments;
+        Location = location;
+        Approval = approval;
+        this.avisited = avisited;
     }
 
     public String getHospitalName() {
         return HospitalName;
     }
 
-    public void setHospitalName(String HospitalName) {
-        this.HospitalName = HospitalName;
+    public void setHospitalName(String hospitalName) {
+        HospitalName = hospitalName;
     }
 
     public String getSpecialist() {
         return Specialist;
     }
 
-    public void setSpecialists(String Specialist) {
-        this.Specialist = Specialist;
+    public void setSpecialist(String specialist) {
+        Specialist = specialist;
     }
 
     public String getDate() {
         return Date;
     }
 
-    public void setDate(String Date) {
-        this.Date = Date;
-    }
-
-    public void setSpecialist(String specialist) {
-        Specialist = specialist;
+    public void setDate(String date) {
+        Date = date;
     }
 
     public String getTime() {
@@ -94,11 +90,11 @@ public class RequestedAppointmentsList {
         Approval = approval;
     }
 
-    public int getVisited() {
-        return Visited;
+    public int getAvisited() {
+        return avisited;
     }
 
-    public void setVisited(int visited) {
-        Visited = visited;
+    public void setAvisited(int avisited) {
+        this.avisited = avisited;
     }
 }

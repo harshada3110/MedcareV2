@@ -36,7 +36,7 @@ public class BookAppointment extends AppCompatActivity implements TimePickerDial
     DatabaseReference mydB;
     BookAppointmentList bookAppointmentList;
     String date, time;
-    String Speciality;
+    String Speciality, LocationS;
     final Calendar myCalendar = Calendar.getInstance();
 
     @Override
@@ -61,7 +61,7 @@ public class BookAppointment extends AppCompatActivity implements TimePickerDial
         //Shared Preferenced for getting Speciaility value from MainActivity(ie Cardiology,Dentist etc)
         SharedPreferences mySharedPreferences = this.getSharedPreferences("MYPREFERENCENAME", Context.MODE_PRIVATE);
         Speciality = mySharedPreferences.getString("Speciality", "");
-
+        LocationS = mySharedPreferences.getString("Location", "");
 
         //Get HospName from intent HospitalAdapter
         String AppoHospName=getIntent().getStringExtra("HospName");
@@ -94,6 +94,7 @@ public class BookAppointment extends AppCompatActivity implements TimePickerDial
                 bookAppointmentList.setPrescription("");
                 bookAppointmentList.setHospitalName(AppoHospName);
                 bookAppointmentList.setAvisited(0);
+                bookAppointmentList.setLocation(LocationS);
                 mydB.push().setValue(bookAppointmentList);
                 //  Toast.makeText(MainActivity.this,"Registered Successfully",Toast.LENGTH_LONG);
                 Toast toast = Toast.makeText(BookAppointment.this, "Appointment Requsted Successfully", Toast.LENGTH_SHORT);

@@ -58,6 +58,9 @@ public class Hospital extends AppCompatActivity {
         locations.add("Pune");
         locations.add("Thiruvananthapuram");
 
+        SharedPreferences mySharedPreferences = this.getSharedPreferences("MYPREFERENCENAME", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = mySharedPreferences.edit();
+
         ArrayAdapter<String> dataAdapter;
         dataAdapter = new ArrayAdapter(this, R.layout.spinner_style, locations);
         dataAdapter.setDropDownViewResource(R.layout.spinner_style);
@@ -67,6 +70,9 @@ public class Hospital extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                editor.putString("Location", spinner.getSelectedItem().toString());
+                editor.apply();
+                Log.v("Loca", spinner.getSelectedItem().toString());
                 if(parent.getItemAtPosition(position).equals("No Location")){
                     Query query=FirebaseDatabase.getInstance().getReference("Hospital").child("Mumbai").orderByChild(DomainHolder).equalTo(1);
                     query.addListenerForSingleValueEvent(valueEventListener);
@@ -85,8 +91,6 @@ public class Hospital extends AppCompatActivity {
             }
         });
 
-        SharedPreferences mySharedPreferences = this.getSharedPreferences("MYPREFERENCENAME", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = mySharedPreferences.edit();
         editor.putString("Speciality",DomainHolder);
         editor.apply();
 

@@ -51,5 +51,14 @@
     <string name="no_taken_med_history">You have not taken any medicine</string>
     <string name="no_ignored_history">Well Done</string>
     <string name="menu_stats">Monthly Report</string>
+    <string name="bmi">BMI</string>
+    <string name="blood_group">Blood Group</string>
+    <string name="save">Save</string>
+    <string name="age_in_years">Age (in years)</string>
+    <string name="height_in_cms">Height (in cms)</string>
+    <string name="weight_in_kgs">Weight (in kgs)</string>
+    <string name="about">About</string>
+    <string name="facilities">Facilities</string>
+    <string name="book_appointment">Book Appointment</string>
 
 </resources>

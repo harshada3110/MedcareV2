@@ -50,7 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/hp_simplified_regular"
-            android:hint="Age (in years)"
+            android:hint="@string/age_in_years"
             android:inputType="text"
             android:textSize="16sp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -71,7 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/hp_simplified_regular"
-            android:hint="Height (in cms)"
+            android:hint="@string/height_in_cms"
             android:inputType="number"
             android:textSize="16sp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -92,7 +92,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/hp_simplified_regular"
-            android:hint="Weight (in kgs)"
+            android:hint="@string/weight_in_kgs"
             android:inputType="number"
             android:textSize="16sp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -113,7 +113,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/hp_simplified_regular"
-        android:text="Blood Group"
+        android:text="@string/blood_group"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewBMI" />
@@ -124,7 +124,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:fontFamily="@font/hp_simplified_regular"
-        android:text="BMI"
+        android:text="@string/bmi"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextWeight" />
@@ -147,7 +147,7 @@
         android:background="@drawable/not_white_rectangle"
         android:fontFamily="@font/hp_simplified_regular"
         android:padding="15dp"
-        android:text="Save"
+        android:text="@string/save"
         android:textColor="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

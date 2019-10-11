@@ -15,8 +15,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.google.sites.medcare.PatientHistory.AppointmentsAdapter;
-import com.google.sites.medcare.PatientHistory.AppointmentsList;
 import com.google.sites.medcare.R;
 
 import java.util.ArrayList;
@@ -47,7 +45,7 @@ public class RequestedAppointments extends AppCompatActivity {
         adapter=new RequestedAppointmentsAdapter(this,appList);
         RequestedAppointmentsList.setAdapter(adapter);
         mydB= FirebaseDatabase.getInstance().getReference("Appointment");
-        Query query = mydB.orderByChild("visited").equalTo(0);
+        Query query = mydB.orderByChild("avisited").equalTo(0);
 
         query.addListenerForSingleValueEvent(valueEventListener);
     }
