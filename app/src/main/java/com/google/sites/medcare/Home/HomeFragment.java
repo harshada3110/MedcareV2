@@ -14,11 +14,11 @@ import android.view.ViewGroup;
 
 import com.google.sites.medcare.Ambulance.Ambulance;
 import com.google.sites.medcare.BloodBank.BloodBank;
-import com.google.sites.medcare.Hospital.Hospital;
 import com.google.sites.medcare.MaternalCare.MaternalCare;
 import com.google.sites.medcare.PathologyLab.PathologyLab;
 import com.google.sites.medcare.Pharmacy.Pharmacy;
 import com.google.sites.medcare.R;
+import com.google.sites.medcare.Hospital.SelectSpecialist;
 
 
 /**
@@ -90,7 +90,7 @@ public class HomeFragment extends Fragment {
         hosp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent openHosp = new Intent(getActivity(), Hospital.class);
+                Intent openHosp = new Intent(getActivity(), SelectSpecialist.class);
                 startActivity(openHosp);
             }
         });

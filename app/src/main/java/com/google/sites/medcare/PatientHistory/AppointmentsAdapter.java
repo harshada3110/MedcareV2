@@ -77,5 +77,4 @@ public class AppointmentsAdapter extends RecyclerView.Adapter<AppointmentsAdapte
             appCard = itemView.findViewById(R.id.appCard);
         }
     }
-
 }

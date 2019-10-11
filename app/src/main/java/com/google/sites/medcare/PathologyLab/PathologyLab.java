@@ -73,7 +73,6 @@ public class PathologyLab extends AppCompatActivity {
                 }
                 else{
                     //on item selected
-
                     pathologylocation=parent.getItemAtPosition(position).toString();
                     Query query=FirebaseDatabase.getInstance().getReference("PathologyLab").orderByChild("Location").equalTo(pathologylocation);
                     query.addListenerForSingleValueEvent(valueEventListener);

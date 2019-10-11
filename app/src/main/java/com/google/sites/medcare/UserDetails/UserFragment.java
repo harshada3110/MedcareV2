@@ -1,15 +1,33 @@
 package com.google.sites.medcare.UserDetails;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputLayout;
+import com.google.sites.medcare.Home.CircleTransform;
+import com.google.sites.medcare.Home.Home;
+import com.google.sites.medcare.Hospital.BookAppointment;
 import com.google.sites.medcare.R;
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -29,6 +47,14 @@ public class UserFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private ImageView DPimage;
+    private TextView name;
+    private TextView BMI;
+    private EditText age;
+    private EditText height;
+    private EditText weight;
+    private Spinner spinnerBG;
+    private Button save;
 
     private OnFragmentInteractionListener mListener;
 
@@ -67,7 +93,73 @@ public class UserFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_user, container, false);
+        View view = inflater.inflate(R.layout.fragment_user, container, false);
+
+        SharedPreferences userDetails = this.getActivity().getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editDetails = userDetails.edit();
+
+        String uname = userDetails.getString("Name", "MedCare");
+        String DP = userDetails.getString("DP", null);
+        String nage = userDetails.getString("Age", "-");
+        String nheight = userDetails.getString("Height", "0");
+        String nweight = userDetails.getString("Weight", "0");
+        String nBMI = userDetails.getString("BMI", "-");
+        int nBG = userDetails.getInt("BloodG", 0);
+
+        List<String> bloodG=new ArrayList<>();
+        bloodG.add(0,"Choose");
+        bloodG.add(1,"A+ve");
+        bloodG.add(2,"A-ve");
+        bloodG.add(3,"B+ve");
+        bloodG.add(4,"B-ve");
+        bloodG.add(5,"O+ve");
+        bloodG.add(6,"O-ve");
+        bloodG.add(7,"AB+ve");
+        bloodG.add(8,"AB-ve");
+
+        ArrayAdapter<String> dataAdapter;
+        dataAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, bloodG);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        name = view.findViewById(R.id.textViewName);
+        age = view.findViewById(R.id.ageEditText);
+        height = view.findViewById(R.id.heightEditText);
+        weight = view.findViewById(R.id.weightEditText);
+        BMI = view.findViewById(R.id.textViewBMIValue);
+        spinnerBG = view.findViewById(R.id.spinnerBloodGroup);
+        save = view.findViewById(R.id.saveBtn);
+        DPimage = view.findViewById(R.id.imageViewDP);
+
+        name.setText(uname);
+        Picasso.get().load(DP).transform(new CircleTransform()).fit().into(DPimage);
+
+        age.setText(nage);
+        height.setText(nheight);
+        weight.setText(nweight);
+        BMI.setText(nBMI);
+
+        spinnerBG.setAdapter(dataAdapter);
+        spinnerBG.setSelection(nBG);
+
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                int BMIvalue = (Integer.parseInt(weight.getText().toString())/((Integer.parseInt(height.getText().toString())/100)^2));
+                int spinnerPos = spinnerBG.getSelectedItemPosition()+1;
+                editDetails.putString("Age", age.getText().toString());
+                editDetails.putString("Height", height.getText().toString());
+                editDetails.putString("Weight", weight.getText().toString());
+                editDetails.putString("BMI", String.valueOf(BMIvalue));
+                editDetails.putInt("BloodG", spinnerPos);
+                editDetails.commit();
+
+                Toast toast = Toast.makeText(getActivity(), "Details Saved Successfully", Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        });
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
