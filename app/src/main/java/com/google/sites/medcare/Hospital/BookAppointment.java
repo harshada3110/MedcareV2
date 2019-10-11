@@ -44,6 +44,9 @@ public class BookAppointment extends AppCompatActivity implements TimePickerDial
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_appointment);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         Send=findViewById(R.id.pushbtn);
         UName=findViewById(R.id.edittextusername);
         UNumber=findViewById(R.id.edittextusernumber);
@@ -249,5 +252,11 @@ public class BookAppointment extends AppCompatActivity implements TimePickerDial
         //   UTime.setHint(""+hourOfDay+":"+minute);
         time=hourOfDay+":"+minute;
         UTime.getEditText().setText(time);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

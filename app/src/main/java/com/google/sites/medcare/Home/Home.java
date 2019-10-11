@@ -24,6 +24,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -32,7 +33,6 @@ import com.google.sites.medcare.AboutUs;
 import com.google.sites.medcare.Appointments.RequestedAppointments;
 import com.google.sites.medcare.Camps.CampsFragment;
 import com.google.sites.medcare.News.NewsFragment;
-import com.google.sites.medcare.PatientHistory.Appointments;
 import com.google.sites.medcare.R;
 import com.google.sites.medcare.Reminder.Injection;
 import com.google.sites.medcare.Reminder.medicine.MedicinePresenter;
@@ -42,7 +42,12 @@ import com.google.sites.medcare.SignInSignUp.SignIn;
 import com.google.sites.medcare.UserDetails.UserFragment;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
+
+import io.kommunicate.KmConversationBuilder;
+import io.kommunicate.callbacks.KmCallback;
 
 public class Home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -219,8 +224,8 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 break;
 
             case R.id.nav_pathis:
-                Intent openPathis = new Intent(Home.this, Appointments.class);
-                startActivity(openPathis);
+                /*Intent openPathis = new Intent(Home.this, Appointments.class);
+                startActivity(openPathis);*/
                 break;
 
             case R.id.nav_pendapps:
@@ -237,6 +242,24 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 Intent openAbout = new Intent(Home.this, AboutUs.class);
                 startActivity(openAbout);
                 break;
+            case R.id.nav_bot:
+                List<String> agentList = new ArrayList();
+                agentList.add("agent1@yourdomain.com"); //add your agentID
+                List<String> botList = new ArrayList();
+                botList.add("medcare-ffgte"); //enter your integrated bot Ids
+                new KmConversationBuilder(this).launchConversation(new KmCallback() {
+                    @Override
+                    public void onSuccess(Object message) {
+                        Log.d("Conversation", "Success : " + message);
+                    }
+
+                    @Override
+                    public void onFailure(Object error) {
+                        Log.d("Conversation", "Failure : " + error);
+                    }
+                });
+                Toast toast = Toast.makeText(this, "Loading MedBot", Toast.LENGTH_SHORT);
+                toast.show();
         }
         return true;
     }

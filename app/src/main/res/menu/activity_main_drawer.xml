@@ -18,15 +18,15 @@
             android:icon="@drawable/history"
             android:title="@string/patient_history" />
         <item
+            android:id="@+id/nav_bot"
+            android:checkable="false"
+            android:icon="@drawable/chat"
+            android:title="@string/medbot" />
+        <item
             android:id="@+id/nav_settings"
             android:checkable="false"
             android:icon="@drawable/settings1"
             android:title="@string/settings" />
-        <item
-            android:id="@+id/nav_aboutus"
-            android:checkable="false"
-            android:icon="@drawable/about_us"
-            android:title="@string/about_us" />
     </group>
 
     <item android:title="@string/communicate">
@@ -39,6 +39,11 @@
                 android:id="@+id/nav_feedback"
                 android:icon="@drawable/nav_feedback"
                 android:title="@string/feedback" />
+            <item
+                android:id="@+id/nav_aboutus"
+                android:checkable="false"
+                android:icon="@drawable/about_us"
+                android:title="@string/about_us" />
         </menu>
     </item>
 

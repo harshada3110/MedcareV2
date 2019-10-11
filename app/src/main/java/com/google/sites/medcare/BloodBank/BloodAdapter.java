@@ -47,6 +47,15 @@ public class BloodAdapter extends RecyclerView.Adapter<BloodAdapter.BloodViewHol
         holder.BloodBankName.setText(blood.getName());
         holder.BloodBankAddress.setText(blood.getAddress());
 
+        holder.AbPos.setText(Integer.toString(blood.getABpos()));
+        holder.AbNeg.setText(Integer.toString(blood.getABneg()));
+        holder.APos.setText(Integer.toString(blood.getApos()));
+        holder.ANeg.setText(Integer.toString(blood.getAneg()));
+        holder.BPos.setText(Integer.toString(blood.getBpos()));
+        holder.BNeg.setText(Integer.toString(blood.getBneg()));
+        holder.OPos.setText(Integer.toString(blood.getOpos()));
+        holder.ONeg.setText(Integer.toString(blood.getOneg()));
+
         /*holder.BloodCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,56 +104,56 @@ public class BloodAdapter extends RecyclerView.Adapter<BloodAdapter.BloodViewHol
             }
         });
 
-        if(holder.AbPosVal==1){
+        if(holder.AbPosVal>=1){
             Picasso.get().load(R.drawable.check).into(holder.AbPosImg);
         }
         else{
             Picasso.get().load(R.drawable.cross).into(holder.AbPosImg);
         }
 
-        if(holder.AbNegVal==1){
+        if(holder.AbNegVal>=1){
             Picasso.get().load(R.drawable.check).into(holder.AbNegImg);
         }
         else{
             Picasso.get().load(R.drawable.cross).into(holder.AbNegImg);
         }
 
-        if(holder.APosVal==1){
+        if(holder.APosVal>=1){
             Picasso.get().load(R.drawable.check).into(holder.APosImg);
         }
         else{
             Picasso.get().load(R.drawable.cross).into(holder.APosImg);
         }
 
-        if(holder.ANegVal==1){
+        if(holder.ANegVal>=1){
             Picasso.get().load(R.drawable.check).into(holder.ANegImg);
         }
         else{
             Picasso.get().load(R.drawable.cross).into(holder.ANegImg);
         }
 
-        if(holder.BPosVal==1){
+        if(holder.BPosVal>=1){
             Picasso.get().load(R.drawable.check).into(holder.BPosImg);
         }
         else{
             Picasso.get().load(R.drawable.cross).into(holder.BPosImg);
         }
 
-        if(holder.BNegVal==1){
+        if(holder.BNegVal>=1){
             Picasso.get().load(R.drawable.check).into(holder.BNegImg);
         }
         else{
             Picasso.get().load(R.drawable.cross).into(holder.BNegImg);
         }
 
-        if(holder.OPosVal==1){
+        if(holder.OPosVal>=1){
             Picasso.get().load(R.drawable.check).into(holder.OPosImg);
         }
         else{
             Picasso.get().load(R.drawable.cross).into(holder.OPosImg);
         }
 
-        if(holder.ONegVal==1){
+        if(holder.ONegVal>=1){
             Picasso.get().load(R.drawable.check).into(holder.ONegImg);
         }
         else{
@@ -181,6 +190,7 @@ public class BloodAdapter extends RecyclerView.Adapter<BloodAdapter.BloodViewHol
         ImageView arrow;
         ConstraintLayout constraintLayoutbb;
         ImageView AbPosImg,AbNegImg,APosImg,ANegImg,BPosImg,BNegImg,OPosImg,ONegImg;
+        TextView AbPos,AbNeg,APos,ANeg,BPos,BNeg,OPos,ONeg;
         int AbPosVal,AbNegVal,APosVal,ANegVal,BPosVal,BNegVal,OPosVal,ONegVal;
 
         public BloodViewHolder(@NonNull View itemView) {
@@ -201,6 +211,15 @@ public class BloodAdapter extends RecyclerView.Adapter<BloodAdapter.BloodViewHol
             ANegImg = itemView.findViewById(R.id.ANegImg);
             BPosImg = itemView.findViewById(R.id.BPosImg);
             BNegImg = itemView.findViewById(R.id.BNegImg);
+
+            AbPos = itemView.findViewById(R.id.textViewABpos);
+            AbNeg = itemView.findViewById(R.id.textViewABneg);
+            APos = itemView.findViewById(R.id.textViewApos);
+            ANeg = itemView.findViewById(R.id.textViewAneg);
+            BPos = itemView.findViewById(R.id.textViewBpos);
+            BNeg = itemView.findViewById(R.id.textViewBneg);
+            OPos = itemView.findViewById(R.id.textViewOpos);
+            ONeg = itemView.findViewById(R.id.textViewOneg);
         }
     }
 }

@@ -287,11 +287,114 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/hp_simplified_regular"
                 android:text="Availability"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@+id/bloodgroup"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/unit"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/bloodgroup"
                 app:layout_constraintTop_toTopOf="@+id/bloodgroup" />
+
+            <TextView
+                android:id="@+id/unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/hp_simplified_regular"
+                android:text="Unit"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/availability"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/availability"
+                app:layout_constraintTop_toTopOf="@+id/availability" />
+
+            <TextView
+                android:id="@+id/textViewApos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="111"
+                app:layout_constraintBottom_toBottomOf="@+id/APosImg"
+                app:layout_constraintEnd_toEndOf="@+id/unit"
+                app:layout_constraintHorizontal_bias="0.531"
+                app:layout_constraintStart_toStartOf="@+id/unit"
+                app:layout_constraintTop_toTopOf="@+id/APosImg"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/textViewAneg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="222"
+                app:layout_constraintBottom_toBottomOf="@+id/ANegImg"
+                app:layout_constraintEnd_toEndOf="@+id/unit"
+                app:layout_constraintStart_toStartOf="@+id/unit"
+                app:layout_constraintTop_toTopOf="@+id/ANegImg"
+                tools:layout_editor_absoluteX="296dp" />
+
+            <TextView
+                android:id="@+id/textViewBpos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="333"
+                app:layout_constraintBottom_toBottomOf="@+id/BPosImg"
+                app:layout_constraintEnd_toEndOf="@+id/unit"
+                app:layout_constraintStart_toStartOf="@+id/unit"
+                app:layout_constraintTop_toTopOf="@+id/BPosImg"
+                tools:layout_editor_absoluteX="265dp" />
+
+            <TextView
+                android:id="@+id/textViewBneg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="444"
+                app:layout_constraintBottom_toBottomOf="@+id/BNegImg"
+                app:layout_constraintEnd_toEndOf="@+id/unit"
+                app:layout_constraintStart_toStartOf="@+id/unit"
+                app:layout_constraintTop_toTopOf="@+id/BNegImg"
+                tools:layout_editor_absoluteX="258dp" />
+
+            <TextView
+                android:id="@+id/textViewOpos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="555"
+                app:layout_constraintBottom_toBottomOf="@+id/OPosImg"
+                app:layout_constraintEnd_toEndOf="@+id/unit"
+                app:layout_constraintStart_toStartOf="@+id/unit"
+                app:layout_constraintTop_toTopOf="@+id/OPosImg"
+                tools:layout_editor_absoluteX="263dp" />
+
+            <TextView
+                android:id="@+id/textViewOneg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="666"
+                app:layout_constraintBottom_toBottomOf="@+id/ONegImg"
+                app:layout_constraintEnd_toEndOf="@+id/unit"
+                app:layout_constraintStart_toStartOf="@+id/unit"
+                app:layout_constraintTop_toTopOf="@+id/ONegImg"
+                tools:layout_editor_absoluteX="245dp" />
+
+            <TextView
+                android:id="@+id/textViewABpos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="777"
+                app:layout_constraintBottom_toBottomOf="@+id/AbPosImg"
+                app:layout_constraintEnd_toEndOf="@+id/unit"
+                app:layout_constraintStart_toStartOf="@+id/unit"
+                app:layout_constraintTop_toTopOf="@+id/AbPosImg"
+                tools:layout_editor_absoluteX="278dp" />
+
+            <TextView
+                android:id="@+id/textViewABneg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="888"
+                app:layout_constraintBottom_toBottomOf="@+id/AbNegImg"
+                app:layout_constraintEnd_toEndOf="@+id/unit"
+                app:layout_constraintStart_toStartOf="@+id/unit"
+                app:layout_constraintTop_toTopOf="@+id/AbNegImg"
+                tools:layout_editor_absoluteX="230dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

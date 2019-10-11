@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+
+<resources xmlns:tools="http://schemas.android.com/tools">
     <color name="colorPrimary">#E8384D</color>
     <color name="colorPrimaryDark">#B52032</color>
     <color name="colorAccent">#D81B61</color>
@@ -12,4 +13,9 @@
     <drawable name="touchFeedback">#CFD8DC</drawable>
     <color name="white">#fafafa</color>
     <color name="white_pressed">#f1f1f1</color>
+
+    <color name="applozic_theme_color" tools:override="true">#E8384D</color>     // Theme color
+    <color name="applozic_theme_color_primary" tools:override="true">#E8384D</color>
+    <color name="applozic_theme_color_primary_dark" tools:override="true">#B52032</color>
+    <color name="message_status_icon_colors" tools:override="true">#E8384D</color>
 </resources>

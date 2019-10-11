@@ -33,6 +33,9 @@ public class EveryAppointment extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_every_appointment);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         HospName = findViewById(R.id.hospTextView);
         Specialist = findViewById(R.id.specTextView);
         Date = findViewById(R.id.dateTextView);
@@ -83,5 +86,11 @@ public class EveryAppointment extends AppCompatActivity {
         Prescription.setText(DisplayPrescription);
         Comments.setText(DisplayComments);
         Specialist.setText(DisplaySpecialist);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

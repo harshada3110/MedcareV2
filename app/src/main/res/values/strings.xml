@@ -26,7 +26,7 @@
     <string name="hospital">Hospital</string>
     <string name="pharmacy">Pharmacy</string>
     <string name="ambulance">Ambulance</string>
-    <string name="pathology_lab">Pathology Lab</string>
+    <string name="pathology_lab">Diagnostic Lab</string>
     <string name="title_activity_settings" translatable="false">Settings</string>
     <string name="language">Language</string>
     <string name="camps">Health Camps</string>
@@ -66,5 +66,6 @@
     <string name="about">About</string>
     <string name="facilities">Facilities</string>
     <string name="book_appointment">Book Appointment</string>
+    <string name="medbot">MedBot</string>
 
 </resources>

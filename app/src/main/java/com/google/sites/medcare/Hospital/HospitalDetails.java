@@ -28,6 +28,9 @@ public class HospitalDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hospital_details);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         HospName=findViewById(R.id.hospTextView);
         HospImage=findViewById((R.id.imageViewHosp));
         HospAddress=findViewById(R.id.addTextView);
@@ -85,5 +88,11 @@ public class HospitalDetails extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

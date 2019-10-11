@@ -60,5 +60,6 @@
     <string name="about">About</string>
     <string name="facilities">Facilities</string>
     <string name="book_appointment">Book Appointment</string>
+    <string name="medbot">MedBot</string>
 
 </resources>

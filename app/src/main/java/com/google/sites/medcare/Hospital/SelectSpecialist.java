@@ -21,13 +21,16 @@ import com.google.sites.medcare.R;
 public class SelectSpecialist extends AppCompatActivity {
 
     ListView listView;
-    String mTitle[]={"Cardiologist","Dentist","ENT","Gynaecologist","Neurologist","Ontologist","Physiotherapist"};
-    int images[]={R.drawable.pulmonology,R.drawable.radiology,R.drawable.neurology,R.drawable.oncology,R.drawable.opthamology,R.drawable.opthamology,R.drawable.nephrologist};
+    String mTitle[]={"Cardiologist","Dentist","ENT","Gynaecologist","Neurologist","Oncologist","Gastroenterologists"};
+    int images[]={R.drawable.pulmonology,R.drawable.radiology,R.drawable.neurology,R.drawable.oncology,R.drawable.opthamology,R.drawable.cancer,R.drawable.nephrologist};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_specialist);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         listView = findViewById(R.id.domain_list);
 
@@ -80,5 +83,11 @@ public class SelectSpecialist extends AppCompatActivity {
 
             return row;
         }
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

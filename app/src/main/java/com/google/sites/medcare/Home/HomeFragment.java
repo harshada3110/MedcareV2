@@ -95,13 +95,13 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        pharm.setOnClickListener(new View.OnClickListener() {
+        /*pharm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent openHosp = new Intent(getActivity(), Pharmacy.class);
                 startActivity(openHosp);
             }
-        });
+        });*/
 
         path.setOnClickListener(new View.OnClickListener() {
             @Override
