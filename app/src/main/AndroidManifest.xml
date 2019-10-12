@@ -13,11 +13,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PhasesOfPregnancy"
+        <activity android:name=".MaternalCare.PhasesOfPregnancy"
             android:label="Phases of Pregnancy"/>
-        <activity android:name=".MaternalDiet"
+        <activity android:name=".MaternalCare.MaternalDiet"
             android:label="Diet"/>
-        <activity android:name=".HowsMyBaby"
+        <activity android:name=".MaternalCare.HowsMyBaby"
             android:label="How's my Baby?"/>
         <activity
             android:name=".Hospital.HospitalDetails"

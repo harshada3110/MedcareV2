@@ -1,8 +1,10 @@
-package com.google.sites.medcare;
+package com.google.sites.medcare.MaternalCare;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.google.sites.medcare.R;
 
 public class PhasesOfPregnancy extends AppCompatActivity {
 
