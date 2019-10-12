@@ -13,6 +13,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".PhasesOfPregnancy"
+            android:label="Phases of Pregnancy"/>
+        <activity android:name=".MaternalDiet"
+            android:label="Diet"/>
+        <activity android:name=".HowsMyBaby"
+            android:label="How's my Baby?"/>
         <activity
             android:name=".Hospital.HospitalDetails"
             android:label="Hospital" />
@@ -54,7 +60,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".PathologyLab.PathologyLab"
-            android:label="Pathology Lab" />
+            android:label="Diagnostic Lab" />
         <activity
             android:name=".Hospital.Hospital"
             android:label="Hospital" />

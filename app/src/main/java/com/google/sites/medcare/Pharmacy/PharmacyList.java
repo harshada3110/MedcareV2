@@ -6,6 +6,14 @@ public class PharmacyList {
     private String Location;
     private String Name;
     private String Phone;
+    /*
+    private String Aspirin;
+    private String Benadryl;
+    private String Ibuprofen;
+    private String Lisinopril;
+    private String Morphine;
+    private String Paracetamol;
+    */
 
     public PharmacyList(){
 

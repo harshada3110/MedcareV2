@@ -7,30 +7,20 @@ public class PathologyList {
     private String Location;
     private String Name;
     private String Phone;
+    private String Facilities;
 
     public PathologyList(){
 
     }
 
-    public PathologyList(String address, String loc, String location, String name, String phone) {
+    public PathologyList(String address, String loc, String location, String name, String phone, String facilities) {
         Address = address;
         Loc = loc;
         Location = location;
         Name = name;
         Phone = phone;
+        Facilities = facilities;
     }
-
-    public String getPhone() { return Phone; }
-
-    public void setPhone(String phone) { Phone = phone; }
-
-
-    public String getLoc() { return Loc;}
-
-    public void setLoc(String loc) {
-        Loc = loc;
-    }
-
 
     public String getAddress() {
         return Address;
@@ -40,7 +30,13 @@ public class PathologyList {
         Address = address;
     }
 
+    public String getLoc() {
+        return Loc;
+    }
 
+    public void setLoc(String loc) {
+        Loc = loc;
+    }
 
     public String getLocation() {
         return Location;
@@ -50,7 +46,6 @@ public class PathologyList {
         Location = location;
     }
 
-
     public String getName() {
         return Name;
     }
@@ -59,5 +54,19 @@ public class PathologyList {
         Name = name;
     }
 
+    public String getPhone() {
+        return Phone;
+    }
 
+    public void setPhone(String phone) {
+        Phone = phone;
+    }
+
+    public String getFacilities() {
+        return Facilities;
+    }
+
+    public void setFacilities(String facilities) {
+        Facilities = facilities;
+    }
 }

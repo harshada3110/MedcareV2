@@ -38,6 +38,8 @@ public class PathologyAdapter extends RecyclerView.Adapter<PathologyAdapter.Path
         final PathologyList pathologyList = pathList.get(position);
         holder.Address.setText(pathologyList.getAddress());
         holder.Name.setText(pathologyList.getName());
+        holder.Facilities.setText(pathologyList.getFacilities());
+
         holder.Map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,6 +67,7 @@ public class PathologyAdapter extends RecyclerView.Adapter<PathologyAdapter.Path
         TextView Name;
         ImageView Call;
         ImageView Map;
+        TextView Facilities;
 
         public PathologyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -73,6 +76,7 @@ public class PathologyAdapter extends RecyclerView.Adapter<PathologyAdapter.Path
             Map=itemView.findViewById(R.id.imageViewMapP);
             Call = itemView.findViewById(R.id.imageViewCallP);
             Name = itemView.findViewById(R.id.pathology_name);
+            Facilities = itemView.findViewById(R.id.textViewFac);
         }
     }
 

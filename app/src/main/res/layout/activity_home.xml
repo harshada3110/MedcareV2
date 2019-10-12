@@ -37,7 +37,7 @@
             app:itemTextColor="@color/colorPrimary"
             app:labelVisibilityMode="auto"
             android:theme="@style/Widget.Design.BottomNavigationView"
-            app:menu="@menu/nav_items">
+            app:menu="@menu/bottom_nav_items">
 
         </com.google.android.material.bottomnavigation.BottomNavigationView>
 
@@ -50,7 +50,7 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/activity_main_drawer">
+        app:menu="@menu/side_nav_items">
 
         <LinearLayout
             android:id="@+id/logoutLL"
