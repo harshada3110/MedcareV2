@@ -15,11 +15,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".BoneFracture"></activity>
-        <activity android:name=".SnakeBite" />
-        <activity android:name=".Burns" />
-        <activity android:name=".HeartAttack" />
-        <activity android:name=".QuickAccess" />
+        <activity android:name=".QuickAccess.BoneFracture"></activity>
+        <activity android:name=".QuickAccess.SnakeBite" />
+        <activity android:name=".QuickAccess.Burns" />
+        <activity android:name=".QuickAccess.HeartAttack" />
+        <activity android:name=".QuickAccess.QuickAccess" />
         <activity
             android:name=".MaternalCare.PhasesOfPregnancy"
             android:label="Phases of Pregnancy" />

@@ -1,4 +1,4 @@
-package com.google.sites.medcare;
+package com.google.sites.medcare.QuickAccess;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,9 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.google.android.material.snackbar.Snackbar;
-import com.google.sites.medcare.Home.Home;
-import com.google.sites.medcare.PatientHistory.Appointments;
+import com.google.sites.medcare.R;
 
 public class QuickAccess extends AppCompatActivity {
 
@@ -16,6 +14,9 @@ public class QuickAccess extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quick_access);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
 
     public void openSnake(View view) {
@@ -36,5 +37,11 @@ public class QuickAccess extends AppCompatActivity {
     public void openHeart(View view) {
         Intent openPathis = new Intent(QuickAccess.this, HeartAttack.class);
         startActivity(openPathis);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

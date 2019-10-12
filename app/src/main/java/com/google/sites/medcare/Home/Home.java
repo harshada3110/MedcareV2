@@ -34,6 +34,7 @@ import com.google.sites.medcare.Appointments.RequestedAppointments;
 import com.google.sites.medcare.Camps.CampsFragment;
 import com.google.sites.medcare.News.NewsFragment;
 import com.google.sites.medcare.PatientHistory.Appointments;
+import com.google.sites.medcare.QuickAccess.QuickAccess;
 import com.google.sites.medcare.R;
 import com.google.sites.medcare.Reminder.Injection;
 import com.google.sites.medcare.Reminder.medicine.MedicinePresenter;
@@ -237,6 +238,11 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             case R.id.nav_settings:
                 Intent openSettings = new Intent(Home.this, SettingsActivity.class);
                 startActivity(openSettings);
+                break;
+
+            case R.id.nav_quick:
+                Intent openQuick = new Intent(Home.this, QuickAccess.class);
+                startActivity(openQuick);
                 break;
 
             case R.id.nav_aboutus:

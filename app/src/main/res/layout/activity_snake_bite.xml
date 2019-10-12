@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SnakeBite">
+    tools:context=".QuickAccess.SnakeBite">
 
     <TextView
         android:id="@+id/textView14"
@@ -83,8 +83,8 @@
 
     <ImageView
         android:id="@+id/image1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="190dp"
+        android:layout_height="200dp"
         android:layout_marginTop="25dp"
         app:layout_constraintEnd_toStartOf="@+id/image2"
         app:layout_constraintHorizontal_bias="0.5"
@@ -94,8 +94,8 @@
 
     <ImageView
         android:id="@+id/image2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="190dp"
+        android:layout_height="200dp"
         app:layout_constraintBottom_toBottomOf="@+id/image1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

@@ -26,7 +26,7 @@
             android:id="@+id/nav_quick"
             android:checkable="false"
             android:icon="@drawable/quick"
-            android:title="Quick" />
+            android:title="Quick Access" />
         <item
             android:id="@+id/nav_settings"
             android:checkable="false"
