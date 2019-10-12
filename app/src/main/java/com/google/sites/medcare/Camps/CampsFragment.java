@@ -1,18 +1,28 @@
 package com.google.sites.medcare.Camps;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -38,6 +48,8 @@ public class CampsFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -48,6 +60,8 @@ public class CampsFragment extends Fragment {
     private CampAdapter adapter;
     private List<Camps> campList;
     private ProgressBar progressBar;
+    private NotificationManagerCompat notificationManager;
+
 
     private OnFragmentInteractionListener mListener;
 
@@ -91,7 +105,7 @@ public class CampsFragment extends Fragment {
         CampList = view.findViewById(R.id.camprecycleview);
         CampList.setHasFixedSize(true);
         CampList.setLayoutManager(new LinearLayoutManager(getActivity()));
-
+        notificationManager = NotificationManagerCompat.from(getActivity().getApplicationContext());
         progressBar = view.findViewById(R.id.progress_bar);
 
         campList = new ArrayList<>();
@@ -99,9 +113,88 @@ public class CampsFragment extends Fragment {
         CampList.setAdapter(adapter);
         mydB= FirebaseDatabase.getInstance().getReference("Camps");
 
+        mydB.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                campList.clear();
+                if (progressBar != null) {
+                    progressBar.setVisibility(View.GONE);
+                }
+                if(dataSnapshot.exists()){
+
+                    for(DataSnapshot snapshot:dataSnapshot.getChildren()){
+                        Camps camps = snapshot.getValue(Camps.class);
+                        campList.add(camps);
+                    }
+                    adapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        createNotificationChannel();
+
+        mydB.keepSynced(true);
+
+        mydB.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                Log.v("Ola", "HUa");
+                Notification notification = new NotificationCompat.Builder(getActivity(), "camp_channel_01")
+                        .setContentTitle("New Camp Added")
+                        .setContentText("Some text")
+                        .setStyle(new NotificationCompat.BigTextStyle()
+                        .bigText("A new camp has been added in your area."))
+                        .setSmallIcon(R.drawable.app_icon)
+                        .build();
+
+                notificationManager.notify(null, 0, notification);
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
         mydB.addListenerForSingleValueEvent(valueEventListener);
 
         return view;
+    }
+
+    private void createNotificationChannel() {
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "Camps";
+            String description = "New Camps";
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel("camp_channel_01", name, importance);
+            channel.setDescription(description);
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviors after this
+            NotificationManager notificationManager = getActivity().getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
     }
 
     ValueEventListener valueEventListener = new ValueEventListener() {

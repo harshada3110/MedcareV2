@@ -48,6 +48,7 @@ public class UserFragment extends Fragment {
     private String mParam1;
     private String mParam2;
     private ImageView DPimage;
+    private EditText emer;
     private TextView name;
     private TextView BMI;
     private EditText age;
@@ -100,11 +101,12 @@ public class UserFragment extends Fragment {
 
         String uname = userDetails.getString("Name", "MedCare");
         String DP = userDetails.getString("DP", null);
-        String nage = userDetails.getString("Age", "-");
-        String nheight = userDetails.getString("Height", "0");
-        String nweight = userDetails.getString("Weight", "0");
-        String nBMI = userDetails.getString("BMI", "-");
+        String nage = userDetails.getString("Age", null);
+        String nheight = userDetails.getString("Height", null);
+        String nweight = userDetails.getString("Weight", null);
+        String nBMI = userDetails.getString("BMI", null);
         int nBG = userDetails.getInt("BloodG", 0);
+        String nEmer = userDetails.getString("EmerContact", null);
 
         List<String> bloodG=new ArrayList<>();
         bloodG.add(0,"Choose");
@@ -125,10 +127,12 @@ public class UserFragment extends Fragment {
         age = view.findViewById(R.id.ageEditText);
         height = view.findViewById(R.id.heightEditText);
         weight = view.findViewById(R.id.weightEditText);
+        emer = view.findViewById(R.id.emerEditText);
         BMI = view.findViewById(R.id.textViewBMIValue);
         spinnerBG = view.findViewById(R.id.spinnerBloodGroup);
         save = view.findViewById(R.id.saveBtn);
         DPimage = view.findViewById(R.id.imageViewDP);
+
 
         name.setText(uname);
         Picasso.get().load(DP).transform(new CircleTransform()).fit().into(DPimage);
@@ -137,6 +141,7 @@ public class UserFragment extends Fragment {
         height.setText(nheight);
         weight.setText(nweight);
         BMI.setText(nBMI);
+        emer.setText(nEmer);
 
         spinnerBG.setAdapter(dataAdapter);
         spinnerBG.setSelection(nBG);
@@ -146,12 +151,39 @@ public class UserFragment extends Fragment {
             public void onClick(View view) {
 
                 int BMIvalue = (Integer.parseInt(weight.getText().toString())/((Integer.parseInt(height.getText().toString())/100)^2));
+                String BMIstate = null;
+                if (BMIvalue<15){
+                    BMIstate = "Very severely underweight";
+                }
+                else if (BMIvalue<=16){
+                    BMIstate = "Severely underweight";
+                }
+                else if (BMIvalue<=18.5){
+                    BMIstate = "Underweight";
+                }
+                else if (BMIvalue<=25){
+                    BMIstate = "Normal (healthy weight)";
+                }
+                else if (BMIvalue<=30){
+                    BMIstate = "Overweight";
+                }
+                else if (BMIvalue<=35){
+                    BMIstate = "Moderately obese";
+                }
+                else if (BMIvalue<=40){
+                    BMIstate = "Severely obese";
+                }
+                else if (BMIvalue>40){
+                    BMIstate = "Very severely obese";
+                }
+
                 int spinnerPos = spinnerBG.getSelectedItemPosition()+1;
                 editDetails.putString("Age", age.getText().toString());
                 editDetails.putString("Height", height.getText().toString());
                 editDetails.putString("Weight", weight.getText().toString());
-                editDetails.putString("BMI", String.valueOf(BMIvalue));
+                editDetails.putString("BMI", String.valueOf(BMIvalue)+" ["+BMIstate+"]");
                 editDetails.putInt("BloodG", spinnerPos);
+                editDetails.putString("EmerContact", emer.getText().toString());
                 editDetails.commit();
 
                 Toast toast = Toast.makeText(getActivity(), "Details Saved Successfully", Toast.LENGTH_SHORT);

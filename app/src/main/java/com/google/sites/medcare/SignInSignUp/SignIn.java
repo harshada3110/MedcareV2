@@ -197,11 +197,12 @@ public class SignIn extends AppCompatActivity {
             editDetails.putString("Name", personName);
             editDetails.putString("Email", personEmail);
             editDetails.putString("DP", personPhoto.toString());
-            editDetails.putString("Age", "-");
-            editDetails.putString("Height", "-");
-            editDetails.putString("Weight", "-");
-            editDetails.putString("BMI", "-");
+            editDetails.putString("Age", null);
+            editDetails.putString("Height", null);
+            editDetails.putString("Weight", null);
+            editDetails.putString("BMI", null);
             editDetails.putInt("BloodG", 0);
+            editDetails.putString("EmerContact", null);
             editDetails.commit();
 
             String name = userDetails.getString("Name", "med");

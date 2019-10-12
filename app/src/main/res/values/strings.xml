@@ -67,5 +67,6 @@
     <string name="facilities">Facilities</string>
     <string name="book_appointment">Book Appointment</string>
     <string name="medbot">MedBot</string>
+    <string name="emergency_contact_no">Emergency Contact No.</string>
 
 </resources>

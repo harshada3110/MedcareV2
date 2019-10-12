@@ -9,6 +9,7 @@
         android:title="@string/news" />
     <item
         android:id="@+id/rem_menu"
+        android:enabled="true"
         android:icon="@drawable/reminders"
         android:title="@string/reminders" />
     <item

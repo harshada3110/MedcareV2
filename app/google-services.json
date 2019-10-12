@@ -8,6 +8,191 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:84945406511:android:6fe0987be2e14dcaf914da",
+        "android_client_info": {
+          "package_name": "com.example.bloodbankmed"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "84945406511-bbcu2l7i7e936p64mr0mli1t8sj5cl49.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bloodbankmed",
+            "certificate_hash": "b311d62a4f4a4057945036e18f68ac4ae238096b"
+          }
+        },
+        {
+          "client_id": "84945406511-5sepkc87ceavqlsin8b4hp9jkc6m7ne9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAi0nPNRnauWsyQ6X11-zZtkQSz71lI6ls"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "84945406511-5sepkc87ceavqlsin8b4hp9jkc6m7ne9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:84945406511:android:a169c625534bf466f914da",
+        "android_client_info": {
+          "package_name": "com.example.demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "84945406511-59u0i4krupb6p5hevuiui8a7mdiir16j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.demo",
+            "certificate_hash": "2113a88af59da7068558db3578aa3550dd97d94c"
+          }
+        },
+        {
+          "client_id": "84945406511-5sepkc87ceavqlsin8b4hp9jkc6m7ne9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAi0nPNRnauWsyQ6X11-zZtkQSz71lI6ls"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "84945406511-5sepkc87ceavqlsin8b4hp9jkc6m7ne9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:84945406511:android:0e3d3d590b1128cef914da",
+        "android_client_info": {
+          "package_name": "com.example.medcareambulance"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "84945406511-c6ee3v3i5kok3ch1o7m2nv7a6e7ohdji.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.medcareambulance",
+            "certificate_hash": "2113a88af59da7068558db3578aa3550dd97d94c"
+          }
+        },
+        {
+          "client_id": "84945406511-5sepkc87ceavqlsin8b4hp9jkc6m7ne9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAi0nPNRnauWsyQ6X11-zZtkQSz71lI6ls"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "84945406511-5sepkc87ceavqlsin8b4hp9jkc6m7ne9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:84945406511:android:57304d107053ef1bf914da",
+        "android_client_info": {
+          "package_name": "com.example.medcareambv2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "84945406511-95bm27aarelnmqsf9q0f4988775m3vp4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.medcareambv2",
+            "certificate_hash": "2113a88af59da7068558db3578aa3550dd97d94c"
+          }
+        },
+        {
+          "client_id": "84945406511-5sepkc87ceavqlsin8b4hp9jkc6m7ne9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAi0nPNRnauWsyQ6X11-zZtkQSz71lI6ls"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "84945406511-5sepkc87ceavqlsin8b4hp9jkc6m7ne9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:84945406511:android:ee01beba8f9ea2d7f914da",
+        "android_client_info": {
+          "package_name": "com.example.naam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "84945406511-0nlsmb470hc0t1075brdkn75khreugbs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.naam",
+            "certificate_hash": "2113a88af59da7068558db3578aa3550dd97d94c"
+          }
+        },
+        {
+          "client_id": "84945406511-5sepkc87ceavqlsin8b4hp9jkc6m7ne9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAi0nPNRnauWsyQ6X11-zZtkQSz71lI6ls"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "84945406511-5sepkc87ceavqlsin8b4hp9jkc6m7ne9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:84945406511:android:7b966bff0bec9cc8f914da",
         "android_client_info": {
           "package_name": "com.google.sites.medcare"
