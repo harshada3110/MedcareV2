@@ -52,7 +52,7 @@
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/side_nav_items">
 
-        <LinearLayout
+        <!--<LinearLayout
             android:id="@+id/logoutLL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -81,7 +81,7 @@
                 android:textColor="#202020"
                 android:textSize="14sp" />
 
-        </LinearLayout>
+        </LinearLayout>-->
     </com.google.android.material.navigation.NavigationView>
 
 </androidx.drawerlayout.widget.DrawerLayout>

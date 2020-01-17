@@ -100,5 +100,6 @@ The bone has pierced the skin.\n
 You suspect a bone is broken in the neck, head or back.</string>
 
     <string name="burn_info">Cool the burn.\nRemove rings or other tight items.\nApply lotion.\nBandage the burn.\nTake a pain reliever. </string>
+    <string name="quick_access">Quick Access</string>
 
 </resources>

@@ -49,6 +49,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.sites.medcare.AboutUs;
 import com.google.sites.medcare.Accident.ShakeDetector;
 import com.google.sites.medcare.Accident.ShakeService;
+import com.google.sites.medcare.Ambulance.Ambulance;
 import com.google.sites.medcare.Appointments.RequestedAppointments;
 import com.google.sites.medcare.Camps.CampsFragment;
 import com.google.sites.medcare.News.NewsFragment;
@@ -391,6 +392,11 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 startActivity(openPathis);
                 break;
 
+            case R.id.nav_ambulance:
+                Intent openAmbu = new Intent(Home.this, Ambulance.class);
+                startActivity(openAmbu);
+                break;
+
             case R.id.nav_pendapps:
                 Intent openPendapps = new Intent(Home.this, RequestedAppointments.class);
                 startActivity(openPendapps);
@@ -428,6 +434,15 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 });
                 Toast toast = Toast.makeText(this, "Loading MedBot", Toast.LENGTH_SHORT);
                 toast.show();
+            case R.id.nav_logout:
+                FirebaseAuth.getInstance().signOut();
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean("Value", true);
+                editor.commit();
+                Log.d("SignInStatus", "True");
+                Intent openSignIn = new Intent(Home.this, SignIn.class);
+                startActivity(openSignIn);
+                break;
         }
         return true;
     }

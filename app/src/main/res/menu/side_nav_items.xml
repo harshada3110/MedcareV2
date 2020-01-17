@@ -8,6 +8,11 @@
             android:icon="@drawable/nav_home"
             android:title="@string/home" />
         <item
+            android:id="@+id/nav_ambulance"
+            android:checkable="false"
+            android:icon="@drawable/siren"
+            android:title="@string/ambulance" />
+        <item
             android:id="@+id/nav_pendapps"
             android:checkable="false"
             android:icon="@drawable/nav_apps"
@@ -26,7 +31,7 @@
             android:id="@+id/nav_quick"
             android:checkable="false"
             android:icon="@drawable/quick"
-            android:title="Quick Access" />
+            android:title="@string/quick_access" />
         <item
             android:id="@+id/nav_settings"
             android:checkable="false"
@@ -52,6 +57,12 @@
         </menu>
     </item>
 
-
+    <group>
+        <item
+            android:id="@+id/nav_logout"
+            android:checkable="false"
+            android:icon="@drawable/logout"
+            android:title="@string/sign_out" />
+    </group>
 
 </menu>

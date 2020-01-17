@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,13 +19,20 @@ public class FilterPage extends AppCompatActivity {
     private Spinner spinner_state, spinner_ration, spinner_category;
     String itemstate,itemration,itemcategory;
 
+    Button search;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.scheme_filter_page);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         spinner_state = findViewById(R.id.spinnerState);
         spinner_ration = findViewById(R.id.spinnerRationColor);
         spinner_category = findViewById(R.id.spinnerCategory);
+        search = findViewById(R.id.search);
 
         //Populate list for states
         List<String> states = new ArrayList<>();
@@ -53,18 +61,18 @@ public class FilterPage extends AppCompatActivity {
 
         //populate the spinner1
         ArrayAdapter<String> dataAdapter;
-        dataAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, states);
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        dataAdapter = new ArrayAdapter(this, R.layout.spinner_style, states);
+        dataAdapter.setDropDownViewResource(R.layout.spinner_style);
 
         //populate the spinner2
         ArrayAdapter<String> dataAdapter2;
-        dataAdapter2 = new ArrayAdapter(this, android.R.layout.simple_spinner_item, ration);
-        dataAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        dataAdapter2 = new ArrayAdapter(this, R.layout.spinner_style, ration);
+        dataAdapter2.setDropDownViewResource(R.layout.spinner_style);
 
         //populate the spinner3
         ArrayAdapter<String> dataAdapter3;
-        dataAdapter3 = new ArrayAdapter(this, android.R.layout.simple_spinner_item, category);
-        dataAdapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        dataAdapter3 = new ArrayAdapter(this, R.layout.spinner_style, category);
+        dataAdapter3.setDropDownViewResource(R.layout.spinner_style);
 
 
         //connecting adapter and spinner
@@ -126,6 +134,7 @@ public class FilterPage extends AppCompatActivity {
             }
         });
 
+        Intent intent = new Intent(FilterPage.this, SchemesList.class);
 
         spinner_category.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -134,18 +143,12 @@ public class FilterPage extends AppCompatActivity {
                     //do nothing
                 } else {
                     //on item selected
-
                     itemcategory = parent.getItemAtPosition(position).toString();
-                     Intent intent = new Intent(FilterPage.this, SchemesList.class);
 
                     // Sending value to another activity using intent.
                     intent.putExtra("SelectedState", itemstate);
                     intent.putExtra("SelectedRation", itemration);
                     intent.putExtra("SelectedCategory", itemcategory);
-
-
-
-                     startActivity(intent);
                 }
             }
 
@@ -156,5 +159,18 @@ public class FilterPage extends AppCompatActivity {
             }
         });
 
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(intent);
+            }
+        });
+
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

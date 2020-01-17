@@ -30,6 +30,10 @@ public class SchemesList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schemes);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         StateFinal=getIntent().getStringExtra("SelectedState");
         RationFinal=getIntent().getStringExtra("SelectedRation");
         CategoryFinal=getIntent().getStringExtra("SelectedCategory");
@@ -73,4 +77,10 @@ public class SchemesList extends AppCompatActivity {
 
         }
     };
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 }
