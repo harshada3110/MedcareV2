@@ -79,6 +79,13 @@
         <activity
             android:name=".Hospital.Hospital"
             android:label="Hospital" />
+        <activity
+            android:name=".Schemes.FilterPage"
+            android:label="Schemes" />
+        <activity
+            android:name=".Schemes.SchemesList"
+            android:label="Schemes" />
+
         <activity android:name=".SignInSignUp.SignUp" />
         <activity android:name=".SignInSignUp.SignIn" />
         <activity
@@ -100,6 +107,11 @@
         <activity
             android:name=".Reminder.report.MonthlyReportActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <service
+            android:name=".Accident.ShakeService"
+            android:enabled="true"
+            android:exported="true" />
 
         <meta-data
             android:name="preloaded_fonts"

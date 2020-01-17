@@ -19,6 +19,7 @@ import com.google.sites.medcare.PathologyLab.PathologyLab;
 import com.google.sites.medcare.Pharmacy.Pharmacy;
 import com.google.sites.medcare.R;
 import com.google.sites.medcare.Hospital.SelectSpecialist;
+import com.google.sites.medcare.Schemes.FilterPage;
 
 
 /**
@@ -122,7 +123,7 @@ public class HomeFragment extends Fragment {
         ambu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent openHosp = new Intent(getActivity(), Ambulance.class);
+                Intent openHosp = new Intent(getActivity(), FilterPage.class);
                 startActivity(openHosp);
             }
         });

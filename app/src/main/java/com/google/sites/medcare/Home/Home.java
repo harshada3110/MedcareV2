@@ -17,6 +17,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -30,6 +32,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.sites.medcare.AboutUs;
+import com.google.sites.medcare.Accident.ShakeDetector;
+import com.google.sites.medcare.Accident.ShakeService;
 import com.google.sites.medcare.Appointments.RequestedAppointments;
 import com.google.sites.medcare.Camps.CampsFragment;
 import com.google.sites.medcare.News.NewsFragment;
@@ -49,6 +53,7 @@ import java.util.List;
 import java.util.Locale;
 
 import io.kommunicate.KmConversationBuilder;
+import io.kommunicate.Kommunicate;
 import io.kommunicate.callbacks.KmCallback;
 
 public class Home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -76,11 +81,42 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     private TextView BMITextView;
     private ImageView DPimage;
 
+    //Accident Detection
+    private SensorManager mSensorManager;
+    private Sensor mAccelerometer;
+    private ShakeDetector mShakeDetector;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         loadLocale();
         setContentView(R.layout.activity_home);
+
+        Kommunicate.init(this,"2da9791da159fea69f6f624a991cdb9e5");
+
+        startService(new Intent(getApplicationContext(), ShakeService.class));
+
+        // ShakeDetector initialization
+        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        mAccelerometer = mSensorManager
+                .getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        mShakeDetector = new ShakeDetector();
+        mShakeDetector.setOnShakeListener(new ShakeDetector.OnShakeListener() {
+            int shakecount = 0;
+            @Override
+            public void onShake(int count) {
+                /*
+                 * The following method, "handleShakeEvent(count):" is a stub //
+                 * method you would use to setup whatever you want done once the
+                 * device has been shook.
+                 */
+                shakecount = shakecount+1;
+                if (shakecount == 3) {
+                    Toast.makeText(Home.this, "Emergency alert has been sent", Toast.LENGTH_SHORT).show();
+                    shakecount = 0;
+                }
+            }
+        });
 
         sharedPreferences = getSharedPreferences("LoginStatus", Context.MODE_PRIVATE);
 
@@ -253,7 +289,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 List<String> agentList = new ArrayList();
                 agentList.add("agent1@yourdomain.com"); //add your agentID
                 List<String> botList = new ArrayList();
-                botList.add("medcare-ffgte"); //enter your integrated bot Ids
+                botList.add("medcaresih-qzjan"); //enter your integrated bot Ids
                 new KmConversationBuilder(this).launchConversation(new KmCallback() {
                     @Override
                     public void onSuccess(Object message) {
@@ -279,5 +315,26 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         Log.d("SignInStatus", "True");
         Intent openSignIn = new Intent(Home.this, SignIn.class);
         startActivity(openSignIn);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Add the following line to register the Session Manager Listener onResume
+        mSensorManager.registerListener(mShakeDetector, mAccelerometer,	SensorManager.SENSOR_DELAY_UI);
+    }
+
+    /*@Override
+    public void onPause() {
+        // Add the following line to unregister the Sensor Manager onPause
+        mSensorManager.unregisterListener(mShakeDetector);
+        super.onPause();
+    }*/
+
+    @Override
+    public void onDestroy() {
+        // Add the following line to register the Session Manager Listener onResume
+        mSensorManager.registerListener(mShakeDetector, mAccelerometer,	SensorManager.SENSOR_DELAY_UI);
+        super.onDestroy();
     }
 }
