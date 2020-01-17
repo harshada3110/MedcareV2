@@ -416,6 +416,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 Intent openAbout = new Intent(Home.this, AboutUs.class);
                 startActivity(openAbout);
                 break;
+
             case R.id.nav_bot:
                 List<String> agentList = new ArrayList();
                 agentList.add("agent1@yourdomain.com"); //add your agentID
@@ -434,6 +435,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 });
                 Toast toast = Toast.makeText(this, "Loading MedBot", Toast.LENGTH_SHORT);
                 toast.show();
+
             case R.id.nav_logout:
                 FirebaseAuth.getInstance().signOut();
                 SharedPreferences.Editor editor = sharedPreferences.edit();
