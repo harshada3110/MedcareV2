@@ -37,12 +37,17 @@ public class FilterPage extends AppCompatActivity {
         //Populate list for states
         List<String> states = new ArrayList<>();
         states.add(0, "No Location");
-        states.add("Maharashtra");
-        states.add("Punjab");
+        states.add("National");
+        states.add("Gujarat");
         states.add("Haryana");
         states.add("Kerala");
+        states.add("Karnataka");
+        states.add("MadhyaPradesh");
+        states.add("Maharashtra");
+        states.add("Punjab");
         states.add("Rajasthan");
-        states.add("Gujarat");
+        states.add("UttarPradesh");
+        states.add("WestBengal");
 
         //Populate list for rationcolor
         List<String> ration = new ArrayList<>();
@@ -55,9 +60,9 @@ public class FilterPage extends AppCompatActivity {
         List<String> category = new ArrayList<>();
         category.add(0, "None");
         category.add("Common");
-        category.add("Government");
-        category.add("Farmers");
-        category.add("Private");
+        category.add("Children");
+        category.add("Employee");
+        category.add("Women");
 
         //populate the spinner1
         ArrayAdapter<String> dataAdapter;

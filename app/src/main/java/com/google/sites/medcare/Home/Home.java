@@ -165,9 +165,9 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         //Accident Detection
         int n=0;
 
-        double[] latitude = new double[]{18.9951011, 18.9942791, 18.9898701, 18.989443, 18.991556};
-        double[] longitude = new double[]{73.1230633, 73.1186963, 73.1221746, 73.117960, 73.115363};
-        String[] hospital = new String[]{"DR DIPALEE MANE Hospital", "Madhavbaug hospital", "Lifeline-muilti hospital", "Parhar hospital", "Lifecyle hospital"};
+        double[] latitude = new double[]{18.9951011, 19.012042, 18.9898701, 18.989443, 18.991556};
+        double[] longitude = new double[]{73.1230633, 73.104424, 73.1221746, 73.117960, 73.115363};
+        String[] hospital = new String[]{"DR DIPALEE MANE Hospital", "MGM Hospital", "Lifeline-muilti hospital", "Parhar hospital", "Lifecyle hospital"};
         String[] number = new String[]{"9920628520", "8108206885", "7021259334", "9594757772", "8976809733"};
 
         double[] result = new double[5];double[] f = new double[5];
