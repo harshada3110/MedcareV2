@@ -1,6 +1,8 @@
 package com.google.sites.medcare.Schemes;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -28,6 +30,10 @@ public class FilterPage extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        SharedPreferences userDetails = getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editDetails = userDetails.edit();
+        String loc = userDetails.getString("State", "No Location");
 
         spinner_state = findViewById(R.id.spinnerState);
         spinner_ration = findViewById(R.id.spinnerRationColor);
@@ -82,6 +88,8 @@ public class FilterPage extends AppCompatActivity {
 
         //connecting adapter and spinner
         spinner_state.setAdapter(dataAdapter);
+        int spinnerPosition = dataAdapter.getPosition(loc);
+        spinner_state.setSelection(spinnerPosition);
         spinner_ration.setAdapter(dataAdapter2);
         spinner_category.setAdapter(dataAdapter3);
 

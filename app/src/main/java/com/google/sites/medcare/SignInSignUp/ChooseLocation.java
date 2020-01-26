@@ -210,12 +210,13 @@ public class ChooseLocation extends AppCompatActivity {
             String area=addresses.get(0).getLocality();
             editDetails.putString("Location", area);
             Toast.makeText(ChooseLocation.this, area, Toast.LENGTH_SHORT).show();
-            Intent openHome = new Intent(ChooseLocation.this, Home.class);
-            startActivity(openHome);
-            //String state=addresses.get(0).getAdminArea();
+            String state=addresses.get(0).getAdminArea();
+            editDetails.putString("State", state);
             //String country=addresses.get(0).getCountryName();
             //String postalcode=addresses.get(0).getPostalCode();
             editDetails.commit();
+            Intent openHome = new Intent(ChooseLocation.this, Home.class);
+            startActivity(openHome);
 
             //finalAddress=address;
         } catch (IOException e) {
