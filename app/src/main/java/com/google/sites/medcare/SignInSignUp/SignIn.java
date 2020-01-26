@@ -2,7 +2,6 @@ package com.google.sites.medcare.SignInSignUp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
 
 import android.content.Context;
 import android.content.Intent;
@@ -27,7 +26,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
-import com.google.sites.medcare.ChooseLocation;
 import com.google.sites.medcare.Home.Home;
 import com.google.sites.medcare.R;
 

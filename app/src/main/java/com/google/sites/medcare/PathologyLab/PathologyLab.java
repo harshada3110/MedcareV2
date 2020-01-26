@@ -44,6 +44,9 @@ public class PathologyLab extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        mdB = FirebaseDatabase.getInstance().getReference("PathologyLab");
+        mdB.keepSynced(true);
+
         SharedPreferences userDetails = getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
         SharedPreferences.Editor editDetails = userDetails.edit();
         String loc = userDetails.getString("Location", "Mumbai");

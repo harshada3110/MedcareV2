@@ -48,6 +48,9 @@ public class Hospital extends AppCompatActivity {
         String DomainHolder = getIntent().getStringExtra("ListViewClickedValue");
         Log.v("Spec", DomainHolder);
 
+        mydB = FirebaseDatabase.getInstance().getReference("Hospital").child("Mumbai");
+        mydB.keepSynced(true);
+
         SharedPreferences userDetails = getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
         SharedPreferences.Editor editDetails = userDetails.edit();
         String loc = userDetails.getString("Location", "Mumbai");

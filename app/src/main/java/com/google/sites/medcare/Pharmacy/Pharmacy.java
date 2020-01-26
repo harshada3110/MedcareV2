@@ -44,6 +44,9 @@ public class Pharmacy extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        mdB2 = FirebaseDatabase.getInstance().getReference("Pharmacy");
+        mdB2.keepSynced(true);
+
         SharedPreferences userDetails = getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
         SharedPreferences.Editor editDetails = userDetails.edit();
         String loc = userDetails.getString("Location", "Mumbai");

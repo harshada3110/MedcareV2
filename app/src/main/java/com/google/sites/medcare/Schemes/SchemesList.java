@@ -52,6 +52,7 @@ public class SchemesList extends AppCompatActivity {
         adapter=new SchemesAdapter(this,schemeList);
         SchemeList.setAdapter(adapter);
         mydB= FirebaseDatabase.getInstance().getReference("Schemes");
+        mydB.keepSynced(true);
         Query query= FirebaseDatabase.getInstance().getReference("Schemes").child(StateFinal)
                 .orderByChild("Category")
                 .equalTo(CategoryFinal);

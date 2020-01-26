@@ -65,6 +65,7 @@ public class BloodBank extends AppCompatActivity {
         adapter=new BloodAdapter(this,bloodList);
         BloodBankList.setAdapter(adapter);
         mydB= FirebaseDatabase.getInstance().getReference("BloodBank");
+        mydB.keepSynced(true);
 
         ArrayAdapter<String> dataAdapter;
         dataAdapter = new ArrayAdapter(this, R.layout.spinner_style, locations);

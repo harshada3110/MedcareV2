@@ -112,6 +112,7 @@ public class CampsFragment extends Fragment {
         adapter = new CampAdapter(getActivity(),campList);
         CampList.setAdapter(adapter);
         mydB= FirebaseDatabase.getInstance().getReference("Camps");
+        mydB.keepSynced(true);
 
         mydB.addValueEventListener(new ValueEventListener() {
             @Override

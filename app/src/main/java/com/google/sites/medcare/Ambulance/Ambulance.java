@@ -44,6 +44,9 @@ public class Ambulance extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        mydB = FirebaseDatabase.getInstance().getReference("Ambulance");
+        mydB.keepSynced(true);
+
         SharedPreferences userDetails = getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
         SharedPreferences.Editor editDetails = userDetails.edit();
         String loc = userDetails.getString("Location", "Mumbai");
@@ -77,7 +80,6 @@ public class Ambulance extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if(parent.getItemAtPosition(position).equals("No Location")){
-                    mydB = FirebaseDatabase.getInstance().getReference("Ambulance");
                     mydB.addListenerForSingleValueEvent(valueEventListener);
                 }
                 else{

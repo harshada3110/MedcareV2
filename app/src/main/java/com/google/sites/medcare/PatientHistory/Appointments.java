@@ -45,6 +45,7 @@ public class Appointments extends AppCompatActivity {
         adapter=new AppointmentsAdapter(this,appList);
         AppointmentsList.setAdapter(adapter);
         mydB= FirebaseDatabase.getInstance().getReference("Appointment");
+        mydB.keepSynced(true);
 
         Query query = mydB.orderByChild("avisited").equalTo(1);
         query.addListenerForSingleValueEvent(valueEventListener);
