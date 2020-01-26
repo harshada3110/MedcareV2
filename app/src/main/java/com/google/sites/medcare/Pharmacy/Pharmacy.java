@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -42,6 +44,10 @@ public class Pharmacy extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        SharedPreferences userDetails = getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editDetails = userDetails.edit();
+        String loc = userDetails.getString("Location", "Mumbai");
+
         progressBar = findViewById(R.id.progress_bar);
         spinner=findViewById(R.id.spinner_pharm);
 
@@ -57,8 +63,11 @@ public class Pharmacy extends AppCompatActivity {
         dataAdapter.setDropDownViewResource(R.layout.spinner_style);
 
         //attaching dataAdapter to spinner
-
         spinner.setAdapter(dataAdapter);
+
+        //set the default according to value
+        int spinnerPosition = dataAdapter.getPosition(loc);
+        spinner.setSelection(spinnerPosition);
 
         //ArrayAdapter <String> loc_adapter = new ArrayAdapter<String> (this, R.layout.spinner_style, locations);
         //loc_adapter.setDropDownViewResource(R.layout.spinner_style);

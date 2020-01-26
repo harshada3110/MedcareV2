@@ -48,6 +48,10 @@ public class Hospital extends AppCompatActivity {
         String DomainHolder = getIntent().getStringExtra("ListViewClickedValue");
         Log.v("Spec", DomainHolder);
 
+        SharedPreferences userDetails = getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editDetails = userDetails.edit();
+        String loc = userDetails.getString("Location", "Mumbai");
+
         spinner=findViewById(R.id.spinner2);
         progressBar = findViewById(R.id.progress_bar);
 
@@ -66,6 +70,10 @@ public class Hospital extends AppCompatActivity {
         dataAdapter.setDropDownViewResource(R.layout.spinner_style);
 
         spinner.setAdapter(dataAdapter);
+
+        //set the default according to value
+        int spinnerPosition = dataAdapter.getPosition(loc);
+        spinner.setSelection(spinnerPosition);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

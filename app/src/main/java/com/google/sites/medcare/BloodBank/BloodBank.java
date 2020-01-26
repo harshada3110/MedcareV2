@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -41,6 +43,10 @@ public class BloodBank extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        SharedPreferences userDetails = getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editDetails = userDetails.edit();
+        String loc = userDetails.getString("Location", "Mumbai");
+
         BloodBankList=(RecyclerView) findViewById(R.id.bloodrecycleview);
         progressBar = findViewById(R.id.progress_bar);
         BloodBankList.setHasFixedSize(true);
@@ -65,6 +71,10 @@ public class BloodBank extends AppCompatActivity {
         dataAdapter.setDropDownViewResource(R.layout.spinner_style);
 
         spinner.setAdapter(dataAdapter);
+
+        //set the default according to value
+        int spinnerPosition = dataAdapter.getPosition(loc);
+        spinner.setSelection(spinnerPosition);
 
         mydB.addValueEventListener(new ValueEventListener() {
             @Override

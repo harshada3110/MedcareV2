@@ -2,6 +2,8 @@ package com.google.sites.medcare.Schemes;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +27,7 @@ public class SchemesList extends AppCompatActivity {
     private SchemesAdapter adapter;
     private List<Schemes> schemeList;
     String StateFinal,RationFinal,CategoryFinal;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,8 @@ public class SchemesList extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        progressBar = findViewById(R.id.progress_bar);
 
         StateFinal=getIntent().getStringExtra("SelectedState");
         RationFinal=getIntent().getStringExtra("SelectedRation");
@@ -59,6 +64,9 @@ public class SchemesList extends AppCompatActivity {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
             schemeList.clear();
+            if (progressBar != null) {
+                progressBar.setVisibility(View.GONE);
+            }
             if(dataSnapshot.exists()){
 
                 for(DataSnapshot snapshot:dataSnapshot.getChildren()){

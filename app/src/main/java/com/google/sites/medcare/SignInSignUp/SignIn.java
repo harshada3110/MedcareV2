@@ -27,6 +27,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.sites.medcare.ChooseLocation;
 import com.google.sites.medcare.Home.Home;
 import com.google.sites.medcare.R;
 
@@ -214,8 +215,8 @@ public class SignIn extends AppCompatActivity {
             editor.putBoolean("Value", false);
             editor.commit();
 
-            Intent openHome = new Intent(SignIn.this, Home.class);
-            SignIn.this.startActivity(openHome);
+            Intent openLoc = new Intent(SignIn.this, ChooseLocation.class);
+            SignIn.this.startActivity(openLoc);
         }
     }
 

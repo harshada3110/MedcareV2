@@ -52,6 +52,7 @@ import com.google.sites.medcare.Accident.ShakeService;
 import com.google.sites.medcare.Ambulance.Ambulance;
 import com.google.sites.medcare.Appointments.RequestedAppointments;
 import com.google.sites.medcare.Camps.CampsFragment;
+import com.google.sites.medcare.ChooseLocation;
 import com.google.sites.medcare.News.NewsFragment;
 import com.google.sites.medcare.PatientHistory.Appointments;
 import com.google.sites.medcare.QuickAccess.QuickAccess;

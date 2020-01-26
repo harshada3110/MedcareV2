@@ -7,8 +7,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -17,16 +17,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".QuickAccess.BoneFracture"
-            android:label="Quick Access"></activity>
-        <activity android:name=".QuickAccess.SnakeBite"
-            android:label="Quick Access"/>
-        <activity android:name=".QuickAccess.Burns"
-            android:label="Quick Access"/>
-        <activity android:name=".QuickAccess.HeartAttack"
-            android:label="Quick Access"/>
-        <activity android:name=".QuickAccess.QuickAccess"
-            android:label="Quick Access"/>
+        <activity android:name=".ChooseLocation"
+            android:label="Select your city"/>
+        <activity
+            android:name=".QuickAccess.BoneFracture"
+            android:label="Quick Access" />
+        <activity
+            android:name=".QuickAccess.SnakeBite"
+            android:label="Quick Access" />
+        <activity
+            android:name=".QuickAccess.Burns"
+            android:label="Quick Access" />
+        <activity
+            android:name=".QuickAccess.HeartAttack"
+            android:label="Quick Access" />
+        <activity
+            android:name=".QuickAccess.QuickAccess"
+            android:label="Quick Access" />
         <activity
             android:name=".MaternalCare.PhasesOfPregnancy"
             android:label="Phases of Pregnancy" />
@@ -87,7 +94,6 @@
         <activity
             android:name=".Schemes.SchemesList"
             android:label="Schemes" />
-
         <activity android:name=".SignInSignUp.SignUp" />
         <activity android:name=".SignInSignUp.SignIn" />
         <activity
