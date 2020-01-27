@@ -18,89 +18,131 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SignInSignUp.ChooseLocation"
-            android:label="Select your city"/>
+        <receiver android:name=".SOSWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.google.sites.medcare.ACTION_SEND_SMS"/>
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/soswidget_info" />
+        </receiver>
+
+        <activity
+            android:name=".SignInSignUp.ChooseLocation"
+            android:label="Select your city"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".QuickAccess.BoneFracture"
-            android:label="Quick Access" />
+            android:label="Quick Access"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".QuickAccess.SnakeBite"
-            android:label="Quick Access" />
+            android:label="Quick Access"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".QuickAccess.Burns"
-            android:label="Quick Access" />
+            android:label="Quick Access"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".QuickAccess.HeartAttack"
-            android:label="Quick Access" />
+            android:label="Quick Access"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".QuickAccess.QuickAccess"
-            android:label="Quick Access" />
+            android:label="Quick Access"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MaternalCare.PhasesOfPregnancy"
-            android:label="Phases of Pregnancy" />
+            android:label="Phases of Pregnancy"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MaternalCare.MaternalDiet"
-            android:label="Diet" />
+            android:label="Diet"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MaternalCare.HowsMyBaby"
-            android:label="How&apos;s my Baby?" />
+            android:label="How&apos;s my Baby?"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Hospital.HospitalDetails"
-            android:label="Hospital" />
+            android:label="Hospital"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Hospital.BookAppointment"
-            android:label="Book Appointment" />
+            android:label="Book Appointment"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Hospital.SelectSpecialist"
-            android:label="Hospital" />
+            android:label="Hospital"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Appointments.RequestedAppointments"
-            android:label="Appointments Status" />
+            android:label="Appointments Status"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".AboutUs"
-            android:label="About Us" />
+            android:label="About Us"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MaternalCare.MaternalCare"
-            android:label="Maternity" />
+            android:label="Maternity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".SettingsActivity"
-            android:label="Settings" />
+            android:label="Settings"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".PatientHistory.EveryAppointment"
-            android:label="Appointments History" />
+            android:label="Appointments History"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".PatientHistory.Appointments"
-            android:label="Appointments History" />
+            android:label="Appointments History"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Ambulance.Ambulance"
-            android:label="Ambulance" />
+            android:label="Ambulance"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".BloodBank.BloodBank"
-            android:label="Blood Bank" />
+            android:label="Blood Bank"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Pharmacy.Pharmacy"
-            android:label="Pharmacy" />
+            android:label="Pharmacy"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".News.NewsDetailActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".PathologyLab.PathologyLab"
-            android:label="Diagnostic Lab" />
+            android:label="Diagnostic Lab"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Hospital.Hospital"
-            android:label="Hospital" />
+            android:label="Hospital"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Schemes.FilterPage"
-            android:label="Schemes" />
+            android:label="Schemes"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Schemes.SchemesList"
-            android:label="Schemes" />
-        <activity android:name=".SignInSignUp.SignUp" />
-        <activity android:name=".SignInSignUp.SignIn" />
+            android:label="Schemes"
+            android:screenOrientation="portrait" />
+        <activity android:name=".SignInSignUp.SignUp"
+            android:screenOrientation="portrait" />
+        <activity android:name=".SignInSignUp.SignIn"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Home.Home"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".SplashScreen">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait" />
+        <activity android:name=".SplashScreen"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -109,13 +151,16 @@
         </activity>
         <activity
             android:name=".Reminder.addmedicine.AddMedicineActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Reminder.alarm.ReminderActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Reminder.report.MonthlyReportActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait" />
 
         <service
             android:name=".Accident.ShakeService"

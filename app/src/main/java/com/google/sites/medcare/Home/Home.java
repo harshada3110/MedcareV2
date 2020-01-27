@@ -435,6 +435,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 });
                 Toast toast = Toast.makeText(this, "Loading MedBot", Toast.LENGTH_SHORT);
                 toast.show();
+                break;
 
             case R.id.nav_logout:
                 FirebaseAuth.getInstance().signOut();
