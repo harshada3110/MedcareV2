@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -128,15 +129,11 @@ public class FilterPage extends AppCompatActivity {
                     //do nothing
                 } else {
                     //on item selected
-
                     itemration = parent.getItemAtPosition(position).toString();
-                   // Intent intent = new Intent(FilterPage.this, MainActivity.class);
-
-                    // Sending value to another activity using intent.
-                   // intent.putExtra("SelectedRation", itemration);
-
-
-                    // startActivity(intent);
+                    //Intent intent = new Intent(FilterPage.this, MainActivity.class);
+                    //Sending value to another activity using intent.
+                    //intent.putExtra("SelectedRation", itemration);
+                    //startActivity(intent);
                 }
             }
 
@@ -159,9 +156,6 @@ public class FilterPage extends AppCompatActivity {
                     itemcategory = parent.getItemAtPosition(position).toString();
 
                     // Sending value to another activity using intent.
-                    intent.putExtra("SelectedState", itemstate);
-                    intent.putExtra("SelectedRation", itemration);
-                    intent.putExtra("SelectedCategory", itemcategory);
                 }
             }
 
@@ -175,7 +169,21 @@ public class FilterPage extends AppCompatActivity {
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(intent);
+                if (spinner_state.getSelectedItemPosition() == 0){
+                    Toast.makeText(FilterPage.this, "Select a state", Toast.LENGTH_SHORT).show();
+                }
+                else if (spinner_ration.getSelectedItemPosition() == 0){
+                    Toast.makeText(FilterPage.this, "Select a ration card color", Toast.LENGTH_SHORT).show();
+                }
+                else if (spinner_category.getSelectedItemPosition() == 0){
+                    Toast.makeText(FilterPage.this, "Select a category", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    intent.putExtra("SelectedState", itemstate);
+                    intent.putExtra("SelectedRation", itemration);
+                    intent.putExtra("SelectedCategory", itemcategory);
+                    startActivity(intent);
+                }
             }
         });
 

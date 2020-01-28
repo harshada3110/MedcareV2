@@ -24,6 +24,7 @@ import com.google.sites.medcare.Home.CircleTransform;
 import com.google.sites.medcare.Home.Home;
 import com.google.sites.medcare.Hospital.BookAppointment;
 import com.google.sites.medcare.R;
+import com.google.sites.medcare.SignInSignUp.SignIn;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -149,45 +150,61 @@ public class UserFragment extends Fragment {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (age.getText().toString().matches("")){
+                    Toast.makeText(getActivity(), "Please enter your age", Toast.LENGTH_SHORT).show();
+                }
+                else if (height.getText().toString().matches("")){
+                    Toast.makeText(getActivity(), "Please enter your height", Toast.LENGTH_SHORT).show();
+                }
+                else if (weight.getText().toString().matches("")){
+                    Toast.makeText(getActivity(), "Please enter your weight", Toast.LENGTH_SHORT).show();
+                }
+                else if (spinnerBG.getSelectedItemPosition() == 0){
+                    Toast.makeText(getActivity(), "Please select your blood group", Toast.LENGTH_SHORT).show();
+                }
+                else if (emer.getText().toString().matches("")){
+                    Toast.makeText(getActivity(), "Please enter your emergency contact", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    int BMIvalue = (Integer.parseInt(weight.getText().toString())/((Integer.parseInt(height.getText().toString())/100)^2));
+                    String BMIstate = null;
+                    if (BMIvalue<15){
+                        BMIstate = "Very severely underweight";
+                    }
+                    else if (BMIvalue<=16){
+                        BMIstate = "Severely underweight";
+                    }
+                    else if (BMIvalue<=18.5){
+                        BMIstate = "Underweight";
+                    }
+                    else if (BMIvalue<=25){
+                        BMIstate = "Normal (healthy weight)";
+                    }
+                    else if (BMIvalue<=30){
+                        BMIstate = "Overweight";
+                    }
+                    else if (BMIvalue<=35){
+                        BMIstate = "Moderately obese";
+                    }
+                    else if (BMIvalue<=40){
+                        BMIstate = "Severely obese";
+                    }
+                    else if (BMIvalue>40){
+                        BMIstate = "Very severely obese";
+                    }
 
-                int BMIvalue = (Integer.parseInt(weight.getText().toString())/((Integer.parseInt(height.getText().toString())/100)^2));
-                String BMIstate = null;
-                if (BMIvalue<15){
-                    BMIstate = "Very severely underweight";
-                }
-                else if (BMIvalue<=16){
-                    BMIstate = "Severely underweight";
-                }
-                else if (BMIvalue<=18.5){
-                    BMIstate = "Underweight";
-                }
-                else if (BMIvalue<=25){
-                    BMIstate = "Normal (healthy weight)";
-                }
-                else if (BMIvalue<=30){
-                    BMIstate = "Overweight";
-                }
-                else if (BMIvalue<=35){
-                    BMIstate = "Moderately obese";
-                }
-                else if (BMIvalue<=40){
-                    BMIstate = "Severely obese";
-                }
-                else if (BMIvalue>40){
-                    BMIstate = "Very severely obese";
-                }
+                    int spinnerPos = spinnerBG.getSelectedItemPosition()+1;
+                    editDetails.putString("Age", age.getText().toString());
+                    editDetails.putString("Height", height.getText().toString());
+                    editDetails.putString("Weight", weight.getText().toString());
+                    editDetails.putString("BMI", String.valueOf(BMIvalue)+" ["+BMIstate+"]");
+                    editDetails.putInt("BloodG", spinnerPos);
+                    editDetails.putString("EmerContact", emer.getText().toString());
+                    editDetails.commit();
 
-                int spinnerPos = spinnerBG.getSelectedItemPosition()+1;
-                editDetails.putString("Age", age.getText().toString());
-                editDetails.putString("Height", height.getText().toString());
-                editDetails.putString("Weight", weight.getText().toString());
-                editDetails.putString("BMI", String.valueOf(BMIvalue)+" ["+BMIstate+"]");
-                editDetails.putInt("BloodG", spinnerPos);
-                editDetails.putString("EmerContact", emer.getText().toString());
-                editDetails.commit();
-
-                Toast toast = Toast.makeText(getActivity(), "Details Saved Successfully", Toast.LENGTH_SHORT);
-                toast.show();
+                    Toast toast = Toast.makeText(getActivity(), "Details Saved Successfully", Toast.LENGTH_SHORT);
+                    toast.show();
+                }
             }
         });
 

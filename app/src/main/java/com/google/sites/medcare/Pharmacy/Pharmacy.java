@@ -84,11 +84,9 @@ public class Pharmacy extends AppCompatActivity {
                 }
                 else{
                     //on item selected
-
                     pathologylocation=parent.getItemAtPosition(position).toString();
                     Query query=FirebaseDatabase.getInstance().getReference("Pharmacy").orderByChild("Location").equalTo(pathologylocation);
                     query.addListenerForSingleValueEvent(valueEventListener);
-
                 }
             }
 
