@@ -127,7 +127,6 @@ public class Hospital extends AppCompatActivity {
             }
             hospList.clear();
             if(dataSnapshot.exists()){
-
                 for(DataSnapshot snapshot:dataSnapshot.getChildren()){
                     com.google.sites.medcare.Hospital.HospitalList hospitalList = snapshot.getValue(com.google.sites.medcare.Hospital.HospitalList.class);
                     hospList.add(hospitalList);

@@ -47,6 +47,10 @@ public class BookAppointment extends AppCompatActivity implements TimePickerDial
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        SharedPreferences userDetails = getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editDetails = userDetails.edit();
+        String email = userDetails.getString("Email", null);
+
         Send=findViewById(R.id.pushbtn);
         UName=findViewById(R.id.edittextusername);
         UNumber=findViewById(R.id.edittextusernumber);
@@ -84,7 +88,7 @@ public class BookAppointment extends AppCompatActivity implements TimePickerDial
                 ) {
                     return;
                 }
-                mydB= FirebaseDatabase.getInstance().getReference().child("Appointment");
+                mydB= FirebaseDatabase.getInstance().getReference().child("Appointments");
                 int Status=0;
                 bookAppointmentList.setName(UName.getEditText().getText().toString().trim());
                 bookAppointmentList.setNumber(UNumber.getEditText().getText().toString().trim());
@@ -98,6 +102,7 @@ public class BookAppointment extends AppCompatActivity implements TimePickerDial
                 bookAppointmentList.setHospitalName(AppoHospName);
                 bookAppointmentList.setAvisited(0);
                 bookAppointmentList.setLocation(LocationS);
+                bookAppointmentList.setEmail(email);
                 mydB.push().setValue(bookAppointmentList);
                 //  Toast.makeText(MainActivity.this,"Registered Successfully",Toast.LENGTH_LONG);
                 Toast toast = Toast.makeText(BookAppointment.this, "Appointment Requsted Successfully", Toast.LENGTH_SHORT);

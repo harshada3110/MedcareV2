@@ -94,26 +94,6 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/edittextuseremail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        app:errorEnabled="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edittextusernumber">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/hp_simplified_regular"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
-            android:textSize="16sp" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/edittextAppoDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -122,7 +102,7 @@
         app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edittextuseremail">
+        app:layout_constraintTop_toBottomOf="@+id/edittextusernumber">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/dateAppo"

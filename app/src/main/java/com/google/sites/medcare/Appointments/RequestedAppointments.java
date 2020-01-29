@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -44,7 +46,7 @@ public class RequestedAppointments extends AppCompatActivity {
         appList = new ArrayList<>();
         adapter=new RequestedAppointmentsAdapter(this,appList);
         RequestedAppointmentsList.setAdapter(adapter);
-        mydB = FirebaseDatabase.getInstance().getReference("Appointment");
+        mydB = FirebaseDatabase.getInstance().getReference("Appointments");
         mydB.keepSynced(true);
 
         Query query = mydB.orderByChild("avisited").equalTo(0);
@@ -64,11 +66,19 @@ public class RequestedAppointments extends AppCompatActivity {
                 progressBar.setVisibility(View.GONE);
             }
             appList.clear();
+
+            SharedPreferences userDetails = getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editDetails = userDetails.edit();
+            String email = userDetails.getString("Email", null);
+
             if(dataSnapshot.exists()){
 
                 for(DataSnapshot snapshot:dataSnapshot.getChildren()){
                     RequestedAppointmentsList requestedAppointmentsList = snapshot.getValue(RequestedAppointmentsList.class);
-                    appList.add(requestedAppointmentsList);
+
+                    if (requestedAppointmentsList.getEmail().equals(email)){
+                        appList.add(requestedAppointmentsList);
+                    }
                 }
                 adapter.notifyDataSetChanged();
             }

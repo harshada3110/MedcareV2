@@ -8,13 +8,15 @@ public class RequestedAppointmentsList {
     private String Prescription;
     private String Comments;
     private String Location;
+    private String Email;
     private int Approval;
     private int avisited;
+
 
     public RequestedAppointmentsList() {
     }
 
-    public RequestedAppointmentsList(String hospitalName, String specialist, String date, String time, String prescription, String comments, String location, int approval, int avisited) {
+    public RequestedAppointmentsList(String hospitalName, String specialist, String date, String time, String prescription, String comments, String location, String email, int approval, int avisited) {
         HospitalName = hospitalName;
         Specialist = specialist;
         Date = date;
@@ -23,6 +25,7 @@ public class RequestedAppointmentsList {
         Comments = comments;
         Location = location;
         Approval = approval;
+        Email = email;
         this.avisited = avisited;
     }
 
@@ -96,5 +99,13 @@ public class RequestedAppointmentsList {
 
     public void setAvisited(int avisited) {
         this.avisited = avisited;
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String email) {
+        Email = email;
     }
 }

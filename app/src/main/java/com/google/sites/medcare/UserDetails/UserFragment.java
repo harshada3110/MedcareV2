@@ -189,7 +189,7 @@ public class UserFragment extends Fragment {
                     else if (BMIvalue<=40){
                         BMIstate = "Severely obese";
                     }
-                    else if (BMIvalue>40){
+                    else {
                         BMIstate = "Very severely obese";
                     }
 
@@ -200,7 +200,7 @@ public class UserFragment extends Fragment {
                     editDetails.putString("BMI", String.valueOf(BMIvalue)+" ["+BMIstate+"]");
                     editDetails.putInt("BloodG", spinnerPos);
                     editDetails.putString("EmerContact", emer.getText().toString());
-                    editDetails.commit();
+                    editDetails.apply();
 
                     Toast toast = Toast.makeText(getActivity(), "Details Saved Successfully", Toast.LENGTH_SHORT);
                     toast.show();
