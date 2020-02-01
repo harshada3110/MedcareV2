@@ -157,8 +157,8 @@
                     android:id="@+id/imageView4"
                     android:layout_width="90dp"
                     android:layout_height="90dp"
-                    android:src="@drawable/blood_bank"
-                    android:contentDescription="TODO" />
+                    android:contentDescription="TODO"
+                    android:src="@drawable/blood_bank" />
 
                 <TextView
                     android:id="@+id/textView4"
@@ -199,8 +199,8 @@
                     android:layout_height="90dp"
                     android:layout_marginStart="30dp"
                     android:layout_marginEnd="30dp"
-                    android:src="@drawable/schemes"
-                    android:contentDescription="TODO" />
+                    android:contentDescription="TODO"
+                    android:src="@drawable/schemes" />
 
                 <TextView
                     android:id="@+id/textView5"

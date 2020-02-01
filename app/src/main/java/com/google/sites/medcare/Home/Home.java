@@ -128,7 +128,9 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
         startService(new Intent(getApplicationContext(), ShakeService.class));
 
-        ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SEND_SMS}, 1);
+        }
 
         // ShakeDetector initialization
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
@@ -493,6 +495,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 longitude=String.valueOf(longitu);
 
                 //showLocationTxt.setText("Your Location2:"+"\n"+"Latitude= "+latitude+"\n"+"Longitude= "+longitude);
+
                 sendSMS();
             }
             else if (LocationPassive !=null) {
@@ -558,6 +561,11 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     }
 
     private void sendSMS() {
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SEND_SMS}, 1);
+        }
+
         geocoder=new Geocoder(this, Locale.getDefault());
         try {
             double dem=lat;

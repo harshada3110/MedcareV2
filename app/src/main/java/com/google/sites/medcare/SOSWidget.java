@@ -1,14 +1,21 @@
 package com.google.sites.medcare;
 
+import android.Manifest;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.telephony.SmsManager;
 import android.widget.RemoteViews;
 import android.widget.Toast;
+
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+import com.google.sites.medcare.Home.Home;
 
 /**
  * Implementation of App Widget functionality.
@@ -41,6 +48,7 @@ public class SOSWidget extends AppWidgetProvider {
     @Override
     public void onReceive(Context context, Intent intent) {
         super.onReceive(context, intent);//add this line
+
         if (ACTION_SEND_SMS.equals(intent.getAction())){
             //your onClick action is here
             //display in short period of time

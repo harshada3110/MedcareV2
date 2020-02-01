@@ -1,7 +1,9 @@
 package com.google.sites.medcare.MaternalCare;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
@@ -9,6 +11,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.util.Log;
@@ -39,6 +42,9 @@ public class MaternalCare extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d("sds", "sdsd");
+                if (ActivityCompat.checkSelfPermission(MaternalCare.this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(MaternalCare.this, new String[]{Manifest.permission.SEND_SMS}, 1);
+                }
                 sendSMS();
             }
         });

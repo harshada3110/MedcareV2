@@ -1,13 +1,17 @@
 package com.google.sites.medcare;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -32,7 +36,7 @@ public class SplashScreen extends AppCompatActivity {
         new Thread(){
             public void run(){
                 try {
-                    sleep(3000);
+                    sleep(2000);
                     if (status.getBoolean("Value", true)){
                         startActivity(new Intent(SplashScreen.this, SignIn.class));
                     }
@@ -49,7 +53,6 @@ public class SplashScreen extends AppCompatActivity {
     }
 
     private void setLocale(String lang) {
-
         Locale locale=new Locale(lang);
         Locale.setDefault(locale);
         Configuration config=new Configuration();
