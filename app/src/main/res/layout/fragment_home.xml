@@ -208,7 +208,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:fontFamily="@font/hp_simplified"
-                    android:text="Health Schemes"
+                    android:text="@string/health_schemes"
                     android:textSize="16sp" />
             </LinearLayout>
 

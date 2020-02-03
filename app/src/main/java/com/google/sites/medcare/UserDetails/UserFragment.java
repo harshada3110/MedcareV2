@@ -202,6 +202,8 @@ public class UserFragment extends Fragment {
                     editDetails.putString("EmerContact", emer.getText().toString());
                     editDetails.apply();
 
+                    BMI.setText(String.valueOf(BMIvalue)+" ["+BMIstate+"]");
+
                     Toast toast = Toast.makeText(getActivity(), "Details Saved Successfully", Toast.LENGTH_SHORT);
                     toast.show();
                 }

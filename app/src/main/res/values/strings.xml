@@ -103,5 +103,6 @@ You suspect a bone is broken in the neck, head or back.</string>
     <string name="quick_access">Quick Access</string>
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
+    <string name="health_schemes">Health Schemes</string>
 
 </resources>

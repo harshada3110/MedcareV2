@@ -50,6 +50,7 @@ public class BookAppointment extends AppCompatActivity implements TimePickerDial
         SharedPreferences userDetails = getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
         SharedPreferences.Editor editDetails = userDetails.edit();
         String email = userDetails.getString("Email", null);
+        String name = userDetails.getString("Name", null);
 
         Send=findViewById(R.id.pushbtn);
         UName=findViewById(R.id.edittextusername);
@@ -77,7 +78,8 @@ public class BookAppointment extends AppCompatActivity implements TimePickerDial
         HospName.setText(AppoHospName);
         SpecialityName.setText(Speciality);
 
-
+        UEmail.getEditText().setText(email);
+        UName.getEditText().setText(name);
 
         Send.setOnClickListener(new View.OnClickListener() {
             @Override

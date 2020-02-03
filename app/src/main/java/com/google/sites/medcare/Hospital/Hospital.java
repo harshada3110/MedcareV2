@@ -60,10 +60,13 @@ public class Hospital extends AppCompatActivity {
 
         List<String> locations=new ArrayList<>();
         //locations.add(0,"No Location");
+        locations.add("Chennai");
+        locations.add("Hyderabad");
         locations.add(0,"Mumbai");
-        locations.add("Manipal");
+        locations.add(0,"Navi Mumbai");
         locations.add("Pune");
         locations.add("Thiruvananthapuram");
+        locations.add("Udupi");
 
         SharedPreferences mySharedPreferences = this.getSharedPreferences("MYPREFERENCENAME", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = mySharedPreferences.edit();

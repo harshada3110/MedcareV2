@@ -51,31 +51,61 @@ public class SchemesAdapter extends RecyclerView.Adapter<SchemesAdapter.SchemesV
 
         SharedPreferences userDetails = mctx.getSharedPreferences("Settings", Context.MODE_PRIVATE);
         SharedPreferences.Editor editDetails = userDetails.edit();
-        String lang = userDetails.getString("MyLang", "en");
+        String lang1 = userDetails.getString("MyLang", "en");
+        Log.d("Language1", lang1);
+
+        int langCode = FirebaseTranslateLanguage.EN;
+
+
+        String lang = lang1;
 
         Schemes schemes=schemeList.get(position);
+        String name = schemes.getName();
+        String about = schemes.getAbout();
 
-        if(lang == "en"){
+        /*if(lang == "en"){
             holder.Name.setText(schemes.getName());
             holder.About.setText(schemes.getAbout());
+            Log.d("Language2", "Eng");
         }
         else if(lang == "hi"){
-            int langCode = FirebaseTranslateLanguage.EN;
-            String name = schemes.getName();
-            String about = schemes.getAbout();
+            Log.d("Language2", "Hin");
 
             translateTextHi(langCode, name, about, holder);
         }
         else if(lang == "kn"){
-            int langCode = FirebaseTranslateLanguage.EN;
-            String name = schemes.getName();
-            String about = schemes.getAbout();
+            Log.d("Language2", "Kn");
 
             translateTextKn(langCode, name, about, holder);
         }
         else {
+            Log.d("LanguageX", lang);
             holder.Name.setText(schemes.getName());
             holder.About.setText(schemes.getAbout());
+            Log.d("Language3", "Eng1");
+        }*/
+
+        switch (lang){
+            case "en":
+                holder.Name.setText(schemes.getName());
+                holder.About.setText(schemes.getAbout());
+                Log.d("Language2", "Eng");
+                break;
+            case "hi":
+                Log.d("Language2", "Hin");
+
+                translateTextHi(langCode, name, about, holder);
+                break;
+            case "kn":
+                Log.d("Language2", "Kn");
+
+                translateTextKn(langCode, name, about, holder);
+                break;
+            default:
+                Log.d("LanguageX", lang);
+                holder.Name.setText(schemes.getName());
+                holder.About.setText(schemes.getAbout());
+                Log.d("Language3", "Eng1");
         }
 
         holder.imageViewCall.setOnClickListener(new View.OnClickListener() {

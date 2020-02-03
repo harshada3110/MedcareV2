@@ -63,6 +63,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:enabled="false"
             android:fontFamily="@font/hp_simplified_regular"
             android:hint="Name"
             android:inputType="text"
@@ -107,6 +108,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:enabled="false"
             android:fontFamily="@font/hp_simplified_regular"
             android:hint="Email"
             android:inputType="textEmailAddress"

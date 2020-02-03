@@ -36,23 +36,23 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".QuickAccess.BoneFracture"
-            android:label="Quick Access"
+            android:label="@string/quick_access"
             android:screenOrientation="portrait" />
         <activity
             android:name=".QuickAccess.SnakeBite"
-            android:label="Quick Access"
+            android:label="@string/quick_access"
             android:screenOrientation="portrait" />
         <activity
             android:name=".QuickAccess.Burns"
-            android:label="Quick Access"
+            android:label="@string/quick_access"
             android:screenOrientation="portrait" />
         <activity
             android:name=".QuickAccess.HeartAttack"
-            android:label="Quick Access"
+            android:label="@string/quick_access"
             android:screenOrientation="portrait" />
         <activity
             android:name=".QuickAccess.QuickAccess"
-            android:label="Quick Access"
+            android:label="@string/quick_access"
             android:screenOrientation="portrait" />
         <activity
             android:name=".MaternalCare.PhasesOfPregnancy"
@@ -68,51 +68,51 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".Hospital.HospitalDetails"
-            android:label="Hospital"
+            android:label="@string/hospital"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Hospital.BookAppointment"
-            android:label="Book Appointment"
+            android:label="@string/book_appointment"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Hospital.SelectSpecialist"
-            android:label="Hospital"
+            android:label="@string/hospital"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Appointments.RequestedAppointments"
-            android:label="Appointments Status"
+            android:label="@string/pending_appointments"
             android:screenOrientation="portrait" />
         <activity
             android:name=".AboutUs"
-            android:label="About Us"
+            android:label="@string/about_us"
             android:screenOrientation="portrait" />
         <activity
             android:name=".MaternalCare.MaternalCare"
-            android:label="Maternity"
+            android:label="@string/maternity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".SettingsActivity"
-            android:label="Settings"
+            android:label="@string/settings"
             android:screenOrientation="portrait" />
         <activity
             android:name=".PatientHistory.EveryAppointment"
-            android:label="Appointments History"
+            android:label="@string/patient_history"
             android:screenOrientation="portrait" />
         <activity
             android:name=".PatientHistory.Appointments"
-            android:label="Appointments History"
+            android:label="@string/patient_history"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Ambulance.Ambulance"
-            android:label="Ambulance"
+            android:label="@string/ambulance"
             android:screenOrientation="portrait" />
         <activity
             android:name=".BloodBank.BloodBank"
-            android:label="Blood Bank"
+            android:label="@string/blood_bank"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Pharmacy.Pharmacy"
-            android:label="Pharmacy"
+            android:label="@string/pharmacy"
             android:screenOrientation="portrait" />
         <activity
             android:name=".News.NewsDetailActivity"
@@ -120,19 +120,19 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".PathologyLab.PathologyLab"
-            android:label="Diagnostic Lab"
+            android:label="@string/pathology_lab"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Hospital.Hospital"
-            android:label="Hospital"
+            android:label="@string/hospital"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Schemes.FilterPage"
-            android:label="Schemes"
+            android:label="@string/health_schemes"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Schemes.SchemesList"
-            android:label="Schemes"
+            android:label="@string/health_schemes"
             android:screenOrientation="portrait" />
         <activity android:name=".SignInSignUp.SignUp"
             android:screenOrientation="portrait" />
@@ -140,6 +140,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".Home.Home"
+            android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait" />
         <activity android:name=".SplashScreen"
