@@ -59,6 +59,12 @@ public class Pharmacy extends AppCompatActivity {
         locations.add("Mumbai");
         locations.add("Udupi");
         locations.add("Alappuzha");
+        locations.add("Delhi");
+        locations.add("Hyderabad");
+        locations.add("Chandigarh");
+        locations.add("Ahmedabad");
+        //
+        // locations.add("Calcutta");
 
         //populate the spinner
         ArrayAdapter<String> dataAdapter;

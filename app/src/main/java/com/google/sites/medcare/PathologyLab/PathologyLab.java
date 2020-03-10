@@ -58,8 +58,13 @@ public class PathologyLab extends AppCompatActivity {
         locations.add(0,"No Location");
         locations.add("Mumbai");
         locations.add("Udupi");
-        locations.add("Haryana");
+        //locations.add("Haryana");
         locations.add("Alappuzha");
+        locations.add("Delhi");
+        //locations.add("Hyderabad");
+        locations.add("Chandigarh");
+        locations.add("Ahmedabad");
+        locations.add("Calcutta");
 
         //populate the spinner
         ArrayAdapter<String> dataAdapter;

@@ -1,26 +1,29 @@
 package com.google.sites.medcare.PatientHistory;
 
+import com.google.firebase.database.Exclude;
+
 public class AppointmentsList {
     private String HospitalName;
     private String Specialist;
     private String Date;
     private String Time;
-    private String Prescription;
     private String Comments;
     private String Location;
 
     public AppointmentsList() {
     }
 
-    public AppointmentsList(String HospitalName, String Specialist, String Date, String Time, String Prescription, String Comments, String Location) {
+    public AppointmentsList(String HospitalName, String Specialist, String Date, String Time, String Comments, String Location) {
         this.HospitalName = HospitalName;
         this.Specialist = Specialist;
         this.Date = Date;
         this.Time = Time;
-        this.Prescription = Prescription;
         this.Comments = Comments;
         this.Location = Location;
     }
+
+    @Exclude
+    String key;
 
     public String getHospitalName() {
         return HospitalName;
@@ -56,14 +59,6 @@ public class AppointmentsList {
 
     public void setTime(String time) {
         Time = time;
-    }
-
-    public String getPrescription() {
-        return Prescription;
-    }
-
-    public void setPrescription(String prescription) {
-        Prescription = prescription;
     }
 
     public String getComments() {

@@ -61,14 +61,6 @@ public class RequestedAppointmentsList {
         Time = time;
     }
 
-    public String getPrescription() {
-        return Prescription;
-    }
-
-    public void setPrescription(String prescription) {
-        Prescription = prescription;
-    }
-
     public String getComments() {
         return Comments;
     }

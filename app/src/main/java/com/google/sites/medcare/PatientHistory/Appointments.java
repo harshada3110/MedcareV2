@@ -6,8 +6,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -57,6 +59,7 @@ public class Appointments extends AppCompatActivity {
         return true;
     }
 
+
     ValueEventListener valueEventListener = new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -67,9 +70,13 @@ public class Appointments extends AppCompatActivity {
             if(dataSnapshot.exists()){
 
                 for(DataSnapshot snapshot:dataSnapshot.getChildren()){
+                    String parent = snapshot.getKey();
+                    Log.d("Parent", parent);
                     AppointmentsList appointmentsList = snapshot.getValue(AppointmentsList.class);
+                    appointmentsList.key = snapshot.getKey();
                     appList.add(appointmentsList);
                 }
+
                 adapter.notifyDataSetChanged();
             }
         }

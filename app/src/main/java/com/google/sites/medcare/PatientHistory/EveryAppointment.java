@@ -20,6 +20,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.sites.medcare.R;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class EveryAppointment extends AppCompatActivity {
 
     TextView HospName, Date, Time, Prescription, Comments, Specialist;
@@ -27,6 +30,8 @@ public class EveryAppointment extends AppCompatActivity {
     String DisplayHospName, DisplayDate, DisplayTime, DisplayPrescription, DisplayComments, DisplaySpecialist, DisplayLocation;
     private DatabaseReference mydB, mydB1, myDB2, myDB3;
     private ProgressBar progressBar;
+    private PrescriptionAdapter adapter;
+    private List<PrescriptionList> appList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +40,9 @@ public class EveryAppointment extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        appList = new ArrayList<>();
+        adapter=new PrescriptionAdapter(this,appList);
 
         HospName = findViewById(R.id.hospTextView);
         Specialist = findViewById(R.id.specTextView);
@@ -56,6 +64,9 @@ public class EveryAppointment extends AppCompatActivity {
 
         mydB= FirebaseDatabase.getInstance().getReference("Hospital");
         mydB1 = mydB.child(DisplayLocation);
+        myDB2= FirebaseDatabase.getInstance().getReference("Appointments").child(DisplayPrescription).child("prescription");
+
+        Log.d("Fire", String.valueOf(myDB2));
 
         mydB1.child(DisplayHospName).child("Photo").addValueEventListener(new ValueEventListener() {
             @Override
@@ -76,17 +87,36 @@ public class EveryAppointment extends AppCompatActivity {
             }
         });
 
-        /*Query query=FirebaseDatabase.getInstance().getReference("Hospitals").child(DisplayLocation)
-                .orderByChild("Name")
-                .equalTo(DisplayHospName);*/
+        myDB2.addListenerForSingleValueEvent(valueEventListener);
 
         HospName.setText(DisplayHospName);
         Date.setText(DisplayDate);
         Time.setText(DisplayTime);
-        Prescription.setText(DisplayPrescription);
+        Prescription.setText("DUAGRA(1+0+1) - 7 days");
         Comments.setText(DisplayComments);
         Specialist.setText(DisplaySpecialist);
     }
+
+    ValueEventListener valueEventListener = new ValueEventListener() {
+        @Override
+        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            appList.clear();
+            if(dataSnapshot.exists()){
+
+                for(DataSnapshot snapshot:dataSnapshot.getChildren()){
+                    PrescriptionList prescriptionList = snapshot.getValue(PrescriptionList.class);
+                    appList.add(prescriptionList);
+                }
+
+                adapter.notifyDataSetChanged();
+            }
+        }
+
+        @Override
+        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+        }
+    };
 
     @Override
     public boolean onSupportNavigateUp() {
