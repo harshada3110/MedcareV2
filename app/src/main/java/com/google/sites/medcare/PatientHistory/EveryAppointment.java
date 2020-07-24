@@ -2,6 +2,8 @@ package com.google.sites.medcare.PatientHistory;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.sites.medcare.Ambulance.AmbulanceList;
 import com.google.sites.medcare.R;
 import com.squareup.picasso.Picasso;
 
@@ -28,6 +31,7 @@ public class EveryAppointment extends AppCompatActivity {
     TextView HospName, Date, Time, Prescription, Comments, Specialist;
     ImageView hospImage;
     String DisplayHospName, DisplayDate, DisplayTime, DisplayPrescription, DisplayComments, DisplaySpecialist, DisplayLocation;
+    private RecyclerView PrescRList;
     private DatabaseReference mydB, mydB1, myDB2, myDB3;
     private ProgressBar progressBar;
     private PrescriptionAdapter adapter;
@@ -41,8 +45,11 @@ public class EveryAppointment extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        PrescRList = findViewById(R.id.recyclerViewPresc);
+        PrescRList.setLayoutManager(new LinearLayoutManager(this));
         appList = new ArrayList<>();
         adapter=new PrescriptionAdapter(this,appList);
+        PrescRList.setAdapter(adapter);
 
         HospName = findViewById(R.id.hospTextView);
         Specialist = findViewById(R.id.specTextView);
@@ -87,7 +94,24 @@ public class EveryAppointment extends AppCompatActivity {
             }
         });
 
-        myDB2.addListenerForSingleValueEvent(valueEventListener);
+        myDB2.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+
+                    for(DataSnapshot snapshot:dataSnapshot.getChildren()){
+                        com.google.sites.medcare.PatientHistory.PrescriptionList prescriptionList =snapshot.getValue(com.google.sites.medcare.PatientHistory.PrescriptionList.class);
+                        appList.add(prescriptionList);
+                    }
+                    adapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         HospName.setText(DisplayHospName);
         Date.setText(DisplayDate);
@@ -96,27 +120,6 @@ public class EveryAppointment extends AppCompatActivity {
         Comments.setText(DisplayComments);
         Specialist.setText(DisplaySpecialist);
     }
-
-    ValueEventListener valueEventListener = new ValueEventListener() {
-        @Override
-        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-            appList.clear();
-            if(dataSnapshot.exists()){
-
-                for(DataSnapshot snapshot:dataSnapshot.getChildren()){
-                    PrescriptionList prescriptionList = snapshot.getValue(PrescriptionList.class);
-                    appList.add(prescriptionList);
-                }
-
-                adapter.notifyDataSetChanged();
-            }
-        }
-
-        @Override
-        public void onCancelled(@NonNull DatabaseError databaseError) {
-
-        }
-    };
 
     @Override
     public boolean onSupportNavigateUp() {

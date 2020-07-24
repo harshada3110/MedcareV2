@@ -28,8 +28,7 @@ public class PrescriptionAdapter extends RecyclerView.Adapter<PrescriptionAdapte
     @NonNull
     @Override
     public PrescriptionViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(mCtx).inflate(R.layout.activity_every_appointment,parent,false);
-
+        View view= LayoutInflater.from(mCtx).inflate(R.layout.prescription_row,parent,false);
         return new PrescriptionViewHolder(view);
     }
 
@@ -41,7 +40,7 @@ public class PrescriptionAdapter extends RecyclerView.Adapter<PrescriptionAdapte
         String dose = prescriptionList.getDose();
         String duration = prescriptionList.getDuration();
 
-        String med = name+"-"+dose+"-"+duration+"\n";
+        String med = name+"-"+dose+"-"+duration;
         holder.Presc.setText(med);
         Log.d("Med0", med);
 
@@ -53,13 +52,11 @@ public class PrescriptionAdapter extends RecyclerView.Adapter<PrescriptionAdapte
     }
 
     class PrescriptionViewHolder extends RecyclerView.ViewHolder {
-
         TextView Presc;
 
         public PrescriptionViewHolder(@NonNull View itemView) {
             super(itemView);
-
-            Presc = itemView.findViewById(R.id.textViewPresc);
+            Presc = itemView.findViewById(R.id.presc_name);
         }
     }
 }

@@ -10,6 +10,7 @@
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:name=".Medcare"
@@ -133,6 +134,9 @@
         <activity
             android:name=".Schemes.SchemesList"
             android:label="@string/health_schemes"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Hospital.HospitalMap.MapActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".SignInSignUp.SignUp"
             android:screenOrientation="portrait" />

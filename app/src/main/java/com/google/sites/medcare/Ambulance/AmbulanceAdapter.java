@@ -26,7 +26,6 @@ public class AmbulanceAdapter extends RecyclerView.Adapter<AmbulanceAdapter.Ambu
         this.ambList = ambList;
     }
 
-
     @NonNull
     @Override
     public AmbulanceViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

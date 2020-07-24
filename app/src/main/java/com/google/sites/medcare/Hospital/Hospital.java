@@ -88,13 +88,12 @@ public class Hospital extends AppCompatActivity {
                 editor.apply();
                 Log.v("Loca", spinner.getSelectedItem().toString());
                 if(parent.getItemAtPosition(position).equals("No Location")){
-                    Query query=FirebaseDatabase.getInstance().getReference("Hospital").child("Mumbai").orderByChild(DomainHolder).equalTo(1);
+                    Query query=FirebaseDatabase.getInstance().getReference("Hospital").child("Mumbai").child("features").orderByChild(DomainHolder).equalTo(1);
                     query.addListenerForSingleValueEvent(valueEventListener);
                 }
                 else{
-                    //on item selecteder k andar h
                     hospitallocation = parent.getItemAtPosition(position).toString();
-                    Query query=FirebaseDatabase.getInstance().getReference("Hospital").child(hospitallocation).orderByChild(DomainHolder).equalTo(1);
+                    Query query=FirebaseDatabase.getInstance().getReference("Hospital").child(hospitallocation).child("features").orderByChild(DomainHolder).equalTo(1);
                     query.addListenerForSingleValueEvent(valueEventListener);
                 }
             }

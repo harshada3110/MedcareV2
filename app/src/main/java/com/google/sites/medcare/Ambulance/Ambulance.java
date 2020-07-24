@@ -102,7 +102,7 @@ public class Ambulance extends AppCompatActivity {
         AmbulanceList.setLayoutManager(new LinearLayoutManager(this));
 
         ambList=new ArrayList<>();
-        adapter=new AmbulanceAdapter(Ambulance.this,ambList);
+        adapter=new AmbulanceAdapter(Ambulance.this, ambList);
         AmbulanceList.setAdapter(adapter);
         mydB= FirebaseDatabase.getInstance().getReference("Ambulance");
         mydB.addListenerForSingleValueEvent(valueEventListener);

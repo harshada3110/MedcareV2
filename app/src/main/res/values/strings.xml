@@ -67,42 +67,64 @@
     <string name="facilities">Facilities</string>
     <string name="book_appointment">Book Appointment</string>
     <string name="medbot">MedBot</string>
-    <string name="emergency_contact_no">Emergency Contact No.</string>
-    <string name="heart_info">1).If the patient is conscious in distress, move him into a comfortable position\n
+    <string name="emergency_contact_no" translatable="false">Emergency Contact No.</string>
+    <string name="heart_info" translatable="false">1).If the patient is conscious in distress, move him into a comfortable position\n
     2)Loosen any tight clothing \n
     3)Regularly check and make a note of consciousness, breathing, and pulse.</string>
 
-    <string name="heart_detect">Suddenly feels faint or dizzy\n
-Severe chest pain (persistent and vice-like, spreading up to the jaw and down one or both arms) that does not subside when the patient rests\n
-Discomfort high in the abdomen (may feel like severe indigestion)\n
-Breathlessness (patient may be gasping for air)\n
-Fear (feels an impending sense of doom)\n
-Pale, gray, clammy, or sweaty skin\n
-Rapid, weak, and irregular pulse\n
-Collapses, often without warning\n
-Possible loss of consciousness</string>
+    <string name="heart_detect" translatable="false">Suddenly feels faint or dizzy\n
+        Severe chest pain (persistent and vice-like, spreading up to the jaw and down one or both arms) that does not subside when the patient rests\n
+        Discomfort high in the abdomen (may feel like severe indigestion)\n
+        Breathlessness (patient may be gasping for air)\n
+        Fear (feels an impending sense of doom)\n
+        Pale, gray, clammy, or sweaty skin\n
+        Rapid, weak, and irregular pulse\n
+        Collapses, often without warning\n
+        Possible loss of consciousness</string>
 
-    <string name="snake_info">Move the person beyond striking distance of the snake.\n
-Have the person lie down with wound below the heart.\n
-Keep the person calm and at rest, remaining as still as possible to keep venom from spreading.\n
-Cover the wound with loose, sterile bandage.\n
-Remove any jewelry from the area that was bitten.\n
-Remove shoes if the leg or foot was bitten.</string>
+    <string name="snake_info" translatable="false">Move the person beyond striking distance of the snake.\n
+        Have the person lie down with wound below the heart.\n
+        Keep the person calm and at rest, remaining as still as possible to keep venom from spreading.\n
+        Cover the wound with loose, sterile bandage.\n
+        Remove any jewelry from the area that was bitten.\n
+        Remove shoes if the leg or foot was bitten.</string>
 
-    <string name="fracture_info">Stop any bleeding.\nImmobilize the injured area.\nApply ice packs to limit swelling and help relieve pain.\nTreat for shock.
+    <string name="fracture_info" translatable="false">Stop any bleeding.\nImmobilize the injured area.\nApply ice packs to limit swelling and help relieve pain.\nTreat for shock.
     </string>
 
-    <string name="identify_fracture">The person is unresponsive, isn\'t breathing or isn\'t moving.\n
-   There is heavy bleeding.\n
-Even gentle pressure or movement causes pain.\n
-The limb or joint appears deformed.\n
-The bone has pierced the skin.\n
-You suspect a bone is broken in the neck, head or back.</string>
+    <string name="identify_fracture" translatable="false">The person is unresponsive, isn\'t breathing or isn\'t moving.\n
+        There is heavy bleeding.\n
+        Even gentle pressure or movement causes pain.\n
+        The limb or joint appears deformed.\n
+        The bone has pierced the skin.\n
+        You suspect a bone is broken in the neck, head or back.</string>
 
-    <string name="burn_info">Cool the burn.\nRemove rings or other tight items.\nApply lotion.\nBandage the burn.\nTake a pain reliever. </string>
-    <string name="quick_access">Quick Access</string>
-    <string name="appwidget_text">EXAMPLE</string>
-    <string name="add_widget">Add widget</string>
-    <string name="health_schemes">Health Schemes</string>
+    <string name="burn_info" translatable="false">Cool the burn.\n
+        Remove rings or other tight items.\n
+        Apply lotion.\n
+        Bandage the burn.\n
+        Take a pain reliever. </string>
+    <string name="quick_access" translatable="false">Quick Access</string>
+    <string name="appwidget_text" translatable="false">EXAMPLE</string>
+    <string name="add_widget" translatable="false">Add widget</string>
+    <string name="health_schemes" translatable="false">Health Schemes</string>
+
+    //MapStrings
+
+    <string name="access_token" translatable="false">pk.eyJ1IjoiY29kZXNhaXlhbiIsImEiOiJjazV6MzZxOTcybmdyM2VtcW90dHY1M2NvIn0.MUmqimcXZPmFXY3cB7d_ug</string>
+    <string name="purple_map_style" translatable="false">mapbox://styles/mapbox/cj7bww7is2f4i2rnwyxkzpwu7</string>
+    <string name="blue_map_style" translatable="false">mapbox://styles/mapbox/cj7bwwv3caf7l2spgukxm8bwv</string>
+    <string name="terminal_map_style" translatable="false">mapbox://styles/mapbox/cj62n87yx3mvi2rp93sfp2w9z</string>
+    <string name="map_view" translatable="false">Map view</string>
+    <string name="failure_to_load_file" translatable="false">Failure to load the local file of locations. Please try reloading the app.</string>
+    <string name="mock_location_title" translatable="false">Fake device location</string>
+    <string name="select_a_theme" translatable="false">Tap on a theme</string>
+    <string name="no_internet_message" translatable="false">Route drawing not possible because there\'s no internet connection!</string>
+    <string name="failure_to_retrieve" translatable="false">Failure to retrieve the navigation route!</string>
+
+    <!-- Single card -->
+    <string name="hours" translatable="false">Hours</string>
+    <string name="phone" translatable="false">Phone</string>
+    <string name="distance" translatable="false">mi</string>
 
 </resources>

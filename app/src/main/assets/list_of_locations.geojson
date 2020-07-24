@@ -1,0 +1,136 @@
+﻿{
+  "features" : [ {
+    "geometry" : {
+      "coordinates" : [ 73.120852, 18.994235 ],
+      "type" : "Point"
+    },
+    "properties" : {
+      "description" : "Hospital",
+      "hours" : "6am - 5pm",
+      "name" : "Sai ChildCare Hospital",
+      "phone" : "(555) 555-4355"
+    },
+    "type" : "Feature"
+  }, {
+    "geometry" : {
+      "coordinates" : [ 73.122013, 18.997354 ],
+      "type" : "Point"
+    },
+    "properties" : {
+      "description" : "",
+      "hours" : "9am - 4pm",
+      "name" : "Arunodaya Hospital",
+      "phone" : "022 2746 5723"
+    },
+    "type" : "Feature"
+  }, {
+    "geometry" : {
+      "coordinates" : [ 73.120297, 19.005861 ],
+      "type" : "Point"
+    },
+    "properties" : {
+      "description" : "panaceahospital.net",
+      "hours" : "Open 24/7",
+      "name" : "Panacea Hospital",
+      "phone" : "022 2746 9902"
+    },
+    "type" : "Feature"
+  }, {
+    "geometry" : {
+      "coordinates" : [ 73.119288, 18.995265 ],
+      "type" : "Point"
+    },
+    "properties" : {
+      "description" : "",
+      "hours" : "Open 24/7",
+      "name" : "Shreyas Hospital",
+      "phone" : "022 2745 2139"
+    },
+    "type" : "Feature"
+  }, {
+    "geometry" : {
+      "coordinates" : [ 73.115484, 18.987593 ],
+      "type" : "Point"
+    },
+    "properties" : {
+      "description" : "",
+      "hours" : "Open 24/7",
+      "name" : "Gandhi Hospital",
+      "phone" : "022 2746 5023"
+    },
+    "type" : "Feature"
+  }, {
+    "geometry" : {
+      "coordinates" : [ 73.114421, 18.990225 ],
+      "type" : "Point"
+    },
+    "properties" : {
+      "description" : "",
+      "hours" : "Open 24/7",
+      "name" : "Gune Hospital",
+      "phone" : "022 2745 3992"
+    },
+    "type" : "Feature"
+  }, {
+    "geometry" : {
+      "coordinates" : [ 73.115322, 18.991209 ],
+      "type" : "Point"
+    },
+    "properties" : {
+      "description" : "lifelinepanvel.com",
+      "hours" : "Open 24/7",
+      "name" : "Lifeline Hospital",
+      "phone" : "022 6156 7000"
+    },
+    "type" : "Feature"
+  }, {
+    "geometry" : {
+      "coordinates" : [ 18.992259, 73.114779 ],
+      "type" : "Point"
+    },
+    "properties" : {
+      "description" : "lifelinepanvel.com",
+      "hours" : "Open 24/7",
+      "name" : "Dhamke Hospital",
+      "phone" : "093232 71196"
+    },
+    "type" : "Feature"
+  }, {
+    "geometry" : {
+      "coordinates" : [ 73.130092, 18.986202 ],
+      "type" : "Point"
+    },
+    "properties" : {
+      "description" : "http://lifecarehospitals.in/",
+      "hours" : "Open 24/7",
+      "name" : "Life Care Hospital",
+      "phone" : "022 3514 2400"
+    },
+    "type" : "Feature"
+  }, {
+    "geometry" : {
+      "coordinates" : [ 73.041446, 19.025819 ],
+      "type" : "Point"
+    },
+    "properties" : {
+      "description" : "mgmhospitalcbd.com",
+      "hours" : "Open 24/7",
+      "name" : "MGM Hospital",
+      "phone" : "072087 21887"
+    },
+    "type" : "Feature"
+  }, {
+    "geometry" : {
+      "coordinates" : [ 73.000652, 19.087011 ],
+      "type" : "Point"
+    },
+    "properties" : {
+      "description" : "helpdesk@vinamraswarajhospital.com",
+      "hours" : "Open 24/7",
+      "name" : "Vinamra Swaraj Hospital",
+      "phone" : "022 2789 5555"
+    },
+    "type" : "Feature"
+  } ],
+  "type" : "FeatureCollection"
+}
