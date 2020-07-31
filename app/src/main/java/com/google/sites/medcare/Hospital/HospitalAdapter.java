@@ -14,6 +14,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.sites.medcare.Hospital.HospitalMap.MapActivity;
 import com.google.sites.medcare.R;
 
 import java.util.List;
@@ -57,13 +58,19 @@ public class HospitalAdapter extends RecyclerView.Adapter<HospitalAdapter.Hospit
                  intent.putExtra("HospFacilities", hospitalList.getFacilities());
                  intent.putExtra("HospLoc", hospitalList.getLoc());
                  intent.putExtra("HospWebsite", hospitalList.getWebsite());
+                 intent.putExtra("HospLongitude", hospitalList.getLongi());
+                 intent.putExtra("HospLatitude", hospitalList.getLat());
                  mCtx.startActivity(intent);
              }
          });
         holder.imageViewLoc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(hospitalList.getLoc()));
+                /*Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(hospitalList.getLoc()));
+                mCtx.startActivity(intent);*/
+                Intent intent=new Intent(mCtx, MapActivity.class);
+                intent.putExtra("HospLongitude", hospitalList.getLongi());
+                intent.putExtra("HospLatitude", hospitalList.getLat());
                 mCtx.startActivity(intent);
             }
         });

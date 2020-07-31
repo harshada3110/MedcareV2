@@ -126,5 +126,6 @@
     <string name="hours" translatable="false">Hours</string>
     <string name="phone" translatable="false">Phone</string>
     <string name="distance" translatable="false">mi</string>
+    <string name="covid19">COVID19</string>
 
 </resources>

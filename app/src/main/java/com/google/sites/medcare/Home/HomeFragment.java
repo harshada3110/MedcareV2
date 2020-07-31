@@ -11,9 +11,12 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ViewFlipper;
 
 import com.google.sites.medcare.Ambulance.Ambulance;
 import com.google.sites.medcare.BloodBank.BloodBank;
+import com.google.sites.medcare.FilterHospital;
 import com.google.sites.medcare.Hospital.HospitalMap.MapActivity;
 import com.google.sites.medcare.MaternalCare.MaternalCare;
 import com.google.sites.medcare.PathologyLab.PathologyLab;
@@ -49,6 +52,10 @@ public class HomeFragment extends Fragment {
 
     private CardView hosp, path, pharm, bb, ambu, appo;
 
+    private ViewFlipper medFlip;
+
+    private int featureImages[] = {R.drawable.slide1, R.drawable.slide2, R.drawable.slide3};
+
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -80,7 +87,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_home_new, container, false);
 
         hosp = view.findViewById(R.id.cardViewHosp);
         pharm = view.findViewById(R.id.cardViewPharm);
@@ -89,10 +96,13 @@ public class HomeFragment extends Fragment {
         ambu = view.findViewById(R.id.cardViewAmbu);
         appo = view.findViewById(R.id.cardViewApp);
 
+
+        medFlip = view.findViewById(R.id.medFeatures);
+
         hosp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent openHosp = new Intent(getActivity(), SelectSpecialist.class);
+                Intent openHosp = new Intent(getActivity(), FilterHospital.class);
                 startActivity(openHosp);
             }
         });
@@ -136,7 +146,27 @@ public class HomeFragment extends Fragment {
                 startActivity(openHosp);
             }
         });
+
+        for (int featureImage: featureImages){
+            setFeatureImages(featureImage);
+        }
+
         return view;
+    }
+
+    public void setFeatureImages (int featureImage) {
+
+        ImageView imageView = new ImageView(getActivity());
+
+        imageView.setBackgroundResource(featureImage);
+
+        medFlip.addView(imageView);
+        medFlip.setFlipInterval(4000);
+        medFlip.setAutoStart(true);
+
+        medFlip.setInAnimation(getActivity(), R.anim.slide_in_left);
+        medFlip.setOutAnimation(getActivity(), R.anim.slide_out_right);
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event

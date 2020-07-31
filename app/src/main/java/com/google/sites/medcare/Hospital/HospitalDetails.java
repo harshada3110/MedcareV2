@@ -16,12 +16,13 @@ import com.google.sites.medcare.R;
 public class HospitalDetails extends AppCompatActivity {
 
     TextView HospName,HospAddress,HospAbout, HospFacilities;
-    String DisplayName,DisplayImage, DisplayAddress,DisplayLocation, DisplayAbout, DisplayLoc, DisplayContact, DisplayEmail, DisplayFacilities, DisplayWebsite;
+    String DisplayName,DisplayImage, DisplayAddress,DisplayLocation, DisplayAbout, DisplayLoc, DisplayContact, DisplayEmail, DisplayFacilities, DisplayWebsite, DisplayLong, DisplayLat;
     ImageView HospImage;
     ImageView imageViewWeb;
     ImageView imageViewCall;
     ImageView imageViewLoc;
     Button BookAppo;
+    Double initLat, initLong;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +51,8 @@ public class HospitalDetails extends AppCompatActivity {
         DisplayFacilities=getIntent().getStringExtra("HospFacilities");
         DisplayWebsite=getIntent().getStringExtra("HospWebsite");
         DisplayEmail=getIntent().getStringExtra("HospEmail");
+        initLat=getIntent().getDoubleExtra("HospLatitude", 18.00000);
+        initLong=getIntent().getDoubleExtra("HospLongitude", 72.00000);
 
         Glide.with(HospitalDetails.this).load(DisplayImage).into(HospImage);
         HospName.setText(DisplayName);

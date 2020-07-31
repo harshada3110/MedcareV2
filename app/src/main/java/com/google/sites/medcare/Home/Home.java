@@ -124,7 +124,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         loadLocale();
         setContentView(R.layout.activity_home);
 
-        Kommunicate.init(this,"2da9791da159fea69f6f624a991cdb9e5");
+        Kommunicate.init(this,"3fe3ee8ea7630dc3d4f3248a1d0e8eead");
 
         startService(new Intent(getApplicationContext(), ShakeService.class));
 

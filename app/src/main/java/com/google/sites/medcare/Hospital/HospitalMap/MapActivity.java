@@ -119,6 +119,8 @@ public class MapActivity extends AppCompatActivity implements
 
   private Button button;
 
+  private Double initLong, initLat;
+
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -134,6 +136,9 @@ public class MapActivity extends AppCompatActivity implements
     database = FirebaseDatabase.getInstance();
     rootRef = database.getReference("Hospital").child("map").child("Mumbai");
     rootRef.keepSynced(true);
+
+    initLat=getIntent().getDoubleExtra("HospLatitude", wayLatitude);
+    initLong=getIntent().getDoubleExtra("HospLongitude", wayLongitude);
 
     mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
     locationRequest = LocationRequest.create();

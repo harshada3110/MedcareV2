@@ -34,7 +34,7 @@ public class Hospital extends AppCompatActivity {
     private DatabaseReference mydb2;
     private HospitalAdapter adapter;
     private List<com.google.sites.medcare.Hospital.HospitalList> hospList;
-    private String hospitallocation;
+    private String hospitallocation, hospitalCity, hospitalCategory;
     private ProgressBar progressBar;
 
     @Override
@@ -45,8 +45,8 @@ public class Hospital extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        String DomainHolder = getIntent().getStringExtra("ListViewClickedValue");
-        Log.v("Spec", DomainHolder);
+        /*String DomainHolder = getIntent().getStringExtra("ListViewClickedValue");
+        Log.v("Spec", DomainHolder);*/
 
         mydB = FirebaseDatabase.getInstance().getReference("Hospital").child("Mumbai");
         mydB.keepSynced(true);
@@ -54,6 +54,9 @@ public class Hospital extends AppCompatActivity {
         SharedPreferences userDetails = getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
         SharedPreferences.Editor editDetails = userDetails.edit();
         String loc = userDetails.getString("Location", "Mumbai");
+
+        hospitalCity=getIntent().getStringExtra("SelectedCity");
+        hospitalCategory=getIntent().getStringExtra("SelectedCategory");
 
         spinner=findViewById(R.id.spinner2);
         progressBar = findViewById(R.id.progress_bar);
@@ -63,7 +66,7 @@ public class Hospital extends AppCompatActivity {
         locations.add("Chennai");
         locations.add("Hyderabad");
         locations.add(0,"Mumbai");
-        locations.add(0,"Navi Mumbai");
+        locations.add("Navi Mumbai");
         locations.add("Pune");
         locations.add("Thiruvananthapuram");
         locations.add("Udupi");
@@ -81,19 +84,19 @@ public class Hospital extends AppCompatActivity {
         int spinnerPosition = dataAdapter.getPosition(loc);
         spinner.setSelection(spinnerPosition);
 
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        /*spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 editor.putString("Location", spinner.getSelectedItem().toString());
                 editor.apply();
                 Log.v("Loca", spinner.getSelectedItem().toString());
                 if(parent.getItemAtPosition(position).equals("No Location")){
-                    Query query=FirebaseDatabase.getInstance().getReference("Hospital").child("Mumbai").child("features").orderByChild(DomainHolder).equalTo(1);
+                    Query query=FirebaseDatabase.getInstance().getReference("Hospital").child("Mumbai").orderByChild(DomainHolder).equalTo(1);
                     query.addListenerForSingleValueEvent(valueEventListener);
                 }
                 else{
                     hospitallocation = parent.getItemAtPosition(position).toString();
-                    Query query=FirebaseDatabase.getInstance().getReference("Hospital").child(hospitallocation).child("features").orderByChild(DomainHolder).equalTo(1);
+                    Query query=FirebaseDatabase.getInstance().getReference("Hospital").child(hospitallocation).orderByChild(DomainHolder).equalTo(1);
                     query.addListenerForSingleValueEvent(valueEventListener);
                 }
             }
@@ -102,11 +105,10 @@ public class Hospital extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
-        });
+        });*/
 
-        editor.putString("Speciality",DomainHolder);
-        editor.apply();
-
+        /*editor.putString("Speciality",DomainHolder);
+        editor.apply();*/
 
         HospitalList= findViewById(R.id.myHospRecyclerview);
         HospitalList.setLayoutManager(new LinearLayoutManager(this));
@@ -114,10 +116,10 @@ public class Hospital extends AppCompatActivity {
         hospList=new ArrayList<>();
         adapter=new HospitalAdapter(this,hospList);
         HospitalList.setAdapter(adapter);
-/*        Query query=FirebaseDatabase.getInstance().getReference("Hospital");
+        /*Query query=FirebaseDatabase.getInstance().getReference("Hospital");
         query.addListenerForSingleValueEvent(valueEventListener);*/
-        mydB = FirebaseDatabase.getInstance().getReference("Hospital").child("Mumbai");
-        Query query= mydB.orderByChild(DomainHolder).equalTo(1);
+        mydB = FirebaseDatabase.getInstance().getReference("Hospital").child(hospitalCity);
+        Query query= mydB.orderByChild(hospitalCategory).equalTo(1);
         query.addListenerForSingleValueEvent(valueEventListener);
     }
 

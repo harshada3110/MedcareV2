@@ -11,8 +11,10 @@ public class HospitalList {
     private String Facilities;
     private String Loc;
     private String Website;
+    private Double Lat;
+    private Double Longi;
 
-    public HospitalList(String location, String photo, String address, String name, String about, String contact, String email, String facilities, String loc, String website) {
+    public HospitalList(String location, String photo, String address, String name, String about, String contact, String email, String facilities, String loc, String website, Double lat, Double longi) {
         Location = location;
         Photo = photo;
         Address = address;
@@ -23,6 +25,8 @@ public class HospitalList {
         Facilities = facilities;
         Loc = loc;
         Website = website;
+        Lat = lat;
+        Longi = longi;
     }
 
     public HospitalList(){
@@ -107,5 +111,21 @@ public class HospitalList {
 
     public void setWebsite(String website) {
         Website = website;
+    }
+
+    public Double getLat() {
+        return Lat;
+    }
+
+    public void setLat(Double lat) {
+        Lat = lat;
+    }
+
+    public Double getLongi() {
+        return Longi;
+    }
+
+    public void setLongi(Double longi) {
+        Longi = longi;
     }
 }

@@ -10,7 +10,7 @@
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".Medcare"
@@ -20,10 +20,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".FilterHospital"></activity>
+
         <receiver android:name=".SOSWidget">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                <action android:name="com.google.sites.medcare.ACTION_SEND_SMS"/>
+                <action android:name="com.google.sites.medcare.ACTION_SEND_SMS" />
             </intent-filter>
 
             <meta-data
@@ -117,8 +119,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".News.NewsDetailActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".PathologyLab.PathologyLab"
             android:label="@string/pathology_lab"
@@ -138,16 +140,19 @@
         <activity
             android:name=".Hospital.HospitalMap.MapActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".SignInSignUp.SignUp"
+        <activity
+            android:name=".SignInSignUp.SignUp"
             android:screenOrientation="portrait" />
-        <activity android:name=".SignInSignUp.SignIn"
+        <activity
+            android:name=".SignInSignUp.SignIn"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Home.Home"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait" />
-        <activity android:name=".SplashScreen"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SplashScreen"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -157,16 +162,16 @@
         </activity>
         <activity
             android:name=".Reminder.addmedicine.AddMedicineActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Reminder.alarm.ReminderActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Reminder.report.MonthlyReportActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <service
             android:name=".Accident.ShakeService"
