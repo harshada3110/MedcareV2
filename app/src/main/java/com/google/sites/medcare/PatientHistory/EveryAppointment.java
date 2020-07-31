@@ -100,7 +100,7 @@ public class EveryAppointment extends AppCompatActivity {
                 if(dataSnapshot.exists()){
 
                     for(DataSnapshot snapshot:dataSnapshot.getChildren()){
-                        com.google.sites.medcare.PatientHistory.PrescriptionList prescriptionList =snapshot.getValue(com.google.sites.medcare.PatientHistory.PrescriptionList.class);
+                        com.google.sites.medcare.PatientHistory.PrescriptionList prescriptionList = snapshot.getValue(com.google.sites.medcare.PatientHistory.PrescriptionList.class);
                         appList.add(prescriptionList);
                     }
                     adapter.notifyDataSetChanged();
@@ -112,6 +112,8 @@ public class EveryAppointment extends AppCompatActivity {
 
             }
         });
+
+        Log.d("Fire", String.valueOf(PrescRList));
 
         HospName.setText(DisplayHospName);
         Date.setText(DisplayDate);

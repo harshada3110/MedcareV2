@@ -28,6 +28,9 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
 import com.google.sites.medcare.Home.Home;
 import com.google.sites.medcare.R;
 
@@ -44,7 +47,7 @@ public class ChooseLocation extends AppCompatActivity {
 
     static double a;
     String finalno;
-    double lat,longitu;
+    double lat, longitu;
 
     Geocoder geocoder;
     List<Address> addresses;
@@ -57,6 +60,11 @@ public class ChooseLocation extends AppCompatActivity {
     String latitude,longitude,finalAddress;
 
     SharedPreferences userDetails;
+
+    private FusedLocationProviderClient mFusedLocationClient;
+    private int locationRequestCode = 1000;
+    private double wayLatitude = 0.0, wayLongitude = 0.0;
+    private LocationRequest locationRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +79,7 @@ public class ChooseLocation extends AppCompatActivity {
         userDetails = getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
 
         getlocationBtn=findViewById(R.id.getLocation);
+
 
         getlocationBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -131,15 +140,44 @@ public class ChooseLocation extends AppCompatActivity {
             Location LocationNetwork=locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
             Location LocationPassive=locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
 
-            if (LocationGps !=null) {
+            mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+            locationRequest = LocationRequest.create();
+            locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+            locationRequest.setInterval(20 * 1000);
+
+            mFusedLocationClient.getLastLocation().addOnSuccessListener(this, location -> {
+                if (location != null) {
+                    wayLatitude = location.getLatitude();
+                    wayLongitude = location.getLongitude();
+                    lat = wayLatitude;
+                    longitu = wayLongitude;
+                    latitude=String.valueOf(wayLatitude);
+                    longitude=String.valueOf(wayLongitude);
+
+                    setLoc();
+                }
+                else {
+                    Toast.makeText(this, "Can't Get Your Location", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            /*if (LocationGps !=null) {
+
+                mFusedLocationClient.getLastLocation().addOnSuccessListener(this, location -> {
+                    if (location != null) {
+                        wayLatitude = location.getLatitude();
+                        wayLongitude = location.getLongitude();
+                    }
+                });
+
                 lat=LocationGps.getLatitude();
                 longitu=LocationGps.getLongitude();
 
                 Log.d("cam",String.valueOf(lat));
                 Log.d("cum",String.valueOf(longitu));
 
-                latitude=String.valueOf(lat);
-                longitude=String.valueOf(longitu);
+                latitude=String.valueOf(wayLatitude);
+                longitude=String.valueOf(wayLongitude);
 
             }
             else if (LocationNetwork !=null) {
@@ -148,8 +186,8 @@ public class ChooseLocation extends AppCompatActivity {
                 Log.d("cam",String.valueOf(lat));
                 Log.d("cum",String.valueOf(longitu));
 
-                latitude=String.valueOf(lat);
-                longitude=String.valueOf(longitu);
+                latitude=String.valueOf(wayLatitude);
+                longitude=String.valueOf(wayLongitude);
                 setLoc();
             }
             else if (LocationPassive !=null) {
@@ -158,14 +196,13 @@ public class ChooseLocation extends AppCompatActivity {
 
                 Log.d("cam",String.valueOf(lat));
                 Log.d("cum",String.valueOf(longitu));
-                latitude=String.valueOf(lat);
-                longitude=String.valueOf(longitu);
 
+                latitude=String.valueOf(wayLatitude);
+                longitude=String.valueOf(wayLongitude);
             }
             else {
                 Toast.makeText(this, "Can't Get Your Location", Toast.LENGTH_SHORT).show();
-            }
-
+            }*/
             //Thats All Run Your App
         }
         Log.d("xxx",String.valueOf(lat));
@@ -195,8 +232,8 @@ public class ChooseLocation extends AppCompatActivity {
     }
 
     private void setLoc() {
-        geocoder=new Geocoder(this, Locale.getDefault());
 
+        geocoder=new Geocoder(this, Locale.getDefault());
         SharedPreferences.Editor editDetails = userDetails.edit();
 
         try {

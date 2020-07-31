@@ -1,4 +1,4 @@
-package com.google.sites.medcare;
+package com.google.sites.medcare.Hospital;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,9 +13,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.google.sites.medcare.Hospital.Hospital;
-import com.google.sites.medcare.Schemes.FilterPage;
-import com.google.sites.medcare.Schemes.SchemesList;
+import com.google.sites.medcare.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -125,5 +123,11 @@ public class FilterHospital extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

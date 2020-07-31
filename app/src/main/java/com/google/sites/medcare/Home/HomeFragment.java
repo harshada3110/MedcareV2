@@ -14,15 +14,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ViewFlipper;
 
-import com.google.sites.medcare.Ambulance.Ambulance;
 import com.google.sites.medcare.BloodBank.BloodBank;
-import com.google.sites.medcare.FilterHospital;
-import com.google.sites.medcare.Hospital.HospitalMap.MapActivity;
+import com.google.sites.medcare.Hospital.FilterHospital;
 import com.google.sites.medcare.MaternalCare.MaternalCare;
 import com.google.sites.medcare.PathologyLab.PathologyLab;
 import com.google.sites.medcare.Pharmacy.Pharmacy;
 import com.google.sites.medcare.R;
-import com.google.sites.medcare.Hospital.SelectSpecialist;
 import com.google.sites.medcare.Schemes.FilterPage;
 
 

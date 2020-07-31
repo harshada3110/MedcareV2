@@ -20,6 +20,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.LinearSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
@@ -120,6 +121,7 @@ public class MapActivity extends AppCompatActivity implements
   private Button button;
 
   private Double initLong, initLat;
+  private Toolbar toolbar;
 
 
   @Override

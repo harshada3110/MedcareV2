@@ -2,6 +2,7 @@ package com.google.sites.medcare.Hospital;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -36,6 +37,7 @@ public class Hospital extends AppCompatActivity {
     private List<com.google.sites.medcare.Hospital.HospitalList> hospList;
     private String hospitallocation, hospitalCity, hospitalCategory;
     private ProgressBar progressBar;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

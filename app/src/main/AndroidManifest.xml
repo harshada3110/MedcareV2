@@ -20,7 +20,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FilterHospital"></activity>
+        <activity
+            android:name=".Hospital.FilterHospital"
+            android:screenOrientation="portrait" />
 
         <receiver android:name=".SOSWidget">
             <intent-filter>
@@ -139,7 +141,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".Hospital.HospitalMap.MapActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".SignInSignUp.SignUp"
             android:screenOrientation="portrait" />
