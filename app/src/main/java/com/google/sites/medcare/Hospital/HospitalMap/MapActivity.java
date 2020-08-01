@@ -180,7 +180,7 @@ public class MapActivity extends AppCompatActivity implements
     listOfIndividualLocations = new ArrayList<>();
 
     // Initialize the theme that was selected in the previous activity. The blue theme is set as the backup default.
-    chosenTheme = R.style.AppTheme_Blue;
+    chosenTheme = R.style.AppTheme_Neutral;
 
     // Set up the Mapbox map
     mapView = findViewById(R.id.mapView);

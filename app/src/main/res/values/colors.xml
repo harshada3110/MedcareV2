@@ -3,7 +3,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <color name="colorPrimary">#E8384D</color>
     <color name="colorPrimaryDark">#B52032</color>
-    <color name="colorAccent">#D81B61</color>
+    <color name="colorAccent">#EDB5B5</color>
 
     <color name="colorTextSubtitle">#4e4e4e</color>
     <color name="colorTextTitle">#262626</color>
@@ -27,18 +27,18 @@
     <color name="cardHourAndPhoneTextColor_purple">#6A159B</color>
 
     // Blue theme's colors
-    <color name="colorPrimary_blue">#45AAE9</color>
-    <color name="colorPrimaryDark_blue">#268DBA</color>
-    <color name="colorAccent_blue">#9FCCE0</color>
-    <color name="navigationRouteLine_blue">#6ECAF1</color>
+    <color name="colorPrimary_blue">#E8384D</color>
+    <color name="colorPrimaryDark_blue">#B52032</color>
+    <color name="colorAccent_blue">#EDB5B5</color>
+    <color name="navigationRouteLine_blue">#CB536B</color>
     <color name="cardHourAndPhoneTextColor_blue">#1082B2</color>
     <color name="cardHourAndPhoneHeaderTextColor_blue">#3997C0</color>
 
     // Neutral streets theme's colors
-    <color name="colorPrimary_neutral">#E8E5E0</color>
-    <color name="colorPrimaryDark_neutral">#E8E5E0</color>
-    <color name="colorAccent_neutral">#FFFFFF</color>
-    <color name="navigationRouteLine_neutral">#00BAFF</color>
+    <color name="colorPrimary_neutral">#E8384D</color>
+    <color name="colorPrimaryDark_neutral">#E8384D</color>
+    <color name="colorAccent_neutral">#EDB5B5</color>
+    <color name="navigationRouteLine_neutral">#D06E82</color>
     <color name="cardHourAndPhoneTextColor_neutral">#000000</color>
 
     <color name="purewhite">#FFFFFF</color>
