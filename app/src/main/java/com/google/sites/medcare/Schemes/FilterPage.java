@@ -46,15 +46,21 @@ public class FilterPage extends AppCompatActivity {
         List<String> states = new ArrayList<>();
         states.add(0, "No Location");
         states.add("National");
+        states.add("AndraPradesh");
+        states.add("ArunachalPradesh");
+        states.add("Assam");
         states.add("Gujarat");
         states.add("Haryana");
-        states.add("Kerala");
+        states.add("HimachalPradesh");
         states.add("Karnataka");
+        states.add("Kerala");
         states.add("MadhyaPradesh");
         states.add("Maharashtra");
         states.add("Punjab");
         states.add("Rajasthan");
+        states.add("Sikkim");
         states.add("UttarPradesh");
+        states.add("Uttarakhand");
         states.add("WestBengal");
 
         //Populate list for rationcolor
@@ -66,7 +72,7 @@ public class FilterPage extends AppCompatActivity {
 
         //Populate list for category
         List<String> category = new ArrayList<>();
-        category.add(0, "None");
+        category.add(0, "All");
         category.add("Common");
         category.add("Children");
         category.add("Employee");
@@ -150,13 +156,11 @@ public class FilterPage extends AppCompatActivity {
         spinner_category.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (parent.getItemAtPosition(position).equals("None")) {
+                if (parent.getItemAtPosition(position).equals("All")) {
                     //do nothing
                 } else {
                     //on item selected
                     itemcategory = parent.getItemAtPosition(position).toString();
-
-                    // Sending value to another activity using intent.
                 }
             }
 
@@ -187,7 +191,6 @@ public class FilterPage extends AppCompatActivity {
                 }
             }
         });
-
     }
 
     @Override

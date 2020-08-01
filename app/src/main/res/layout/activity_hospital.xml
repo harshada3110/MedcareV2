@@ -23,11 +23,10 @@
         android:id="@+id/myHospRecyclerview"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner2" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Spinner
+    <!--<Spinner
         android:id="@+id/spinner2"
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -51,6 +50,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/spinner2"
         app:layout_constraintEnd_toEndOf="@+id/spinner2"
         app:layout_constraintTop_toTopOf="@+id/spinner2"
-        app:srcCompat="@drawable/downarrow" />
+        app:srcCompat="@drawable/downarrow" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

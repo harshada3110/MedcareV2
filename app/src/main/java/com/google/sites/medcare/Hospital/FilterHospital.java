@@ -54,7 +54,7 @@ public class FilterHospital extends AppCompatActivity {
         List<String> category=new ArrayList<>();
         category.add(0,"Select Category");
         category.add("Cardiologist");
-        category.add("COVID");
+        category.add("Covid");
         category.add("Dentist");
         category.add("ENT");
         category.add("Gastroenterologists");

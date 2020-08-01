@@ -60,7 +60,7 @@ public class Hospital extends AppCompatActivity {
         hospitalCity=getIntent().getStringExtra("SelectedCity");
         hospitalCategory=getIntent().getStringExtra("SelectedCategory");
 
-        spinner=findViewById(R.id.spinner2);
+        /*spinner=findViewById(R.id.spinner2);
         progressBar = findViewById(R.id.progress_bar);
 
         List<String> locations=new ArrayList<>();
@@ -84,7 +84,7 @@ public class Hospital extends AppCompatActivity {
 
         //set the default according to value
         int spinnerPosition = dataAdapter.getPosition(loc);
-        spinner.setSelection(spinnerPosition);
+        spinner.setSelection(spinnerPosition);*/
 
         /*spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -107,9 +107,9 @@ public class Hospital extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
-        });*/
+        });
 
-        /*editor.putString("Speciality",DomainHolder);
+        editor.putString("Speciality",DomainHolder);
         editor.apply();*/
 
         HospitalList= findViewById(R.id.myHospRecyclerview);
