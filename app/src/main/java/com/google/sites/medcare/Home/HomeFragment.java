@@ -14,13 +14,18 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ViewFlipper;
 
+import com.google.sites.medcare.Ambulance.Ambulance;
+import com.google.sites.medcare.Appointments.RequestedAppointments;
 import com.google.sites.medcare.BloodBank.BloodBank;
 import com.google.sites.medcare.Hospital.FilterHospital;
 import com.google.sites.medcare.MaternalCare.MaternalCare;
 import com.google.sites.medcare.PathologyLab.PathologyLab;
+import com.google.sites.medcare.PatientHistory.Appointments;
 import com.google.sites.medcare.Pharmacy.Pharmacy;
+import com.google.sites.medcare.QuickAccess.QuickAccess;
 import com.google.sites.medcare.R;
 import com.google.sites.medcare.Schemes.FilterPage;
+import com.google.sites.medcare.Schemes.Schemes;
 
 
 /**
@@ -47,7 +52,7 @@ public class HomeFragment extends Fragment {
         // Required empty public constructor
     }
 
-    private CardView hosp, path, pharm, bb, ambu, appo;
+    private CardView hosp, path, pharm, bb, ambu, appo, appHis, appSta, healthSchemes, quickAccess;
 
     private ViewFlipper medFlip;
 
@@ -92,9 +97,12 @@ public class HomeFragment extends Fragment {
         bb = view.findViewById(R.id.cardViewBB);
         ambu = view.findViewById(R.id.cardViewAmbu);
         appo = view.findViewById(R.id.cardViewApp);
+        appHis = view.findViewById(R.id.cardViewAppoHistory);
+        appSta = view.findViewById(R.id.cardViewAppoStatus);
+        healthSchemes = view.findViewById(R.id.cardViewAppoSchemes);
+        quickAccess = view.findViewById(R.id.cardViewQA);
 
-
-        medFlip = view.findViewById(R.id.medFeatures);
+        //medFlip = view.findViewById(R.id.medFeatures);
 
         hosp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -131,7 +139,7 @@ public class HomeFragment extends Fragment {
         ambu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent openHosp = new Intent(getActivity(), FilterPage.class);
+                Intent openHosp = new Intent(getActivity(), Ambulance.class);
                 startActivity(openHosp);
             }
         });
@@ -144,14 +152,46 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        for (int featureImage: featureImages){
+        appHis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent openHosp = new Intent(getActivity(), Appointments.class);
+                startActivity(openHosp);
+            }
+        });
+
+        appSta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent openHosp = new Intent(getActivity(), RequestedAppointments.class);
+                startActivity(openHosp);
+            }
+        });
+
+        healthSchemes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent openHosp = new Intent(getActivity(), FilterPage.class);
+                startActivity(openHosp);
+            }
+        });
+
+        quickAccess.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent openHosp = new Intent(getActivity(), QuickAccess.class);
+                startActivity(openHosp);
+            }
+        });
+
+        /*for (int featureImage: featureImages){
             setFeatureImages(featureImage);
-        }
+        }*/
 
         return view;
     }
 
-    public void setFeatureImages (int featureImage) {
+    /*public void setFeatureImages (int featureImage) {
 
         ImageView imageView = new ImageView(getActivity());
 
@@ -164,7 +204,7 @@ public class HomeFragment extends Fragment {
         medFlip.setInAnimation(getActivity(), R.anim.slide_in_left);
         medFlip.setOutAnimation(getActivity(), R.anim.slide_out_right);
 
-    }
+    }*/
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {

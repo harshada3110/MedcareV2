@@ -15,10 +15,11 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent">
 
-        <ViewFlipper
-            android:id="@+id/medFeatures"
-            android:layout_width="match_parent"
-            android:layout_height="265dp"
+        <ImageView
+            android:id="@+id/imageView18"
+            android:layout_width="0dp"
+            android:layout_height="235dp"
+            android:src="@drawable/slide2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -27,13 +28,13 @@
             android:id="@+id/linearLayout3"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="220dp"
+            android:layout_marginTop="215dp"
             android:background="@drawable/upper_round_white"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/medFeatures">
+            app:layout_constraintTop_toTopOf="@+id/imageView18">
 
             <TextView
                 android:id="@+id/textView49"
@@ -51,7 +52,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
                 android:layout_marginEnd="25dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingBottom="2dp">
 
                 <LinearLayout
                     android:id="@+id/linearLayout7"
@@ -432,11 +434,11 @@
             <View
                 android:id="@+id/view3"
                 android:layout_width="match_parent"
-                android:layout_height="4dp"
+                android:layout_height="2dp"
                 android:layout_marginStart="35dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="35dp"
-                android:background="#FFFAFB" />
+                android:background="#80E3E2E2" />
 
             <TextView
                 android:id="@+id/textView50"
@@ -446,6 +448,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="25dp"
                 android:fontFamily="@font/hp_simplified"
+                android:paddingTop="2dp"
                 android:text="Information Centre"
                 android:textSize="15sp" />
 

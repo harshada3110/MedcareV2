@@ -101,12 +101,10 @@ public class LocationRecyclerViewAdapter extends
       case R.style.AppTheme_Neutral:
         emojiForCircle = ResourcesCompat.getDrawable(context.getResources(), R.drawable.house_icon, null);
         backgroundCircle = ResourcesCompat.getDrawable(context.getResources(), R.drawable.white_circle, null);
-        setColors(R.color.colorPrimaryDark_neutral, R.color.black, R.color.black, R.color.black,
-          R.color.black, R.color.black,
-          R.color.black, R.color.black, R.color.black);
-        setAlphas(card, .37f, .37f, 100f, .37f,
-          100f,
-          .37f);
+        setColors(R.color.colorPrimaryDark_neutral, R.color.white, R.color.white, R.color.black,
+          R.color.black, R.color.black, R.color.black, R.color.white, R.color.white);
+        setAlphas(card, .75f, .37f, 100f, .37f,
+          100f, .75f);
         break;
     }
 

@@ -43,6 +43,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -117,6 +120,11 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
     LocationManager locationManager;
     String latitude,longitude,finalAddress;
+
+    private FusedLocationProviderClient mFusedLocationClient;
+    private int locationRequestCode = 1000;
+    private double wayLatitude = 0.0, wayLongitude = 0.0;
+    private LocationRequest locationRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -472,7 +480,27 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             Location LocationNetwork=locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
             Location LocationPassive=locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
 
-            if (LocationGps !=null) {
+            mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+            locationRequest = LocationRequest.create();
+            locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+            locationRequest.setInterval(20 * 1000);
+
+            mFusedLocationClient.getLastLocation().addOnSuccessListener(this, location -> {
+                if (location != null) {
+                    wayLatitude = location.getLatitude();
+                    wayLongitude = location.getLongitude();
+                    lat = wayLatitude;
+                    longitu = wayLongitude;
+                    latitude=String.valueOf(wayLatitude);
+                    longitude=String.valueOf(wayLongitude);
+                    sendSMS();
+                }
+                else {
+                    Toast.makeText(this, "Can't Get Your Location", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            /*if (LocationGps !=null) {
                 lat=LocationGps.getLatitude();
                 longitu=LocationGps.getLongitude();
 
@@ -511,7 +539,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             }
             else {
                 Toast.makeText(this, "Can't Get Your Location", Toast.LENGTH_SHORT).show();
-            }
+            }*/
 
             //Thats All Run Your App
         }
