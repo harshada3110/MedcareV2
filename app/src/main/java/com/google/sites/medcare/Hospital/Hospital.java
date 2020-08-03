@@ -73,9 +73,6 @@ public class Hospital extends AppCompatActivity {
         locations.add("Thiruvananthapuram");
         locations.add("Udupi");
 
-        SharedPreferences mySharedPreferences = this.getSharedPreferences("MYPREFERENCENAME", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = mySharedPreferences.edit();
-
         ArrayAdapter<String> dataAdapter;
         dataAdapter = new ArrayAdapter(this, R.layout.spinner_style, locations);
         dataAdapter.setDropDownViewResource(R.layout.spinner_style);
@@ -107,10 +104,13 @@ public class Hospital extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
-        });
+        });*/
 
-        editor.putString("Speciality",DomainHolder);
-        editor.apply();*/
+        SharedPreferences mySharedPreferences = this.getSharedPreferences("MYPREFERENCENAME", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = mySharedPreferences.edit();
+
+        editor.putString("Speciality", hospitalCategory);
+        editor.apply();
 
         HospitalList= findViewById(R.id.myHospRecyclerview);
         HospitalList.setLayoutManager(new LinearLayoutManager(this));
