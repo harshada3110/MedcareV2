@@ -6,6 +6,7 @@ public class PharmacyList {
     private String Location;
     private String Name;
     private String Phone;
+    private int Generic;
     /*
     private String Aspirin;
     private String Benadryl;
@@ -19,12 +20,13 @@ public class PharmacyList {
 
     }
 
-    public PharmacyList(String address, String loc, String location, String name, String phone) {
+    public PharmacyList(String address, String loc, String location, String name, String phone, int generic) {
         Address = address;
         Loc = loc;
         Location = location;
         Name = name;
         Phone = phone;
+        Generic = generic;
     }
 
     public String getPhone() { return Phone; }
@@ -63,5 +65,13 @@ public class PharmacyList {
 
     public void setName(String name) {
         Name = name;
+    }
+
+    public int getGeneric() {
+        return Generic;
+    }
+
+    public void setGeneric(int generic) {
+        Generic = generic;
     }
 }

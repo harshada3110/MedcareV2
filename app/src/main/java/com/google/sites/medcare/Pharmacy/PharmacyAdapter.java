@@ -54,6 +54,13 @@ public class PharmacyAdapter extends RecyclerView.Adapter<PharmacyAdapter.Pharma
                 mCt2.startActivity(dialIntent);
             }
         });
+        if (pharmacyList.getGeneric() == 1){
+            holder.Generic.setVisibility(View.VISIBLE);
+        }
+        else {
+            holder.Generic.setVisibility(View.GONE);
+        }
+
     }
 
     @Override
@@ -66,6 +73,7 @@ public class PharmacyAdapter extends RecyclerView.Adapter<PharmacyAdapter.Pharma
         TextView Name;
         ImageView Call;
         ImageView Map;
+        ImageView Generic;
 
         public PharmacyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -74,6 +82,7 @@ public class PharmacyAdapter extends RecyclerView.Adapter<PharmacyAdapter.Pharma
             Map = itemView.findViewById(R.id.imageViewMap);
             Call = itemView.findViewById(R.id.imageViewCall);
             Name = itemView.findViewById(R.id.pharmacy_name);
+            Generic = itemView.findViewById(R.id.generic);
         }
     }
 }
