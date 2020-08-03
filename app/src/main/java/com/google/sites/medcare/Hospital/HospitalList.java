@@ -13,8 +13,9 @@ public class HospitalList {
     private String Website;
     private Double Lat;
     private Double Longi;
+    private String Type;
 
-    public HospitalList(String location, String photo, String address, String name, String about, String contact, String email, String facilities, String loc, String website, Double lat, Double longi) {
+    public HospitalList(String location, String photo, String address, String name, String about, String contact, String email, String facilities, String loc, String website, Double lat, Double longi, String type) {
         Location = location;
         Photo = photo;
         Address = address;
@@ -27,6 +28,7 @@ public class HospitalList {
         Website = website;
         Lat = lat;
         Longi = longi;
+        Type = type;
     }
 
     public HospitalList(){
@@ -127,5 +129,13 @@ public class HospitalList {
 
     public void setLongi(Double longi) {
         Longi = longi;
+    }
+
+    public String getType() {
+        return Type;
+    }
+
+    public void setType(String type) {
+        Type = type;
     }
 }

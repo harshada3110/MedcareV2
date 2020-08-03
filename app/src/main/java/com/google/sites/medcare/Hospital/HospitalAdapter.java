@@ -90,7 +90,12 @@ public class HospitalAdapter extends RecyclerView.Adapter<HospitalAdapter.Hospit
                 mCtx.startActivity(intent);
             }
         });
-
+        if (hospitalList.getType() == "Government"){
+            holder.govpriv.setVisibility(View.VISIBLE);
+        }
+        else {
+            holder.govpriv.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
@@ -107,6 +112,7 @@ public class HospitalAdapter extends RecyclerView.Adapter<HospitalAdapter.Hospit
         ImageView imageViewWeb;
         ImageView imageViewCall;
         ImageView imageViewLoc;
+        TextView govpriv;
 
         public HospitalViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -118,6 +124,7 @@ public class HospitalAdapter extends RecyclerView.Adapter<HospitalAdapter.Hospit
             imageViewCall=itemView.findViewById(R.id.imageViewCallP);
             imageViewLoc=itemView.findViewById(R.id.imageViewMapP);
             HospitalCard = itemView.findViewById(R.id.appCard);
+            govpriv = itemView.findViewById(R.id.govpri);
         }
     }
 }
